@@ -1,0 +1,6 @@
+# Ignore generate files from LaTeX toolchain.
+*.aux
+*.log
+*.fls
+*.fdb_latexmk
+*.synctex.gz
