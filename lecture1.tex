@@ -2,9 +2,11 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{graphicx}
 \setlength{\parindent}{0pt}
 
 \title{Lecture 1: Dot Product}
+\author{}
 \date{}
 
 \begin{document}
@@ -13,16 +15,199 @@
 
 \section{Vectors}
 
-Vectors: quantities that have both direction and magnitude/length. \\
+Vectors: quantities that have both direction and magnitude/length.
+
 Scalars: quantities that only have magnitude.
 
-Identities of vectors: as long as the directions and magnitudes of two vectors are the same, we say these two vectors are equal. The equality of vectors has nothing to do with their start points and end points.
+Identities of vectors: as long as the directions and magnitudes of two vectors 
+are the same, we say these two vectors are equal. The equality of vectors has 
+nothing to do with their start points and end points.
 
-Common Operations of Vectors From a Geometric Perspective
+\bigskip
 
-Addition of Vectors: Suppose there are two vectors $\vec{A}$ and $\vec{B}$, according to the identities of vectors, we can construct a vector $\vec{B}^{'}$ equal to $\vec{B}$ at the end point of $\vec{A}$, then the result of $\vec{A} + \vec{B}$ is the vector from the start point of $\vec{A}$ to the end point of $\vec{B}^{'}$, i.e. moving
+Notations for Vectors
+\begin{itemize}
+    \item $\vec{A}$: a vector with the name $A$.
+    \item $\vec{AB}$: a vector from the point $A$ to the point $B$.
+    \item $|\vec{A}|$: the magnitude/length of the vector $\vec{A}$.
+    \item $dir(\vec{A})$: the direction of the vector $\vec{A}$.
+\end{itemize}
 
-To compute things with vectors, we need to put them into coordinate systems. We can express a vector with its components along coordinate axes. 
+\bigskip
 
+\subsection{Vectors From A Geometric Perspective}
+
+Geometrically, we typically express a vector as an arrow with a direction and 
+a length.
+
+\smallskip
+
+Basic vector operations
+\begin{itemize}
+    \item Addition of vectors: The result of $\vec{A} + \vec{B}$ is defined as
+    the vector from the start of $\vec{A}$ to the end of $\vec{B}$ after
+    moving the start of $\vec{B}$ to the end of $\vec{A}$ parallel.
+
+    \item Negative vectors: The result of $-\vec{A}$ is defined as the vector
+    with the same length and reverse direction of $\vec{A}$.
+
+    \item Subtraction of vectors: The result of $\vec{A} - \vec{B}$ is equal to
+    $\vec{A} + (-\vec{B})$, which is the vector from the end of $\vec{B}$ to
+    the end of $\vec{A}$.
+
+    \item Multiplication by scalars: The result of $c \times \vec{A}$ is
+    defined as the vector with the same direction and $c$ times of the length
+    of $\vec{A}$. 
+\end{itemize}
+
+\bigskip
+
+\subsection{Vectors From An Analytical Perspective}
+
+To compute things with vectors, we need to put them into coordinate systems.
+With the addition operation we defined for vectors, we can decompose a vector
+to a unique set of component vectors along coordinate axes.
+
+For the convenience of expression, we define a unit vector for each coordinate
+axis, which has length $1$ and same direction as the corresponding axis. By
+convention, the unit vector along the $x$ axis is $\vec{i}$, the unit vector
+along the $y$ axis is $\vec{j}$, and the unit vector along the $z$ axis
+$\vec{k}$. In this way, every vector in the three dimension space can be
+expressed as
+
+\[ \vec{A} = a_{1} * i + a_{2} * j + a_{3} * k \]
+
+Or more generally
+
+\[ \vec{A} = <a_{1}, a_{2}, a_{3}> \]
+
+This kind of expression can be generalized into $N$ dimensional space as:
+
+\[ \vec{A} = <a_{1}, a_{2}, a_{3}, ..., a_{n-1}, a_{n}> \]
+
+\bigskip
+
+Basic vector operations
+\begin{itemize}
+    \item Addition of vectors: Since the addition of vectors satisfies the
+    commutative and associative laws, $\vec{A} + \vec{B}$ is equal to the sum
+    of the addition result of their corresponding component vectors. Hence
+    \[ \vec{A} + \vec{B} = <a_{1} + b_{1}, a_{2} + b_{2}, ..., a_{n} + b_{n}> \]
+
+    \item Negative vectors: It is obvious that
+    \[ -\vec{A} = <-a_{1}, -a_{2}, ..., -a_{n}> \]
+
+    \item Subtraction of vectors: The result of $\vec{A} - \vec{B}$ is equal to
+    $\vec{A} + (-\vec{B})$. Hence
+    \[ \vec{A} - \vec{B} = <a_{1} - b_{1}, a_{2} - b_{2}, ..., a_{n} - b_{n}> \]
+
+    \item Multiplication by scalars: It is obvious that
+    \[ c \times \vec{A} = <c \times a_{1}, c \times a_{2}, ..., c \times a_{n} \]
+\end{itemize}
+
+Example 1. What is the length of the vector $\vec{A} = <3, 2, 1>$?
+
+We can define an intermediate vector $\vec{A_{1}} = 3\vec{i} + 2\vec{j}$.
+According to Pythagorean Theorem, $|\vec{A_{1}}| = \sqrt{3^2 + 2^2} = \sqrt{13}$.
+Then $\vec{A} = \vec{A_{1}} + \vec{k}$, and $\vec{A_{1}}$ is perpendicular to
+$\vec{k}$. Hence $|\vec{A}| = \sqrt{|\vec{A_{1}}|^2 + |\vec{k}|^2} =
+\sqrt{3^2 + 2^2 + 1^2} = \sqrt{14}$.
+
+In general,
+\[ |\vec{A}| = \sqrt{a_{1}^{2} + a_{2}^{2} + ... + a_{n}^{2}} \]
+This formula holds because of the orthogonality of the axes in coordinate
+systems.
+
+\section{Dot Product}
+
+Definition: $\vec{A} \cdot \vec{B} = \sum a_{i}b_{i} = a_{1}b_{1} + a_{2}b_{2} +
+... + a_{n}b_{n}$
+
+Geometric Interpretation: Suppose the angle between $\vec{A}$ and $\vec{B}$ is
+$\theta$, then $\vec{A} \cdot \vec{B} = |\vec{A}| \cdot |\vec{B}| \cdot \cos\theta$.
+
+Proofs:\\
+Firstly let's consider the dot product of a vector and itself. According to the
+definition of dot product:
+\[ \vec{A} \cdot \vec{A} = \sum_{i=1}^{n}a_{i}^2 = |\vec{A}|^2 \]
+Therefore the above statement holds in this case.
+
+Then let's consider the dot product of two different vectors. One important
+insight about the definition of dot product is that it satisfies the commutative
+and distributive law. Let $\vec{C}$ denotes the result vector of
+$\vec{A} - \vec{B}$. Then
+\[ \vec{C} \cdot \vec{C} = (\vec{A} - \vec{B}) \cdot (\vec{A} - \vec{B}) \]
+
+\[ |\vec{C}|^2 = \vec{A} \cdot \vec{A} + \vec{B} \cdot \vec{B} - 2 \vec{A} \cdot \vec{B} \]
+
+\[ |\vec{C}|^2 = |\vec{A}|^2 + |\vec{B}|^2 - 2 \vec{A} \cdot \vec{B} \]
+
+According to Law of Cosine, we have
+\[ |\vec{C}|^2 = |\vec{A}|^2 + |\vec{B}|^2 - 2|\vec{A}||\vec{B}|\cos\theta \]
+
+Therefore
+\[ \vec{A} \cdot \vec{B} = |\vec{A}| \cdot |\vec{B}| \cdot \cos\theta \]
+
+\bigskip
+
+Property of the sign of dot product:
+\begin{itemize}
+    \item $\vec{A} \cdot \vec{B} > 0$ if and only if $\theta < 90^{\circ}$.
+    \item $\vec{A} \cdot \vec{B} = 0$ if and only if $\theta = 90^{\circ}$.
+    \item $\vec{A} \cdot \vec{B} < 0$ if and only if $\theta > 90^{\circ}$.
+\end{itemize}
+
+\bigskip
+Application of Dot Product
+
+1. Computing lengths and angles (especially angles).
+    
+Example 2. Find the angle between $PQ$ and $PR$.
+% TODO(jinxinwang): add the diagram of this example.
+
+Solution:
+\[ \vec{PQ} = <-1, 1, 0> \]
+\[ \vec{PR} = < -1, 0, 2> \]
+Then
+\[ \begin{split}
+    \cos(\angle QPR) &= \frac{\vec{PQ} \cdot \vec{PR}}{|\vec{PQ}| \cdot
+                            |\vec{PR}|} \\
+                     &= \frac{-1 \cdot (-1) + 1 \cdot 0 + 0 \cdot 2}
+                            {\sqrt{(-1)^{2} + 1^{2} + 0^{2}} \cdot 
+                            \sqrt{(-1)^{2} + 0^{2} + 2^{2}}} \\
+                     &= \frac{1}{\sqrt{10}}
+\end{split} \]
+
+2. Detect orthogonality.
+
+Example 3. The set of points where $x + 2y + 3z = 0$ describes \\
+A. The empty set \\
+B. A single point \\
+C. A line \\
+D. A plane \\
+E. A sphere \\
+F. None of the above
+
+Solution:\\
+The set of points where $x + 2y + 3z = 0$ describes a plane. We can find three
+points which satisfy the equation and are not on a same line together, in order
+to exclude the option A, B, and C.
+\[ P_1 = (0, 0, 0) \]
+\[ P_2 = (1, 1, -1) \]
+\[ P_3 = (5, -1, -1) \]
+If a set of points describes a plane, then we can find a vector which is
+perpendicular to any line formed by two points on the plane. That vector is
+called normal. The normal to the surface described by this equation is
+$<1, 2, 3>$. Suppose we have two random points on the surface described by the
+above equation: $P_{1} = (x_{1}, y_{1}, z_{1})$ and $P_{2} = (x_{2}, y_{2},
+z_{2})$. Then we have
+\[ x_{1} + 2y_{1} + 3z_{1} = 0 \]
+\[ x_{2} + 2y_{2} + 3z_{2} = 0 \]
+Therefore
+\[ (x_{1} - x_{2}) + 2(y_{1} - y_{2}) + 3(z_{1} - z_{2}) = 0 \]
+which proves that the vector $<1, 2, 3>$ is perpendicular to the vector
+$\vec{P_{1}P_{2}}$. Since $P_{1}$ and $P_{2}$ are random points, we prove that
+the vector $<1, 2, 3>$ is perpendicular to any vectors formed by two points on
+that surface. Therefore, that surface is a plane.
 
 \end{document}
