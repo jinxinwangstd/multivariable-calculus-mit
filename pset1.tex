@@ -1,0 +1,235 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\setlength{\parindent}{0pt}
+
+\title{Problem Set 1}
+\author{}
+\date{}
+
+\begin{document}
+
+\begin{center}
+{\rmfamily\bfseries\Large 18.02 EXERCISES}
+
+\vspace{25px}
+
+{\rmfamily\bfseries\LARGE Problem Set 1: Vectors, Determinants and Planes}
+
+{\rmfamily\bfseries\large Part I}
+\end{center}
+
+Unit 1 Vectors
+
+1. Find the magnitude and direction of the vectors\\
+a) $\vec{i} + \vec{j} + \vec{k}$
+b) $2\vec{i} - \vec{j} + 2\vec{k}$
+c) $3\vec{i} - 6\vec{j} - 2\vec{k}$
+
+2. a) Let $P$ and $Q$ be two points in space, and X the midpoint of the line
+segment $PQ$. Let $O$ be an arbitrary fixed point; show that as vectors, $OX =
+\frac{1}{2}(OP + OQ)$.\\
+b) With the notation of part (a), assume that X divides the line segment $PQ$
+in the ratio $r:s$, where $r + s = 1$. Derive an expression for $OX$ in terms
+of $OP$ and $OQ$.
+
+3. What are the $\vec{i} \vec{j}$-components of a plane vector $\vec{A}$ of
+length 3, if it makes an angle of $30^{\circ}$ with $\vec{i}$ and $60^{\circ}$
+with $\vec{j}$. Is the second condition redundant?
+
+4. A small plane wishes to fly due north at 200 mph (as seen from the ground),
+in a wind blowing from the northeast at 50 mph. Tell with what vector velocity
+in the air it should travel (given the $\vec{i} \vec{j}$-components).\\
+Solution:\\
+TODO
+
+5. Let $\vec{A} = a \vec{i} + b \vec{j}$ be a plane vector; find in terms of
+$a$ and $b$ the vectors $\vec{A'}$ and $\vec{A''}$ resulting from rotating
+$\vec{A}$ by $90^{\circ}$ \hspace{10px} a) clockwise \hspace{10px} b)
+counterclockwise.\\
+c) Let $\vec{i'} = (3 \vec{i} + 4 \vec{j}) / 5$. Show that $\vec{i'}$ is a unit
+vector, and use the first part of the exercise to find a vector $\vec{j'}$ such
+that $\vec{i'}$, $\vec{j'}$ forms a right-handed coordinate system.
+
+6. The direction of a space vector is in engineering practice often given by
+its direction cosines. To describe these, let $\vec{A} = a \vec{i} + b \vec{j}
++ c \vec{k}$ be a space vector, represented as an origin vector, and let
+$\alpha$, $\beta$, and $\gamma$ be the three angles ($\le \pi$) that $\vec{A}$
+makes respectively with $\vec{i}$, $\vec{j}$, and $\vec{k}$.\\
+a) Show that $dir \vec{A} = \cos\alpha \vec{i} + \cos\beta \vec{j} +
+\cos\gamma \vec{k}$. (The three coefficients are called the \emph{direction
+cosines} of $\vec{A}$.)\\
+b) Express the direction cosines of $\vec{A}$ in terms of $a$, $b$, $c$; find
+the direction cosines of the vector $-\vec{i} + 2\vec{j} + 2\vec{k}$.\\
+c) Prove that three numbers $t$, $u$, $v$ are the direction cosines of a vector
+in space if and only if they satisfy $t^{2} + u^{2} + v^{2} = 1$.
+
+7. Prove using vector methods (without components) that the line segment
+joining the midpoints of two sides of a triangle is parallel to the third side
+and half its length. (Call the two sides $\vec{A}$ and $\vec{B}$.)
+
+8. Prove using vector methods (without components) that the diagonals of a
+parallelogram bisect each other. (One way: let $X$ and $Y$ be the midpoints of
+the two diagonals; show $X$ = $Y$.)
+
+\bigskip
+
+Unit 2 Dot Product
+
+1. Tell for what values of $c$ the vectors $c \vec{i} + 2 \vec{j} - \vec{k}$
+and $\vec{i} - \vec{j} + 2 \vec{k}$ will\\
+a) be orthogonal \hspace{10px} b) form an acute angle
+
+2. Using vectors, find the angle between a longest diagonal $PQ$ of a cube,
+and\\
+a) a diagonal $PR$ of one of its faces; \hspace{10px} b) an edge $PS$ of the
+cube.\\
+(Choose a size and position for the cube that makes calculation easiest.)
+
+3. Three points in space are $P:(a,1,-1)$, $Q:(0,1,1)$, $R:(a,-1,3)$. For what
+value(s) of $a$ will $PQR$ be\\
+a) a right angle \hspace{10px} b) an acute angle
+
+4. Find the component of the force $\vec{F} = 2 \vec{i} - 2 \vec{j} + \vec{k}$
+in\\
+a) the direction $\frac{\vec{i} + \vec{j} - \vec{k}}{\sqrt{3}}$ \hspace{10px}
+b) the direction of the vector $3 \vec{i} + 2 \vec{j} - 6 \vec{k}$.
+
+5. Prove using vector methods (without components) that the diagonals of a
+parallelogram have equal lengths if and only if it is a rectangle.
+
+6. Prove using vector methods (without components) that the diagonals of a
+parallelogram are perpendicular if and only if it is a rhombus, i.e., its four
+sides are equal.
+
+7. Prove using vector methods (without components) that an angle inscribed in
+a semicircle is a right angle.
+
+8. Prove the trigonometric formula: $\cos(\theta_{1} - \theta_{2}) =
+\cos\theta_{1}\cos\theta_{2} + \sin\theta_{1}\sin\theta_{2}$.
+
+\bigskip
+
+Unit 3 Determinants
+
+1. Calculate the value of the determinants\\
+a) $\begin{vmatrix}
+    1 & 4 \\
+    2 & -1
+\end{vmatrix}$\\
+b) $\begin{vmatrix}
+    3 & -4 \\
+    -1 & -2
+\end{vmatrix}$
+
+2. Calculate $\begin{vmatrix}
+    -1 & 0 & 4 \\
+    1 & 2 & 2 \\
+    3 & -2 & -1
+\end{vmatrix}$ using the Laplace expansion by the cofactors of:\\
+a) the first row \hspace{10px} b) the first column
+
+3. Find the area of the plane triangle whose vertices lie at\\
+a) $(0, 0), (1, 2), (1, -1)$ \hspace{10px} b) $(1, 2), (1, -1), (2, 3)$
+
+4. a) Show that the value of a $2 \times 2$ determinants is unchanged if you add
+to the second row a scalar multiple of the first row.\\
+   b) Show that the value of a $2 \times 2$ determinants is unchanged if you add
+to the second column a scalar multiple of the first column.
+
+5. Use a Laplace expansion and Exercise 5a to show the value of a $3 \times 3$
+determinants is unchanged if you add to the second row a scalar multiple of the
+third row.
+
+6. Let $(x_{1}, y_{1})$ and $(x_{2}, y_{2})$ both range over all unit vectors.
+Find the maximum value of the function $f(x_{1}, x_{2}, y_{1}, y_{2}) =
+\begin{vmatrix}
+x_{1} & y_{1} \\
+x_{2} & y_{2}   
+\end{vmatrix}$.
+
+\bigskip
+
+Unit 4 Cross Product
+
+1. Find $\vec{A} \times \vec{B}$ if\\
+a) $\vec{A} = \vec{i} - 2 \vec{j} + \vec{k}$, $\vec{B} = 2 \vec{i} - \vec{j} -
+\vec{k}$ \\
+b) $\vec{A} = 2 \vec{i} - 3 \vec{k}$, $\vec{B} = \vec{i} + \vec{j} - \vec{k}$
+
+2. Find the area of the triangle in space having its vertices at the points
+\[ P:(2,0,1), Q:(3,1,0), R:(-1,1,-1).\]
+
+3. Two vectors $\vec{i}'$ and $\vec{j}'$ of a right-handed coordinate system
+are to have the directions respectively of the vectors $\vec{A} = 2 \vec{i} -
+\vec{j}$ and $\vec{B} = \vec{i} + 2 \vec{j} + \vec{k}$. Find all three vectors
+$\vec{i}'$, $\vec{j}'$, $\vec{k}'$.
+
+4. Verify that the cross product $\times$ does not in general satisfy the
+associative law, by showing that for the particular vectors $\vec{i}$,
+$\vec{j}$, $\vec{k}$, we have $(\vec{i} \times \vec{j}) \times \vec{k} \neq
+\vec{i} \times (\vec{j} \times \vec{k})$.
+
+5. What can you conclude about $\vec{A}$ and $\vec{B}$\\
+a) if $|\vec{A} \times \vec{B}| = |\vec{A}||\vec{B}|$;\\
+b) if $|\vec{A} \times \vec{B}| = \vec{A} \cdot \vec{B}$.
+
+6. Find the volume of the tetrahedron having vertices at the four points
+\[ P:(1,0,1), Q:(-1,1,2), R:(0,0,2), S:(3,1,-1).\]
+
+\begin{center}
+{\rmfamily\bfseries\large Part II}
+\end{center}
+
+1. Find the dihedral angle between two faces of a regular tetrahedron.
+
+2. a) Show that the 'polarization identity'
+$\frac{1}{4}\left( |\vec{u} + \vec{v}|^{2} - |\vec{u} - \vec{v}|^{2} \right) =
+\vec{u} \cdot \vec{v}$ holds for any two n-vectors $\vec{u}$ and $\vec{v}$. (Use
+vector algebra, not components.) \\
+b) Given two non-zero vectors $\vec{u}$ and $\vec{v}$, give the formula for the
+unit vector which bisects the (smaller) angle between $\vec{u}$ and $\vec{v}$.
+(Use the notation $\hat{\vec{u}}$ for the unit vector in the $\vec{u}$ -
+direction.)
+
+3. In this problem we examine tacking, which is the process sailboats use to
+travel against the wind. Sails are a familar tool to harness the energy of the
+wind for transportation over the sea. Early ships had large fixed sails which
+would capture the wind blowing from behind to propel the ship forward. Even if
+the wind is blowing behind at an (acute) angle the component of the wind vector
+perpendicular to the sail will push on the sail and hence on the boat. However,
+these early fixed sail ships had no way to go against the wind and had to rely
+on oarsmen if the wind was blowing in the wrong direction.
+
+A great advance that allowed boats to sail against the wind was the invention
+of movable sails in combination with a rudder and a keel. By carefully
+positioning the sail the boat can be made to sail into the wind - this process
+is called \emph{tacking}.
+
+As noted before, the component of the wind perpendicular to the sail pushes on
+the sail and, through it, the boat. The keel only allows the boat to move along
+its axis. (The rudder is used to turn the boat.) That is, for any force on the
+boat, only the component along the boat's axis actually pushes the boat.
+
+Described mathematically, the wind vector is first projected on the
+perpendicular to the sail to get the direction of the force on the sail. This
+resultant force is projected on the axis of the boat to find the direction the
+boat is being pushed. By orienting the sail correctly this double projection
+can result in a vector with a component pointing into the wind.
+
+In the picture $\vec{w} = a \vec{i}$ is the wind direction. The line $l_{s}$
+is perpendicular to the sail (with $0 \leq \alpha \leq \frac{\pi}{2}$). And the
+line $l_{B}$ is along the boat's axis (with $0 \leq \beta \leq \frac{\pi}{2}$).
+
+a) Let $\vec{w_{1}}$ be the projection of $\vec{w}$ onto the line $l_{s}$. Show
+that $\vec{w_{1}}$ does not have a non-zero component in the direction opposite
+$\vec{w}$. (It is sufficient to show the projections on the sketch.)
+
+b) Find the projection of $\vec{w_{1}}$ onto $l_{B}$. (Give an explicit formula
+in terms of $\alpha$ and $\beta$.) What is the condition on $\alpha$ and $\beta$
+that this projection has a component in the $-\vec{i}$ direction? (For warmup
+you might try the specific case $\alpha = \frac{\pi}{3} = \beta$.)
+
+\end{document}
