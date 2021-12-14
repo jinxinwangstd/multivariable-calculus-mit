@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{amsthm}
 \usepackage{graphicx}
 \setlength{\parindent}{0pt}
 
@@ -27,11 +28,20 @@ nothing to do with their start points and end points.
 
 Notations for Vectors
 \begin{itemize}
-    \item $\vec{A}$: a vector with the name $A$.
-    \item $\vec{AB}$: a vector from the point $A$ to the point $B$.
-    \item $|\vec{A}|$: the magnitude/length of the vector $\vec{A}$.
-    \item $dir(\vec{A})$: the direction of the vector $\vec{A}$.
+	\item $\vec{A}$: a vector with the name $A$.
+	\item $\vec{AB}$: a vector from the point $A$ to the point $B$.
+	\item $|\vec{A}|$: the magnitude/length of the vector $\vec{A}$.
+	\item $dir(\vec{A})$: the direction of the vector $\vec{A}$.
 \end{itemize}
+
+
+\newtheorem*{unnumbered_definition}{Definition}
+\begin{unnumbered_definition}
+	The direction of $\vec{A}$ is defined by 
+	\[ dir \vec{A} = \frac{\vec{A}}{|\vec{A}|}, \qquad (\vec{A} \neq 0); \]
+	it is the unit vector lying along $\vec{A}$ and pointed the same direction as
+	$\vec{A}$.
+\end{unnumbered_definition}
 
 \bigskip
 
@@ -44,20 +54,20 @@ a length.
 
 Basic vector operations
 \begin{itemize}
-    \item Addition of vectors: The result of $\vec{A} + \vec{B}$ is defined as
-    the vector from the start of $\vec{A}$ to the end of $\vec{B}$ after
-    moving the start of $\vec{B}$ to the end of $\vec{A}$ parallel.
-
-    \item Negative vectors: The result of $-\vec{A}$ is defined as the vector
-    with the same length and reverse direction of $\vec{A}$.
-
-    \item Subtraction of vectors: The result of $\vec{A} - \vec{B}$ is equal to
-    $\vec{A} + (-\vec{B})$, which is the vector from the end of $\vec{B}$ to
-    the end of $\vec{A}$.
-
-    \item Multiplication by scalars: The result of $c \times \vec{A}$ is
-    defined as the vector with the same direction and $c$ times of the length
-    of $\vec{A}$. 
+	\item Addition of vectors: The result of $\vec{A} + \vec{B}$ is defined as
+	the vector from the start of $\vec{A}$ to the end of $\vec{B}$ after
+	moving the start of $\vec{B}$ to the end of $\vec{A}$ parallel.
+	
+	\item Negative vectors: The result of $-\vec{A}$ is defined as the vector
+	with the same length and reverse direction of $\vec{A}$.
+	
+	\item Subtraction of vectors: The result of $\vec{A} - \vec{B}$ is equal to
+	$\vec{A} + (-\vec{B})$, which is the vector from the end of $\vec{B}$ to
+	the end of $\vec{A}$.
+	
+	\item Multiplication by scalars: The result of $c \times \vec{A}$ is
+	defined as the vector with the same direction and $c$ times of the length
+	of $\vec{A}$. 
 \end{itemize}
 
 \bigskip
@@ -89,20 +99,20 @@ This kind of expression can be generalized into $N$ dimensional space as:
 
 Basic vector operations
 \begin{itemize}
-    \item Addition of vectors: Since the addition of vectors satisfies the
-    commutative and associative laws, $\vec{A} + \vec{B}$ is equal to the sum
-    of the addition result of their corresponding component vectors. Hence
-    \[ \vec{A} + \vec{B} = <a_{1} + b_{1}, a_{2} + b_{2}, ..., a_{n} + b_{n}> \]
-
-    \item Negative vectors: It is obvious that
-    \[ -\vec{A} = <-a_{1}, -a_{2}, ..., -a_{n}> \]
-
-    \item Subtraction of vectors: The result of $\vec{A} - \vec{B}$ is equal to
-    $\vec{A} + (-\vec{B})$. Hence
-    \[ \vec{A} - \vec{B} = <a_{1} - b_{1}, a_{2} - b_{2}, ..., a_{n} - b_{n}> \]
-
-    \item Multiplication by scalars: It is obvious that
-    \[ c \times \vec{A} = <c \times a_{1}, c \times a_{2}, ..., c \times a_{n} \]
+	\item Addition of vectors: Since the addition of vectors satisfies the
+	commutative and associative laws, $\vec{A} + \vec{B}$ is equal to the sum
+	of the addition result of their corresponding component vectors. Hence
+	\[ \vec{A} + \vec{B} = <a_{1} + b_{1}, a_{2} + b_{2}, ..., a_{n} + b_{n}> \]
+	
+	\item Negative vectors: It is obvious that
+	\[ -\vec{A} = <-a_{1}, -a_{2}, ..., -a_{n}> \]
+	
+	\item Subtraction of vectors: The result of $\vec{A} - \vec{B}$ is equal to
+	$\vec{A} + (-\vec{B})$. Hence
+	\[ \vec{A} - \vec{B} = <a_{1} - b_{1}, a_{2} - b_{2}, ..., a_{n} - b_{n}> \]
+	
+	\item Multiplication by scalars: It is obvious that
+	\[ c \times \vec{A} = <c \times a_{1}, c \times a_{2}, ..., c \times a_{n} \]
 \end{itemize}
 
 Example 1. What is the length of the vector $\vec{A} = <3, 2, 1>$?
@@ -152,16 +162,16 @@ Therefore
 
 Property of the sign of dot product:
 \begin{itemize}
-    \item $\vec{A} \cdot \vec{B} > 0$ if and only if $\theta < 90^{\circ}$.
-    \item $\vec{A} \cdot \vec{B} = 0$ if and only if $\theta = 90^{\circ}$.
-    \item $\vec{A} \cdot \vec{B} < 0$ if and only if $\theta > 90^{\circ}$.
+	\item $\vec{A} \cdot \vec{B} > 0$ if and only if $\theta < 90^{\circ}$.
+	\item $\vec{A} \cdot \vec{B} = 0$ if and only if $\theta = 90^{\circ}$.
+	\item $\vec{A} \cdot \vec{B} < 0$ if and only if $\theta > 90^{\circ}$.
 \end{itemize}
 
 \bigskip
 Application of Dot Product
 
 1. Computing lengths and angles (especially angles).
-    
+
 Example 2. Find the angle between $PQ$ and $PR$.
 % TODO(jinxinwang): add the diagram of this example.
 
@@ -169,14 +179,13 @@ Solution:
 \[ \vec{PQ} = <-1, 1, 0> \]
 \[ \vec{PR} = < -1, 0, 2> \]
 Then
-\[ \begin{split}
-    \cos(\angle QPR) &= \frac{\vec{PQ} \cdot \vec{PR}}{|\vec{PQ}| \cdot
-                            |\vec{PR}|} \\
-                     &= \frac{-1 \cdot (-1) + 1 \cdot 0 + 0 \cdot 2}
-                            {\sqrt{(-1)^{2} + 1^{2} + 0^{2}} \cdot 
-                            \sqrt{(-1)^{2} + 0^{2} + 2^{2}}} \\
-                     &= \frac{1}{\sqrt{10}}
-\end{split} \]
+\[ 
+  \begin{split}
+	\cos(\angle QPR)  &= \frac{\vec{PQ} \cdot \vec{PR}}{|\vec{PQ}| \cdot |\vec{PR}|} \\
+	                  &= \frac{-1 \cdot (-1) + 1 \cdot 0 + 0 \cdot 2}{\sqrt{(-1)^{2} + 1^{2} + 0^{2}} \cdot \sqrt{(-1)^{2} + 0^{2} + 2^{2}}} \\
+	                  &= \frac{1}{\sqrt{10}}
+  \end{split}
+\]
 
 2. Detect orthogonality.
 
