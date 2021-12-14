@@ -1,0 +1,80 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{tikz}
+\setlength{\parindent}{0pt}
+
+\title{Lecture 2: Determinants, Cross Product}
+\author{}
+\date{}
+
+\begin{document}
+    
+\maketitle
+
+\section{Determinants}
+
+With two vectors, how do we calculate the area of the triangle enclosed by
+these two vectors?
+
+\begin{tikzpicture}
+  [help lines/.style={dashed}]
+  \draw[->] (0, 0, 0) -- 
+    (3, 0, 0) node[anchor=south] {$\vec{A}$};
+  \draw[->] (0, 0, 0) -- 
+    (2, 2, 0) node[anchor=south] {$\vec{B}$};
+  \draw[help lines] (2, 2, 0) -- (2, 0, 0);
+  \draw[->, help lines] (0, 0, 0) -- 
+    (0, 3, 0) node[anchor=east] {$\vec{A'}$};
+  \draw (2, 0.2, 0) -- (1.8, 0.2, 0) -- (1.8, 0, 0);
+  \draw (0.2, 0) arc [start angle=0, end angle=45, radius=0.2] 
+    node[anchor=west] {$\theta$};
+  \draw (0, 0.2) arc [start angle=90, end angle=45, radius=0.2]
+    node[anchor=south] {$\theta'$};
+\end{tikzpicture}
+
+Apparently
+\[
+  Area = \frac{1}{2}|\vec{A}||\vec{B}|\sin\theta
+\]
+
+But it is hard to calculate $\sin\theta$, whereas it is easy to calculate
+$\cos\theta$ with dot products. Therefore, we can rotate $\vec{A'}$ by
+$90^{\circ}$ to get $\vec{A'}$ and hence
+
+\[
+  \sin\theta = \cos(90^{\circ} - \theta) = \cos(\theta')
+\]
+
+\[
+  \begin{split}
+  Area  &= \frac{1}{2} |\vec{A}| |\vec{B}| \sin\theta \\
+        &= \frac{1}{2} |\vec{A'}| |\vec{B}| \cos\theta' \\
+        &= \frac{1}{2} \vec{A'} \cdot \vec{B}
+  \end{split}
+\]
+
+Suppose that $\vec{A} = <a_1, a_2>$, and $\vec{B} = <b_1, b_2>$, then
+$\vec{A'} = <-a_2, a_1>$. Therefore,
+
+\[
+  \begin{split}
+  \vec{A'} \cdot \vec{B}  &= <-a_2, a_1> \cdot <b_1, b_2> \\
+                          &= a_1 b_2 - a_2 b_1 \\
+                          &= det(\vec{A}, \vec{B}) \\
+                          &=  \begin{vmatrix}
+                                a_1 & a_2 \\
+                                b_1 & b_2
+                              \end{vmatrix}
+  \end{split}
+\]
+
+Notice that it is also possible that $\vec{A'} = <a_2, -a_1>$, depending on 
+the relative positions of $\vec{A}$ and $\vec{B}$, so the result could be the
+negative value of the area.
+
+
+\end{document}
