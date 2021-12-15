@@ -3,8 +3,14 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
-\usepackage{graphicx}
+\usepackage{tikz}
 \setlength{\parindent}{0pt}
+
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{definition}{Definition}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{corollary}{Corollary}
+\newtheorem{example}{Example}
 
 \title{Lecture 1: Dot Product}
 \author{}
@@ -34,16 +40,12 @@ Notations for Vectors
 	\item $dir(\vec{A})$: the direction of the vector $\vec{A}$.
 \end{itemize}
 
-
-\newtheorem*{unnumbered_definition}{Definition}
-\begin{unnumbered_definition}
+\begin{definition}
 	The direction of $\vec{A}$ is defined by 
 	\[ dir \vec{A} = \frac{\vec{A}}{|\vec{A}|}, \qquad (\vec{A} \neq 0); \]
 	it is the unit vector lying along $\vec{A}$ and pointed the same direction as
 	$\vec{A}$.
-\end{unnumbered_definition}
-
-\bigskip
+\end{definition}
 
 \subsection{Vectors From A Geometric Perspective}
 
@@ -69,8 +71,6 @@ Basic vector operations
 	defined as the vector with the same direction and $c$ times of the length
 	of $\vec{A}$. 
 \end{itemize}
-
-\bigskip
 
 \subsection{Vectors From An Analytical Perspective}
 
@@ -115,13 +115,15 @@ Basic vector operations
 	\[ c \times \vec{A} = <c \times a_{1}, c \times a_{2}, ..., c \times a_{n} \]
 \end{itemize}
 
-Example 1. What is the length of the vector $\vec{A} = <3, 2, 1>$?
+\begin{example}
+What is the length of the vector $\vec{A} = <3, 2, 1>$?
 
 We can define an intermediate vector $\vec{A_{1}} = 3\vec{i} + 2\vec{j}$.
 According to Pythagorean Theorem, $|\vec{A_{1}}| = \sqrt{3^2 + 2^2} = \sqrt{13}$.
 Then $\vec{A} = \vec{A_{1}} + \vec{k}$, and $\vec{A_{1}}$ is perpendicular to
 $\vec{k}$. Hence $|\vec{A}| = \sqrt{|\vec{A_{1}}|^2 + |\vec{k}|^2} =
 \sqrt{3^2 + 2^2 + 1^2} = \sqrt{14}$.
+\end{example}
 
 In general,
 \[ |\vec{A}| = \sqrt{a_{1}^{2} + a_{2}^{2} + ... + a_{n}^{2}} \]
@@ -130,8 +132,9 @@ systems.
 
 \section{Dot Product}
 
-Definition: $\vec{A} \cdot \vec{B} = \sum a_{i}b_{i} = a_{1}b_{1} + a_{2}b_{2} +
-... + a_{n}b_{n}$
+\begin{definition}
+$\vec{A} \cdot \vec{B} = \sum a_{i}b_{i} = a_{1}b_{1} + a_{2}b_{2} + ... + a_{n}b_{n}$
+\end{definition}
 
 Geometric Interpretation: Suppose the angle between $\vec{A}$ and $\vec{B}$ is
 $\theta$, then $\vec{A} \cdot \vec{B} = |\vec{A}| \cdot |\vec{B}| \cdot \cos\theta$.
@@ -172,7 +175,8 @@ Application of Dot Product
 
 1. Computing lengths and angles (especially angles).
 
-Example 2. Find the angle between $PQ$ and $PR$.
+\begin{example}
+Find the angle between $PQ$ and $PR$.
 % TODO(jinxinwang): add the diagram of this example.
 
 Solution:
@@ -186,10 +190,12 @@ Then
 	                  &= \frac{1}{\sqrt{10}}
   \end{split}
 \]
+\end{example}
 
 2. Detect orthogonality.
 
-Example 3. The set of points where $x + 2y + 3z = 0$ describes \\
+\begin{example}
+The set of points where $x + 2y + 3z = 0$ describes \\
 A. The empty set \\
 B. A single point \\
 C. A line \\
@@ -218,5 +224,6 @@ which proves that the vector $<1, 2, 3>$ is perpendicular to the vector
 $\vec{P_{1}P_{2}}$. Since $P_{1}$ and $P_{2}$ are random points, we prove that
 the vector $<1, 2, 3>$ is perpendicular to any vectors formed by two points on
 that surface. Therefore, that surface is a plane.
+\end{example}
 
 \end{document}
