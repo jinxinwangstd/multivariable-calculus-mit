@@ -3,9 +3,14 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
-\usepackage{graphicx}
 \usepackage{tikz}
 \setlength{\parindent}{0pt}
+
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{definition}{Definition}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{corollary}{Corollary}
+\newtheorem{example}{Example}
 
 \title{Lecture 2: Determinants, Cross Product}
 \author{}
@@ -17,8 +22,12 @@
 
 \section{Determinants}
 
+\subsection{Determinants in 2D plane}
+
 With two vectors, how do we calculate the area of the triangle enclosed by
 these two vectors?
+
+\subsubsection{Calculate the area of the triangle formed by two vectors with an acute angle}
 
 \begin{tikzpicture}
   [help lines/.style={dashed}]
@@ -42,8 +51,8 @@ Apparently
 \]
 
 But it is hard to calculate $\sin\theta$, whereas it is easy to calculate
-$\cos\theta$ with dot products. Therefore, we can rotate $\vec{A'}$ by
-$90^{\circ}$ to get $\vec{A'}$ and hence
+$\cos\theta$ with dot products. Therefore, we can rotate $\vec{A}$ towards
+$\vec{B}$ by $90^{\circ}$ to get $\vec{A'}$ and hence
 
 \[
   \sin\theta = \cos(90^{\circ} - \theta) = \cos(\theta')
@@ -76,5 +85,143 @@ Notice that it is also possible that $\vec{A'} = <a_2, -a_1>$, depending on
 the relative positions of $\vec{A}$ and $\vec{B}$, so the result could be the
 negative value of the area.
 
+\subsubsection{Calculate the area of the triangle formed by two vectors with an obtuse angle}
 
+\begin{tikzpicture}
+  [help lines/.style={dashed}]
+  \draw[->] (0, 0, 0) -- 
+    (3, 0, 0) node[anchor=south] {$\vec{A}$};
+  \draw[->] (0, 0, 0) -- 
+    (-2, 2, 0) node[anchor=south] {$\vec{B}$};
+  \draw[help lines] (0, 0, 0) -- (-3, 0, 0);
+  \draw[help lines] (-2, 2, 0) -- (-2, 0, 0);
+  \draw (-2, 0.2, 0) -- (-1.8, 0.2, 0) -- (-1.8, 0, 0);
+  \draw (0.2, 0) arc [start angle=0, end angle=135, radius=0.2] 
+    node[anchor=south west] {$\theta$};
+  \draw[->, help lines] (0, 0, 0) -- 
+    (0, 3, 0) node[anchor=east] {$\vec{A'}$};
+  \draw (0, 0.4) arc [start angle=90, end angle=135, radius=0.4]
+    node[anchor=south] {$\theta'$};
+\end{tikzpicture}
+
+\[
+  \begin{split}
+  Area  &= \frac{1}{2} |\vec{A}| |\vec{B}| \sin(\pi - \theta) \\
+        &= \frac{1}{2} |\vec{A}| |\vec{B}| \sin\theta \\
+        &= \frac{1}{2} |\vec{A}| |\vec{B}| \sin(\pi + \theta') \\
+        &= \frac{1}{2} |\vec{A'}| |\vec{B}| \cos\theta' \\
+        &= \frac{1}{2} \vec{A'} \cdot \vec{B}
+  \end{split}
+\]
+
+Similarly, suppose that $\vec{A} = <a_1, a_2>$, and $\vec{B} = <b_1, b_2>$, then
+$\vec{A'} = <-a_2, a_1>$. Therefore,
+
+\[
+  \begin{split}
+  \vec{A'} \cdot \vec{B}  &= <-a_2, a_1> \cdot <b_1, b_2> \\
+                          &= a_1 b_2 - a_2 b_1 \\
+                          &= det(\vec{A}, \vec{B}) \\
+                          &=  \begin{vmatrix}
+                                a_1 & a_2 \\
+                                b_1 & b_2
+                              \end{vmatrix}
+  \end{split}
+\]
+
+
+\subsubsection{Geometric interpretation of determinants in 2D plane}
+
+$det(\vec{A}, \vec{B})$ measures the area of the parallelogram formed by
+$\vec{A}$ and $\vec{B}$, but the value can be positive or negative of it.
+
+\subsection{Determinants in 3D space}
+
+Suppose that $\vec{A} = <a_1, a_2, a_3>$, $\vec{B} = <b_1, b_2, b_3>$, and 
+$\vec{C} = <c_1, c_2, c_3>$, then
+\[
+  \begin{split}
+  det(\vec{A}, \vec{B}, \vec{C}) &= \begin{vmatrix}
+                                    a_1 & a_2 & a_3 \\
+                                    b_1 & b_2 & b_3 \\
+                                    c_1 & c_2 & c_3
+                                    \end{vmatrix} \\
+                                 &= a_1 \cdot \begin{vmatrix}
+                                              b_2 & b_3 \\
+                                              c_2 & c_3
+                                              \end{vmatrix} - 
+                                    a_2 \cdot \begin{vmatrix}
+                                              b_1 & b_3 \\
+                                              c_1 & c_3
+                                              \end{vmatrix} +
+                                    a_3 \cdot \begin{vmatrix}
+                                              b_1 & b_2 \\
+                                              c_1 & c_2
+                                              \end{vmatrix}
+  \end{split}
+\]
+
+We can expand the $3 \times 3$ determinants to expressions of $2 \times 2$
+determinants according to the first row to calculate their values. The rules
+are as follows: 
+
+\subsubsection{Geometric interpretation of determinants in 3D space}
+
+\begin{theorem}
+  Geometrically, $det(\vec{A}, \vec{B}, \vec{C}) = \pm$ volume of the
+  parallelepiped formed by $\vec{A}$, $\vec{B}$, and $\vec{C}$.
+\end{theorem}
+
+\section{Cross Product}
+
+\begin{definition}
+  The cross product of two vectors $\vec{A} = <a_1, a_2, a_3>$ and
+  $\vec{B} = <b_1, b_2, b_3>$ is a vector defined as:
+  \[
+    \begin{split}
+    \vec{A} \times \vec{B} &= \begin{vmatrix}
+                                \vec{i} & \vec{j} & \vec{k} \\
+                                a_1 & a_2 & a_3 \\
+                                b_1 & b_2 & b_3
+                              \end{vmatrix} \\
+                           &= \begin{vmatrix}
+                                a_2 & a_3 \\
+                                b_2 & b_3 
+                              \end{vmatrix} \vec{i} -
+                              \begin{vmatrix}
+                                a_1 & a_3 \\
+                                b_1 & b_3
+                              \end{vmatrix} \vec{j} +
+                              \begin{vmatrix}
+                                a_1 & a_2 \\
+                                b_1 & b_2
+                              \end{vmatrix} \vec{k}
+    \end{split}
+  \]
+\end{definition}
+
+Notice that the $3 \times 3$ determinants in the above definition is not a
+legit determinant expression. It is just a symbolic notation helping memorize
+the formula.
+
+\begin{theorem}
+  $|\vec{A} \times \vec{B}| = $ the area of the parallelogram formed by $\vec{A}$
+  and $\vec{B}$ in the 3D space.
+\end{theorem}
+
+\begin{theorem}
+  The direction of $\vec{A} \times \vec{B}$, or $dir(\vec{A} \times \vec{B})$
+  is perpendicular to the parallelogram formed by $\vec{A}$ and $\vec{B}$ in
+  the 3D space.
+\end{theorem}
+
+There are two directions which is perpendicular to the parallelogram formed by
+$\vec{A}$ and $\vec{B}$, which one is the direction of $\vec{A} \times \vec{B}$?
+
+Right-hand rule: Use your right hand to rotate from $\vec{A}$ to $\vec{B}$ then
+your right thumb is pointing to the direction of $\vec{A} \times \vec{B}$.
+
+\begin{example}
+  
+\end{example}
 \end{document}
