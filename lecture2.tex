@@ -168,8 +168,8 @@ are as follows:
 \subsubsection{Geometric interpretation of determinants in 3D space}
 
 \begin{theorem}
-  Geometrically, $det(\vec{A}, \vec{B}, \vec{C}) = \pm$ volume of the
-  parallelepiped formed by $\vec{A}$, $\vec{B}$, and $\vec{C}$.
+Geometrically, $det(\vec{A}, \vec{B}, \vec{C}) = \pm$ volume of the
+parallelepiped formed by $\vec{A}$, $\vec{B}$, and $\vec{C}$.
 \end{theorem}
 
 \section{Cross Product}
@@ -205,14 +205,14 @@ legit determinant expression. It is just a symbolic notation helping memorize
 the formula.
 
 \begin{theorem}
-  $|\vec{A} \times \vec{B}| = $ the area of the parallelogram formed by $\vec{A}$
-  and $\vec{B}$ in the 3D space.
+$|\vec{A} \times \vec{B}| = $ the area of the parallelogram formed by $\vec{A}$
+and $\vec{B}$ in the 3D space.
 \end{theorem}
 
 \begin{theorem}
-  The direction of $\vec{A} \times \vec{B}$, or $dir(\vec{A} \times \vec{B})$
-  is perpendicular to the parallelogram formed by $\vec{A}$ and $\vec{B}$ in
-  the 3D space.
+The direction of $\vec{A} \times \vec{B}$, or $dir(\vec{A} \times \vec{B})$
+is perpendicular to the parallelogram formed by $\vec{A}$ and $\vec{B}$ in
+the 3D space.
 \end{theorem}
 
 There are two directions which is perpendicular to the parallelogram formed by
@@ -224,4 +224,67 @@ your right thumb is pointing to the direction of $\vec{A} \times \vec{B}$.
 \begin{example}
   
 \end{example}
+
+\subsection{Properties of cross product}
+
+\subsubsection{Commutative property}
+Cross product does not satisfy the commutative property.
+
+\[
+  \vec{A} \times \vec{B} \neq \vec{B} \times \vec{A}
+\]
+
+\[
+  \vec{A} \times \vec{B} = - \vec{B} \times \vec{A}
+\]
+
+In particular:
+\[
+  \vec{A} \times \vec{A} = \vec{0}
+\]
+
+\subsubsection{Associative property}
+Cross product does not satisfy the associative property.
+
+Counter example: Suppose $\vec{A} = <1, 0, 1>$, $\vec{B} = <1, 1, 0>$,
+$\vec{C} = <0, 1, 1>$, then we can get
+\[
+  (\vec{A} \times \vec{B}) \times \vec{C} = <0, 1, -1>
+\]
+\[
+  \vec{A} \times (\vec{B} \times \vec{C}) = <1, 0, -1>
+\]
+
+\subsection{Application of cross product}
+
+\begin{example}
+Given the coordinates of three points that are not in the same line in 3D space,
+find the equation of the plane determined by these three points.
+
+Solution:
+
+Finding the equation of a plane is equivalent to finding a method of
+determining whether a random point is in the plane or not.
+
+Suppose the three known points are $P_1$, $P_2$, and $P_3$, and a random point
+is $P$.
+
+Method 1: $P$ is in the plane if and only if the parallelepiped formed by
+$\vec{P_1P_2}$, $\vec{P_1P_3}$, and $\vec{P_1P}$ has a volume $0$. Therefore,
+according to the geometric interpretation of determinants in 3D space, we can
+derive that $P$ is in the plane if and only if
+\[
+  det(\vec{P_1P_2}, \vec{P_1P_3}, \vec{P_1P}) = 0
+\]
+
+Method 2: Using the normal vector. The normal vector of a plane refers to the
+vector that are perpendicular to the plane. A plane can have infinite normal
+vectors. We usually use $\vec{N}$ to represent a normal vector. 
+
+The result of a cross product of two vectos is a normal vector of the
+parallelogram formed by the two vectos. With that being said, $P$ is in the
+plane if and only if $\vec{P_1P} \perp \vec{N}$.
+
+\end{example}
+
 \end{document}
