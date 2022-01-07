@@ -283,7 +283,17 @@ vectors. We usually use $\vec{N}$ to represent a normal vector.
 
 The result of a cross product of two vectos is a normal vector of the
 parallelogram formed by the two vectos. With that being said, $P$ is in the
-plane if and only if $\vec{P_1P} \perp \vec{N}$.
+plane if and only if $\vec{P_1P} \perp \vec{N}$, which is equivalent to
+\[
+  \vec{P_1P} \cdot \vec{N} = 0
+\]
+\[
+  \vec{P_1P} \cdot (\vec{P_1P_2} \times \vec{P_1P_3}) = 0
+\]
+Therefore, the two equations are actually equivalent:
+\[
+  det(\vec{P_1P_2}, \vec{P_1P_3}, \vec{P_1P}) = \vec{P_1P} \cdot (\vec{P_1P_2} \times \vec{P_1P_3}) = 0
+\]
 
 \end{example}
 
