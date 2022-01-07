@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{tikz}
+\setlength{\parindent}{0pt}
+
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{definition}{Definition}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{corollary}{Corollary}
+\newtheorem{example}{Example}
+
+\title{Lecture 3: Matrices}
+\author{}
+\date{}
+
+\begin{document}
+    
+\maketitle
+
+\section{Matrices}
+
+A motivation for bringing in matrices is better expressing linear relations
+between variables.
+
+\begin{example}
+  The coordinates of a point in two different Cartesian coordinate systems have
+  linear relations. Suppose in the first coordinate system, the point
+  $P = (x_1, x_2, x_3)$, and in the second one, the point $P = (u_1, u_2, u_3)$.
+  The relations between them can be described by linear equations, such as
+  \[
+    \left\{ \begin{array}{ll}
+    u_1 = 2x_1 + x_2 + 5x_3 \\
+    u_2 = x_1 + 3x_2 + 2x_3 \\
+    u_3 = x_1 + 2x_2 + x_3
+    \end{array} \right.
+  \]
+  The reason why their relation is linear is that each unit vector in the
+  second coordinate system can be decomposed into three vectors along the
+  directions of the unit vectors in the first coordinate system, i.e. each unit
+  vector in the second coordinate system has a unique coordinate in the first
+  system. Since $x_1$, $x_2$, $x_3$ are just scalars in three directions of the
+  first coordinate system, the coordinates of the unit vectors of the second
+  system can also be expressed with $x_1$, $x_2$, $x_3$, a linear combination
+  of these three scalars. Then the coordinate of the point in the second
+  coordinate system is also a linear combination of the unit vectors in the
+  system, so the coordinate of the point in the second coordinate system is a
+  linear combination of the coordinate of the point in the first one.
+\end{example}
+
+\end{document}
