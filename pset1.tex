@@ -403,14 +403,66 @@ bisect each other.
 \subsection*{Unit 2 Dot Product}
 
 1. Tell for what values of $c$ the vectors $c \vec{i} + 2 \vec{j} - \vec{k}$
-and $\vec{i} - \vec{j} + 2 \vec{k}$ will\\
+and $\vec{i} - \vec{j} + 2 \vec{k}$ will \\
 a) be orthogonal \hspace{10px} b) form an acute angle
 
+Solution:
+
+a) The vectors $c \vec{i} + 2 \vec{j} - \vec{k}$ and 
+$\vec{i} - \vec{j} + 2 \vec{k}$ are orthogonal if and only if
+\[
+  (c \vec{i} + 2 \vec{j} - \vec{k}) \cdot (\vec{i} - \vec{j} + 2 \vec{k}) = 0
+\]
+\[
+  c - 2 - 2 = 0
+\]
+\[
+  c = 4
+\]
+
+b) The vectors $c \vec{i} + 2 \vec{j} - \vec{k}$ and 
+$\vec{i} - \vec{j} + 2 \vec{k}$ form an acute angle if and only if
+\[
+  (c \vec{i} + 2 \vec{j} - \vec{k}) \cdot (\vec{i} - \vec{j} + 2 \vec{k}) > 0
+\]
+\[
+  c - 2 - 2 > 0
+\]
+\[
+  c > 4
+\]
+
 2. Using vectors, find the angle between a longest diagonal $PQ$ of a cube,
-and\\
+and \\
 a) a diagonal $PR$ of one of its faces; \hspace{10px} b) an edge $PS$ of the
-cube.\\
+cube. \\
 (Choose a size and position for the cube that makes calculation easiest.)
+
+Solution:
+
+a) Suppose that $P = (0, 0, 0)$, $Q = (1, 1, 1)$, and $R = (1, 1, 0)$. 
+Therefore, $\vec{PQ} = <1, 1, 1>$, and $\vec{PR} = <1, 1, 0>$. Then, the angle
+$\theta$ between $PQ$ and $PR$ satisfies
+\[
+  \begin{split}
+    \cos\theta &= \frac{\vec{PQ} \cdot \vec{PR}}{|\vec{PQ}| \cdot |\vec{PR}|} \\
+               &= \frac{1 \times 1 + 1 \times 1 + 1 \times 0}{\sqrt{1^2 + 1^2 + 1^2} \times \sqrt{1^2 + 1^2 + 0^2}} \\
+               &= \frac{2}{\sqrt{3} \times \sqrt{2}} \\
+               &= \frac{\sqrt{6}}{3} \\
+  \end{split}
+\]
+
+b) Suppose that $P = (0, 0, 0)$, $Q = (1, 1, 1)$, and $S = (1, 0, 0)$. 
+Therefore, $\vec{PQ} = <1, 1, 1>$, and $\vec{PS} = <1, 0, 0>$. Then, the angle
+$\theta$ between $PQ$ and $PS$ satisfies
+\[
+  \begin{split}
+    \cos\theta &= \frac{\vec{PQ} \cdot \vec{PS}}{|\vec{PQ}| \cdot |\vec{PS}|} \\
+               &= \frac{1 \times 1 + 1 \times 0 + 1 \times 0}{\sqrt{1^2 + 1^2 + 1^2} \times \sqrt{1^2 + 0^2 + 0^2}} \\
+               &= \frac{1}{\sqrt{3} \times 1} \\
+               &= \frac{\sqrt{3}}{3} \\
+  \end{split}
+\]
 
 3. Three points in space are $P:(a,1,-1)$, $Q:(0,1,1)$, $R:(a,-1,3)$. For what
 value(s) of $a$ will $PQR$ be\\
