@@ -2,8 +2,15 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{tikz}
 \setlength{\parindent}{0pt}
+
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{definition}{Definition}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{corollary}{Corollary}
+\newtheorem{example}{Example}
 
 \title{Problem Set 1}
 \author{}
@@ -17,18 +24,68 @@
 \vspace{25px}
 
 {\rmfamily\bfseries\LARGE Problem Set 1: Vectors, Determinants and Planes}
-
-{\rmfamily\bfseries\large Part I}
 \end{center}
 
-Unit 1 Vectors
+\begin{center}
+\section*{Part I}
+\end{center}
 
-1. Find the magnitude and direction of the vectors\\
+\subsection*{Unit 1 Vectors}
+
+1. Find the magnitude and direction of the vectors \\
 a) $\vec{i} + \vec{j} + \vec{k}$ \\
 b) $2\vec{i} - \vec{j} + 2\vec{k}$ \\
-c) $3\vec{i} - 6\vec{j} - 2\vec{k}$ \\
-Solution:\\
-TODO
+c) $3\vec{i} - 6\vec{j} - 2\vec{k}$
+
+Solution:
+
+a) Suppose $\vec{A} = \vec{i} + \vec{j} + \vec{k}$, then
+\[
+  \begin{split}
+    |\vec{A}| &= \sqrt{1^2 + 1^2 + 1^2} \\
+              &= \sqrt{3}
+  \end{split}
+\]
+\[
+  \begin{split}
+    dir \vec{A} &= \frac{\vec{A}}{|\vec{A}|} \\
+                &= \frac{\vec{i} + \vec{j} + \vec{k}}{\sqrt{3}} \\
+                &= \frac{\sqrt{3}}{3}\vec{i} + \frac{\sqrt{3}}{3}\vec{j} + \frac{\sqrt{3}}{3}\vec{k}
+  \end{split}
+\]
+
+b) Suppose $\vec{A} = 2\vec{i} - \vec{j} + 2\vec{k}$, then
+\[
+  \begin{split}
+    |\vec{A}| &= \sqrt{2^2 + (-1)^2 + 2^2} \\
+              &= \sqrt{9} \\
+              &= 3
+  \end{split}
+  |\vec{A}| = \sqrt{2^2 + (-1)^2 + 2^2} = \sqrt{9} = 3
+\]
+\[
+  \begin{split}
+    dir \vec{A} &= \frac{\vec{A}}{|\vec{A}|} \\
+                &= \frac{2\vec{i} - \vec{j} + 2\vec{k}}{3} \\
+                &= \frac{2}{3}\vec{i} - \frac{1}{3}\vec{j} + \frac{2}{3}\vec{k}
+  \end{split}
+\]
+
+c) Suppose $\vec{A} = 3\vec{i} - 6\vec{j} - 2\vec{k}$, then
+\[
+  \begin{split}
+    |\vec{A}| &= \sqrt{3^2 + (-6)^2 + (-2)^2} \\
+              &= \sqrt{49} \\
+              &= 7
+  \end{split}
+\]
+\[
+  \begin{split}
+    dir \vec{A} &= \frac{\vec{A}}{|\vec{A}|} \\
+                &= \frac{3\vec{i} - 6\vec{j} - 2\vec{k}}{7} \\
+                &= \frac{3}{7}\vec{i} - \frac{6}{7}\vec{j} - \frac{2}{7}\vec{k}
+  \end{split}
+\]
 
 2. a) Let $P$ and $Q$ be two points in space, and X the midpoint of the line
 segment $PQ$. Let $O$ be an arbitrary fixed point; show that as vectors, $OX =
@@ -37,15 +94,114 @@ b) With the notation of part (a), assume that X divides the line segment $PQ$
 in the ratio $r:s$, where $r + s = 1$. Derive an expression for $OX$ in terms
 of $OP$ and $OQ$.
 
+Solution:
+
+a) Suppose $P = (a_1, b_1, c_1)$, $Q = (a_2, b_2, c_2)$, and $O = (a_0, b_0, c_0)$.\\
+Since $X$ is the midpoint of the line segment $PQ$, then
+\[
+    X = (\frac{a_1 + a_2}{2}, \frac{b_1 + b_2}{2}, \frac{c_1 + c_2}{2})
+\]
+Therefore,
+\[
+  \vec{OP} = <a_1 - a_0, b_1 - b_0, c_1 - c_0>
+\]
+\[
+  \vec{OQ} = <a_2 - a_0, b_2 - b_0, c_2 - c_0>
+\]
+\[
+  \begin{split}
+    \vec{OX} &= <\frac{a_1 + a_2}{2} - a_0, \frac{b_1 + b_2}{2} - b_0, \frac{c_1 + c_2}{2} - c_0> \\
+             &= \frac{1}{2}<a_1 + a_2 - 2a_0, b_1 + b_2 - 2b_0, c_1 + c_2 - 2c_0> \\
+             &= \frac{1}{2}(\vec{OP} + \vec{OQ})
+  \end{split}
+\]
+
+b) Since $X$ divides the line segment $PQ$ in the ratio $r : s$, where
+$r + s = 1$,
+\[
+  \vec{PX} = \frac{r}{r + s}\vec{PQ}
+\]
+Then we also know
+\[
+  \vec{PQ} = \vec{OQ} - \vec{OP}
+\]
+\[
+  \vec{OX} = \vec{OP} + \vec{PX}
+\]
+Therefore,
+\[
+  \begin{split}
+    \vec{OX} &= \vec{OP} + \vec{PX} \\
+             &= \vec{OP} + \frac{r}{r + s}\vec{PQ} \\
+             &= \vec{OP} + \frac{r}{r + s}(\vec{OQ} - \vec{OP}) \\
+             &= \frac{s}{r + s}\vec{OP} + \frac{r}{r + s}\vec{OQ} \\
+  \end{split}
+\]
+
 3. What are the $\vec{i} \vec{j}$-components of a plane vector $\vec{A}$ of
 length 3, if it makes an angle of $30^{\circ}$ with $\vec{i}$ and $60^{\circ}$
 with $\vec{j}$. Is the second condition redundant?
 
+Solution:
+
+\begin{tikzpicture}
+  [help lines/.style={dashed}]
+  \draw[->] (-3, 0, 0) -- (3, 0, 0) node[anchor=south] {x};
+  \draw[->] (0, 0, 0) -- (1, 0, 0) node[anchor=south] {$\vec{i}$};
+  \draw[->] (0, -3, 0) -- (0, 3, 0) node[anchor=east] {y};
+  \draw[->] (0, 0, 0) -- (0, 1, 0) node[anchor=east] {$\vec{j}$};
+  \draw[->] (0, 0, 0) -- (2.6, 1.5, 0) node[anchor=south] {$\vec{A}$};
+  \draw (0.2, 0) arc [start angle=0, end angle=30, radius=0.2] 
+    node[anchor=west] {$30^{\circ}$};
+  \draw[->, help lines] (0, 0, 0) -- (2.6, -1.5, 0) node[anchor=north] {$\vec{A'}$};
+\end{tikzpicture}
+
+Apparently
+\[
+  \begin{split}
+    \vec{A} &= <|\vec{A}|\cos(30^{\circ}), |\vec{A}|\sin(30^{\circ})> \\
+            &= <3 \cdot \frac{\sqrt{3}}{2}, 3 \cdot \frac{1}{2}> \\
+            &= <\frac{3\sqrt{3}}{2}, \frac{3}{2}> \\
+            &= \frac{3\sqrt{3}}{2}\vec{i} + \frac{3}{2} \vec{j} \\
+  \end{split}
+\]
+The second condition that the vector $\vec{A}$ makes an angle of $60^{\circ}$
+with $\vec{j}$ is not redundant, otherwise the referred vector can be $\vec{A}$
+or $\vec{A'}$ in the above diagram.
+
 4. A small plane wishes to fly due north at 200 mph (as seen from the ground),
 in a wind blowing from the northeast at 50 mph. Tell with what vector velocity
-in the air it should travel (given the $\vec{i} \vec{j}$-components).\\
-Solution:\\
-TODO
+in the air it should travel (given the $\vec{i} \vec{j}$-components).
+
+Solution:
+
+Suppose that $\vec{i}$ represents east, then $\vec{j}$ represents north, and
+$-\vec{i}$ represents west, and $-\vec{j}$ represents south. Let $\vec{V_w}$
+denote the velocity of the wind, $\vec{V_p}$ denote the velocity of the plane in
+the air, and $\vec{V}$ denote the velocity of plane seen from the ground. \\
+$\vec{V}$ should be the result of $\vec{V_p}$ and $\vec{V_w}$ applied together,
+therefore
+\[
+  \vec{V} = \vec{V_p} + \vec{V_w}
+\]
+According to the problem description,
+\[
+  \begin{split}
+    \vec{V_w} &= <50\cos45^{\circ}, 50\sin45^{\circ}> \\
+              &= <25\sqrt{2}, 25\sqrt{2}> \\
+  \end{split}
+\]
+\[
+  \vec{V} = <0, 200>
+\]
+Therefore
+\[
+  \begin{split}
+    \vec{V_p} &= \vec{V} - \vec{V_w} \\
+              &= <0, 200> - <25\sqrt{2}, 25\sqrt{2}> \\
+              &= <-25\sqrt{2}, 200 - 25\sqrt{2}> \\
+  \end{split}
+\]
 
 5. Let $\vec{A} = a \vec{i} + b \vec{j}$ be a plane vector; find in terms of
 $a$ and $b$ the vectors $\vec{A'}$ and $\vec{A''}$ resulting from rotating
@@ -55,11 +211,43 @@ c) Let $\vec{i'} = (3 \vec{i} + 4 \vec{j}) / 5$. Show that $\vec{i'}$ is a unit
 vector, and use the first part of the exercise to find a vector $\vec{j'}$ such
 that $\vec{i'}$, $\vec{j'}$ forms a right-handed coordinate system.
 
+Solution:
+
+a) According to the problem description, $\vec{A'}$ is the result of rotating
+$\vec{A}$ clockwise by $90^{\circ}$. Therefore, the $\vec{i} \vec{j}$-components
+of $\vec{A}$ should be rotated the same way to get the corresponding components
+of $\vec{A'}$. After being rotated in the mentioned way, $\vec{i}$ becomes
+$-\vec{j}$, and $\vec{j}$ becomes $\vec{i}$. Therefore,
+\[
+  \vec{A'} = b \cdot \vec{i} - a \cdot \vec{j}
+\]
+
+b) Similar to a), after being rotated counterclockwise by $90^{\circ}$,
+$\vec{i}$ becomes $\vec{j}$, and $\vec{j}$ becomes $-\vec{i}$. Therefore,
+\[
+  \vec{A''} = -b \cdot \vec{i} + a \cdot \vec{j}
+\]
+
+c) To prove $\vec{i'}$ is a unit vector,
+\[
+  \begin{split}
+    |\vec{i'}| &= \sqrt{(\frac{3}{5})^2 + (\frac{4}{5})^2} \\
+               &= 1
+  \end{split}
+\]
+To form a right-handed coordinate system, $\vec{j'}$ should be the result of
+rotating $\vec{i'}$ counterclockwise by $90^{\circ}$. According the part b),
+we can derive that
+\[
+  \vec{j'} = -\frac{4}{5} \cdot \vec{i} + \frac{3}{5} \cdot \vec{j}
+\]
+
 6. The direction of a space vector is in engineering practice often given by
-its direction cosines. To describe these, let $\vec{A} = a \vec{i} + b \vec{j}
-+ c \vec{k}$ be a space vector, represented as an origin vector, and let
-$\alpha$, $\beta$, and $\gamma$ be the three angles ($\le \pi$) that $\vec{A}$
-makes respectively with $\vec{i}$, $\vec{j}$, and $\vec{k}$.\\
+its \textbf{direction cosines}. To describe these, let 
+$\vec{A} = a \vec{i} + b \vec{j} + c \vec{k}$ be a space vector, represented as 
+an origin vector, and let $\alpha$, $\beta$, and $\gamma$ be the three angles 
+($\le \pi$) that $\vec{A}$ makes respectively with $\vec{i}$, $\vec{j}$, and 
+$\vec{k}$.\\
 a) Show that $dir \vec{A} = \cos\alpha \vec{i} + \cos\beta \vec{j} +
 \cos\gamma \vec{k}$. (The three coefficients are called the \emph{direction
 cosines} of $\vec{A}$.)\\
@@ -68,17 +256,151 @@ the direction cosines of the vector $-\vec{i} + 2\vec{j} + 2\vec{k}$.\\
 c) Prove that three numbers $t$, $u$, $v$ are the direction cosines of a vector
 in space if and only if they satisfy $t^{2} + u^{2} + v^{2} = 1$.
 
+Solution:
+
+a) According to the definition, $dir \vec{A}$ is the unit vector with the same
+direction as $\vec{A}$, hence $dir \vec{A}$ makes the same angles with
+$\vec{i}$, $\vec{j}$, $\vec{k}$ as $\vec{A}$, i.e. $\alpha$, $\beta$, and 
+$\gamma$ respectively. Then according to the definition of component vectors, 
+i.e. the cast on a specific directions, we can derive that
+\[
+  dir \vec{A} = \cos\alpha \cdot \vec{i} + \cos\beta \cdot \vec{j} + \cos\gamma \cdot \vec{k}
+\]
+
+b) According to the definition of vector directions, 
+\[
+  \begin{split}
+    dir \vec{A} &= \frac{\vec{A}}{|\vec{A}|} \\
+                &= \frac{a \vec{i} + b \vec{j} + c \vec{k}}{\sqrt{a^2 + b^2 + c^2}} \\
+                &= \frac{a}{\sqrt{a^2 + b^2 + c^2}} \vec{i} + \frac{b}{\sqrt{a^2 + b^2 + c^2}} \vec{j} + \frac{c}{\sqrt{a^2 + b^2 + c^2}} \vec{k} \\
+                &= \cos\alpha \cdot \vec{i} + \cos\beta \cdot \vec{j} + \cos\gamma \cdot \vec{k}
+  \end{split}
+\]
+Therefore,
+\[
+  \cos\alpha = \frac{a}{\sqrt{a^2 + b^2 + c^2}}
+\]
+\[
+  \cos\beta = \frac{b}{\sqrt{a^2 + b^2 + c^2}}
+\]
+\[
+  \cos\gamma = \frac{c}{\sqrt{a^2 + b^2 + c^2}}
+\]
+Hence for the vector $-\vec{i} + 2\vec{j} + 2\vec{k}$,
+\[
+  \begin{split}
+    \cos\alpha &= \frac{-1}{\sqrt{(-1)^2 + 2^2 + 2^2}} \\
+               &= -\frac{1}{3}
+  \end{split}
+\]
+\[
+  \begin{split}
+    \cos\beta &= \frac{2}{\sqrt{(-1)^2 + 2^2 + 2^2}} \\
+              &= \frac{2}{3}
+  \end{split}
+\]
+\[
+  \begin{split}
+    \cos\gamma &= \frac{2}{\sqrt{(-1)^2 + 2^2 + 2^2}} \\
+              &= \frac{2}{3}
+  \end{split}
+\]
+
+c) Proof: \\
+If $t$, $u$, $v$ are the direction cosines of a vector $\vec{A}$ in space, then 
+they are the components of its direction:
+\[
+  dir \vec{A} = t \cdot \vec{i} + u \cdot \vec{j} + v \cdot \vec{k}
+\]
+Since $dir \vec{A}$ is a unit vector, then
+\[
+  |dir \vec{A}| = \sqrt{t^2 + u^2 + v^2} = 1
+\]
+\[
+  t^2 + u^2 + v^2 = 1
+\]
+If $t$, $u$, $v$ satisfy $t^2 + u^2 + v^2 = 1$, then we can construct a unit 
+vector $\vec{D} = t \cdot \vec{i} + u \cdot \vec{j} + v \cdot \vec{k}$. Then 
+$t$, $u$, $v$ are the direction cosines of the constructed space vector.
+
 7. Prove using vector methods (without components) that the line segment
 joining the midpoints of two sides of a triangle is parallel to the third side
 and half its length. (Call the two sides $\vec{A}$ and $\vec{B}$.)
+
+Proof:
+
+Suppose that the two sides are $\vec{A}$ and $\vec{B}$, the third side is 
+$\vec{C}$, and the line segment joining the midpoints of the two sides is
+$\vec{C'}$. Then
+\[
+  \vec{C} = \vec{A} - \vec{B}
+\]
+or
+\[
+  \vec{C} = -(\vec{A} - \vec{B})
+\]
+And
+\[
+  \begin{split}
+    \vec{C'} &= \frac{1}{2}\vec{A} - \frac{1}{2}\vec{B} \\
+             &= \frac{1}{2}(\vec{A} - \vec{B}) \\
+  \end{split}
+\]
+or
+\[
+  \begin{split}
+    \vec{C'} &= -(\frac{1}{2}\vec{A} - \frac{1}{2}\vec{B}) \\
+             &= -\frac{1}{2}(\vec{A} - \vec{B}) \\
+  \end{split}
+\]
+Therefore, either of the following equations must hold:
+\[
+  \vec{C'} = \frac{1}{2}\vec{C}
+\]
+or
+\[
+  \vec{C'} = -\frac{1}{2}\vec{C}
+\]
+Therefore, $\vec{C'}$ is parallel to $\vec{C}$ and the magnitude of $\vec{C'}$ 
+is the half of the one of $\vec{C}$.
 
 8. Prove using vector methods (without components) that the diagonals of a
 parallelogram bisect each other. (One way: let $X$ and $Y$ be the midpoints of
 the two diagonals; show $X$ = $Y$.)
 
-\bigskip
+Proof:
 
-Unit 2 Dot Product
+\begin{tikzpicture}
+  [help lines/.style={dashed}]
+  \draw[-] (-2, 0) node[anchor=north] {A} -- (2, 0) node[anchor=north] {B} -- 
+    (4, 2) node[anchor=south] {C} -- (0, 2) node[anchor=south] {D} -- (-2, 0);
+  \draw[-, help lines] (-2, 0) -- (1, 1) node[anchor=north] {X} -- (4, 2);
+  \draw[-, help lines] (2, 0) -- (1, 1) node[anchor=south] {Y} -- (0, 2);
+\end{tikzpicture}
+
+As shown in the diagram, suppose that the four endpoints of a parallelogram are 
+$A$, $B$, $C$, $D$, and the midpoint of the diagonal $AC$ is $X$, and the 
+midpoint of the diagonal $BD$ is $Y$. Then
+\[
+  \begin{split}
+    \vec{AX} &= \frac{1}{2}\vec{AC} \\
+             &= \frac{1}{2}(\vec{AB} + \vec{AD}) \\
+             &= \frac{1}{2}\vec{AB} + \frac{1}{2}\vec{AD} \\
+  \end{split}
+\]
+\[
+  \begin{split}
+    \vec{AY} &= \vec{AB} + \vec{BY} \\
+             &= \vec{AB} + \frac{1}{2}\vec{BD} \\
+             &= \vec{AB} + \frac{1}{2}(\vec{AD} - \vec{AB}) \\
+             &= \frac{1}{2}\vec{AB} + \frac{1}{2}\vec{AD} \\
+  \end{split}
+\]
+Therefore, $\vec{AX} = \vec{AY}$, which means the midpoints of the two 
+diagonals are the same point. Hence, the two diagonals of a parallelogram 
+bisect each other.
+
+\subsection*{Unit 2 Dot Product}
 
 1. Tell for what values of $c$ the vectors $c \vec{i} + 2 \vec{j} - \vec{k}$
 and $\vec{i} - \vec{j} + 2 \vec{k}$ will\\
@@ -112,9 +434,7 @@ a semicircle is a right angle.
 8. Prove the trigonometric formula: $\cos(\theta_{1} - \theta_{2}) =
 \cos\theta_{1}\cos\theta_{2} + \sin\theta_{1}\sin\theta_{2}$.
 
-\bigskip
-
-Unit 3 Determinants
+\subsection*{Unit 3 Determinants}
 
 1. Calculate the value of the determinants\\
 a) $\begin{vmatrix}
@@ -152,9 +472,7 @@ x_{1} & y_{1} \\
 x_{2} & y_{2}   
 \end{vmatrix}$.
 
-\bigskip
-
-Unit 4 Cross Product
+\subsection*{Unit 4 Cross Product}
 
 1. Find $\vec{A} \times \vec{B}$ if\\
 a) $\vec{A} = \vec{i} - 2 \vec{j} + \vec{k}$, $\vec{B} = 2 \vec{i} - \vec{j} -
@@ -182,7 +500,7 @@ b) if $|\vec{A} \times \vec{B}| = \vec{A} \cdot \vec{B}$.
 \[ P:(1,0,1), Q:(-1,1,2), R:(0,0,2), S:(3,1,-1).\]
 
 \begin{center}
-{\rmfamily\bfseries\large Part II}
+\section*{Part II}
 \end{center}
 
 1. Find the dihedral angle between two faces of a regular tetrahedron.
