@@ -145,14 +145,14 @@ However, there are exceptions to this algebraic method.
 The exceptions to a single solution to a linear system are described in the 
 above example.
 
-\subsection{Exceptions of unique solutions in algebra}
+\subsection{Algebraic point of view on exceptions of unique solutions}
 
 Recall that the formula of the unique solution to a linear system is
 \[
   X = A^{-1}B
 \]
-It turns out this formula doesn't always hold. In those exceptions, $A^{-1}$ 
-doesn't exist, i.e. $A$ is not invertible.
+It turns out this formula doesn't always hold. In those exception cases, 
+$A^{-1}$ doesn't exist, i.e. $A$ is not invertible.
 
 \[
   A^{-1} = \frac{1}{det(A)}adj(A)
@@ -160,5 +160,39 @@ doesn't exist, i.e. $A$ is not invertible.
 Since $adj(A)$ always exists, $A^{-1}$ exists $\iff$ $A$ is invertible $\iff$ 
 $det(A) \neq 0$.
 
+\bigskip
+
+Further discussion on different cases:
+
+1. Homogeneous cases: $AX = 0$
+
+For Homogeneous cases, there is always a trivial solution $X = 0$ since all 
+planes pass through the origin.
+
+If $det(A) \neq 0$, then $A$ is invertible, then the linear system has a unique 
+solution, which must be $0$ since $0$ is always a solution to the linear 
+system. We can also derive the conclusion in algebra:
+\[
+  X = A^{-1}0 = 0
+\]
+
+If $det(A) = 0$, then since each row in $A$ is a normal vector of the 
+corresponding plane, $det(\vec{N_1}, \vec{N_2}, \vec{N_3}) = 0$, which means 
+that $\vec{N_1}$, $\vec{N_2}$, $\vec{N_3}$ are coplanar.
+
+  If $\vec{N_1}$, $\vec{N_2}$, $\vec{N_3}$ are the same, then the planes in the 
+  linear system are the same, so the solution set is the plane.
+
+  If $\vec{N_1}$, $\vec{N_2}$, $\vec{N_3}$ are different, then the line passing 
+  through the origin and perpendicular to the plane containing $\vec{N_1}$, 
+  $\vec{N_2}$, and $\vec{N_3}$ must be in all three planes in the linear 
+  system. Therefore, the solution is $\vec{N_1} \times \vec{N_2}$, or 
+  $\vec{N_2} \times \vec{N_3}$, or $\vec{N_1} \times \vec{N_3}$.
+
+2. General cases: $AX = B$
+
+If $det(A) \neq 0$, there is a unique solution to the linear system.
+
+If $det(A) = 0$, there is either none or infinite solution to the linear system.
 
 \end{document}
