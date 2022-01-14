@@ -39,13 +39,183 @@ line. Such representation is called \textbf{parametric equations}.
   is in $Q_0$, and at $t = 1$, the moving point is in $Q_1$, and suppose the 
   point moves at a constant speed.
 
-  The point $Q = (x, y, z)$ in the line satisfies the following equation:
+  With parametric equations, the coordinates of the point $Q$ in the line are 
+  functions of the parameter. Therefore, $Q = (x(t), y(t), z(t))$. The point $Q$ 
+  in the line also satisfies the following equation:
   \[
     \vec{Q_0Q} = t \cdot \vec{Q_0Q_1}
   \]
   \[
     <x + 1, y - 2, z - 2> = t \cdot <2, 1, -3>
   \]
+  \[
+    \left\{ \begin{array}{ll}
+    x(t) = 2t - 1 \\
+    y(t) = t + 2 \\
+    z(t) = -3t + 2 \\
+    \end{array} \right.
+  \]
+  That is the parametric equation of the described line.
 \end{example}
 
+Notice that the coefficients of the parameter are components of a vector with 
+the same direction as the line (either one of the two directions a line has). 
+The constant terms in the parametric equation are coordinates of the point when 
+the parameter is equal to 0.
+
+A line can have infinite different parametric equations. With different time 
+assumption and speed, the coefficients can be different, but they all express 
+the same line.
+
+The reason why the parametric equation of a line only has one parameter is that 
+the points on a line only have one dimension (degree of freedom). It doesn't 
+matter whether it is a line or a curve.
+
+\begin{example}
+  Consider the plane $x + 2y + 4z = 7$, and two points $Q_0 = (-1, 2, 2)$ and 
+  $Q_1 = (1, 3, -1)$.
+
+  1) Whether $Q_0$ and $Q_1$ are \underline{B}. \\
+  A. on the same side. \\
+  B. on the opposite sides. \\
+  C. on the plane. \\
+  D. cannot be decided.
+
+  Reasons: \\
+  For $Q_0 = (-1, 2, 2)$, $x + 2y + 4z = 11$. Therefore, $Q_0$ is in the plane 
+  $P_0$ whose equation is $x + 2y + 4z = 11$. \\
+  For $Q_1 = (1, 3, -1)$, $x + 2y + 4z = 3$. Therefore, $Q_1$ is in the plane 
+  $P_1$ whose equation is $x + 2y + 4z = 3$. \\
+  Assume the plane with the equation $x + 2y + 4z = 7$ is called $P$. \\
+  The intersection point of these three planes with the $z$ axis are 
+  $(0, 0, \frac{11}{4})$, $(0, 0, \frac{3}{4})$, and $(0, 0, \frac{7}{4})$ 
+  respectively, among which the intersection point of the plane $P$ are in 
+  between the ones of other two planes. \\
+  Since the planes $P$, $P_0$, and $P_1$ are all parallel to each other, $P$ is 
+  in between other two planes. Hence, $P$ is in between $Q_0$ and $Q_1$. 
+  Therefore, $Q_0$ and $Q_1$ are on the opposite sides of the plane 
+  $x + 2y + 4z = 7$.
+
+  \bigskip
+
+  2) Does the line through $Q_0$ and $Q_1$ pass through the plane? If so, what 
+  is the intersection point?
+
+  According to the previous example, we know that the parametric equation of the 
+  line is:
+  \[
+    \left\{ \begin{array}{ll}
+    x(t) = 2t - 1 \\
+    y(t) = t + 2 \\
+    z(t) = -3t + 2 \\
+    \end{array} \right.
+  \]
+  For the intersection point, the following equation holds:
+  \[
+    x(t) + 2y(t) + 4z(t) = 7
+  \]
+  \[
+    (2t - 1) + 2(t + 2) + 4(-3t + 2) = 7
+  \]
+  \[
+    -8t + 11 = 7
+  \]
+  \[
+    t = \frac{1}{2}
+  \]
+  Therefore, the intersection point $Q = (0, \frac{5}{2}, \frac{1}{2})$.
+
+  Notice that the coefficient of the parameter for the intersection point is 
+  the dot product of the direction of the line and the normal vector of the 
+  plane. If the coefficient is 0, from geometric point of view it means the 
+  direction of the line is perpendicular to the normal vector of the plane, 
+  which means the line is parallel to the plane; from algebraic point of view, 
+  the equation of the intersection point either always holds or has no 
+  solution, which also means the line is parallel to the plane.
+
+\end{example}
+
+\section{General Usage of Parametric Equations}
+
+More generally, we can use parametric equations for arbitrary trajectory in 
+the plane or space.
+
+\begin{example}
+  Find the parametric equation of a cycloid, which is the curve traced by a 
+  fixed point on a circle as it rolls along a straight line without slipping.
+
+  Solution:
+
+  In this case, there is a natural parameter which is the angle $\theta$ the 
+  circle has rolled, because the position of the fixed point is solely decided 
+  by the angle. Suppose the start point of the circle is when the intersection 
+  between the circle and the $x$ axis is the origin $O$, which is also the 
+  tracing point. After rolling an angle $\theta$, the fix point is at position 
+  $B$, and the current intersection point is $A$. The center of the circle is 
+  $C$, and its radius is $a$.
+
+  To find the parametric equation of the cycloid, we need to find the 
+  parametric equation of $\vec{OB}$.
+  \[
+    \vec{OB} = \vec{OA} + \vec{AC} + \vec{CB}
+  \]
+  Since the circle rolls along the $x$ axis without slipping,
+  \[
+    \vec{OA} = <a\theta, 0>
+  \]
+  Since $\vec{AC}$ is always perpendicular to the $x$ axis and the magnitude 
+  is the radius of the circle,
+  \[
+    \vec{AC} = <0, a>
+  \]
+  We can decompose $\vec{CB}$ into horizontal and vertical directions,
+  \[
+    \vec{CB} = <-a\sin\theta, -a\cos\theta>
+  \]
+  Notice that we can verify that the equations of the three vectors hold for 
+  any $\theta$, not only in $[0, 2\pi]$. Therefore,
+  \[
+    \begin{split}
+    \vec{OB} &= \vec{OA} + \vec{AC} + \vec{CB} \\
+             &= <a\theta - a\sin\theta, a - a\cos\theta> \\
+    \end{split}
+  \]
+  Therefore, the parametric equation of a cycloid is
+  \[
+    \left\{ \begin{array}{ll}
+    x(t) = a\theta - a\sin\theta \\
+    y(t) = a - a\cos\theta \\
+    \end{array} \right.
+  \]
+
+  \bigskip
+
+  Following: What does the curve look like between two humps, i.e. around 
+  $\theta = 2n\pi$?
+
+  To figure it out, we need to look at the derivative $\frac{dy}{dx}$ around 
+  $\theta = 2n\pi$.
+  \[
+    \begin{split}
+      \frac{dy}{dx}|_{\theta = 2n\pi} &= (\frac{dy}{d\theta} / \frac{dx}{d\theta})|_{\theta = 2n\pi} \\
+                                      &= (\frac{d(a - a\cos\theta)}{d\theta} / \frac{d(a\theta - a\sin\theta)}{d\theta})|_{\theta = 2n\pi} \\
+                                      &= \frac{a\sin\theta}{a - a\cos\theta}|_{\theta = 2n\pi} \\
+                                      &= \frac{0}{0} \\
+    \end{split}
+  \]
+  According to L'Hospital rule,
+  \[
+    \begin{split}
+      \frac{dy}{dx}|_{\theta = 2n\pi} &= \frac{a\sin\theta}{a - a\cos\theta}|_{\theta = 2n\pi} \\
+                                      &= (\frac{d(a\sin\theta)}{d\theta} / \frac{d(a - a\cos\theta)}{d\theta})|_{\theta = 2n\pi} \\
+                                      &= \frac{a\cos\theta}{a\sin\theta}|_{\theta = 2n\pi} \\
+                                      &= \frac{a}{0} \\
+                                      &= \infty
+    \end{split}
+  \]
+  Therefore, the slope of a cycloid between two humps, i.e. around 
+  $\theta = 2n\pi$, is infinity, which means the tangent line in the 
+  intersection of two humps is vertical, perpendicular to the $x$ axis.
+\end{example}
+ 
 \end{document}
