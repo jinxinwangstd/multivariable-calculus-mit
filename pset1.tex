@@ -277,34 +277,26 @@ b) According to the definition of vector directions,
   \end{split}
 \]
 Therefore,
-\[
-  \cos\alpha = \frac{a}{\sqrt{a^2 + b^2 + c^2}}
-\]
-\[
-  \cos\beta = \frac{b}{\sqrt{a^2 + b^2 + c^2}}
-\]
-\[
-  \cos\gamma = \frac{c}{\sqrt{a^2 + b^2 + c^2}}
-\]
+\begin{gather*}
+  \cos\alpha = \frac{a}{\sqrt{a^2 + b^2 + c^2}} \\
+  \cos\beta = \frac{b}{\sqrt{a^2 + b^2 + c^2}} \\
+  \cos\gamma = \frac{c}{\sqrt{a^2 + b^2 + c^2}} \\
+\end{gather*}
 Hence for the vector $-\vec{i} + 2\vec{j} + 2\vec{k}$,
-\[
+\begin{gather*}
   \begin{split}
     \cos\alpha &= \frac{-1}{\sqrt{(-1)^2 + 2^2 + 2^2}} \\
-               &= -\frac{1}{3}
-  \end{split}
-\]
-\[
+               &= -\frac{1}{3} \\
+  \end{split} \\
   \begin{split}
     \cos\beta &= \frac{2}{\sqrt{(-1)^2 + 2^2 + 2^2}} \\
-              &= \frac{2}{3}
-  \end{split}
-\]
-\[
+              &= \frac{2}{3} \\
+  \end{split} \\
   \begin{split}
     \cos\gamma &= \frac{2}{\sqrt{(-1)^2 + 2^2 + 2^2}} \\
-              &= \frac{2}{3}
-  \end{split}
-\]
+              &= \frac{2}{3} \\
+  \end{split} \\
+\end{gather*}
 
 c) Proof: \\
 If $t$, $u$, $v$ are the direction cosines of a vector $\vec{A}$ in space, then 
@@ -468,54 +460,454 @@ $\theta$ between $PQ$ and $PS$ satisfies
 value(s) of $a$ will $PQR$ be\\
 a) a right angle \hspace{10px} b) an acute angle
 
+Solution:
+
+a) $PQR$ will be a right angle $\iff$ $\vec{PQ} \cdot \vec{QR} = 0$
+\begin{gather*}
+  \vec{PQ} = <-a, 0, 2> \\
+  \vec{QR} = <a, -2, 2> \\
+  \vec{PQ} \cdot \vec{QR} = 0 \\
+  <-a, 0, 2> \cdot <a, -2, 2> = 0 \\
+  -a^2 + 4 = 0 \\
+  a = \pm 2 \\
+\end{gather*}
+
+b) $PQR$ will be an acute angle $\iff$ $\vec{PQ} \cdot \vec{QR} > 0$
+\begin{gather*}
+  \vec{PQ} \cdot \vec{QR} > 0 \\
+  <-a, 0, 2> \cdot <a, -2, 2> > 0 \\
+  -a^2 + 4 > 0 \\
+  a^2 < 4 \\
+  -2 < a < 2 \\
+\end{gather*}
+
 4. Find the component of the force $\vec{F} = 2 \vec{i} - 2 \vec{j} + \vec{k}$
 in\\
 a) the direction $\frac{\vec{i} + \vec{j} - \vec{k}}{\sqrt{3}}$ \hspace{10px}
 b) the direction of the vector $3 \vec{i} + 2 \vec{j} - 6 \vec{k}$.
 
+Solution:
+
+a) To get the component of a vector along a certain direction, we can calculate 
+the dot product of the vector and the direction. Since dot product satisfies the 
+distributive property, the dot product of a vector and a direction is equivalent 
+to the dot product of the direction and the component vector of the vector along 
+the direction, plus the dot product of the direction and the other component 
+vector, which is perpendicular to the direction. Therefore, the result is only 
+the dot product of the direction and the component vector of the vector along 
+the direction, which is the component value.
+\begin{equation*}
+\begin{split}
+  c &= (2\vec{i} - 2\vec{j} + \vec{k}) \cdot (\frac{\vec{i} + \vec{j} - \vec{k}}{\sqrt{3}}) \\
+    &= <2, -2, 1> \cdot <\frac{\sqrt{3}}{3}, \frac{\sqrt{3}}{3}, -\frac{\sqrt{3}}{3}> \\
+    &= -\frac{\sqrt{3}}{3} \\
+\end{split}
+\end{equation*}
+
+b) Similar to a),
+\begin{gather*}
+\begin{split}
+  dir(3\vec{i} + 2\vec{j} - 6\vec{k}) &= \frac{3\vec{i} + 2\vec{j} - 6\vec{k}}{|3\vec{i} + 2\vec{j} - 6\vec{k}|} \\
+                                      &= \frac{3\vec{i} + 2\vec{j} - 6\vec{k}}{7} \\
+                                      &= <\frac{3}{7}, \frac{2}{7}, -\frac{6}{7}> \\
+\end{split} \\
+\begin{split}
+  c &= (2\vec{i} - 2\vec{j} + \vec{k}) \cdot dir(3\vec{i} + 2\vec{j} - 6\vec{k}) \\
+    &= <2, -2, 1> \cdot <\frac{3}{7}, \frac{2}{7}, -\frac{6}{7}> \\
+    &= -\frac{4}{7} \\
+\end{split} \\
+\end{gather*}
+
 5. Prove using vector methods (without components) that the diagonals of a
 parallelogram have equal lengths if and only if it is a rectangle.
+
+Proof:
+
+Let $\vec{A}$ and $\vec{B}$ denote the vectors of two adjecent sides of a parallelogram,
+and $\vec{D_1}$ and $\vec{D_2}$ denote the two diagonals of the parallelogram.
+\begin{gather*}
+  \vec{D_1} = \vec{A} + \vec{B} \\
+  \vec{D_2} = \vec{A} - \vec{B} \\
+\end{gather*}
+The two diagonals have equal lengths is equivalent to
+\begin{gather*}
+  |\vec{D_1}| = |\vec{D_2}| \\
+  \iff |\vec{A} + \vec{B}| = |\vec{A} - \vec{B}| \\
+  \iff |\vec{A} + \vec{B}|^2 = |\vec{A} - \vec{B}|^2 \\
+  \iff (\vec{A} + \vec{B}) \cdot (\vec{A} + \vec{B}) = (\vec{A} - \vec{B}) \cdot (\vec{A} - \vec{B}) \\
+  \iff |\vec{A}|^2 + |\vec{B}|^2 + 2\vec{A} \cdot \vec{B} = |\vec{A}|^2 + |\vec{B}|^2 - 2\vec{A} \cdot \vec{B} \\
+  \iff 4\vec{A} \cdot \vec{B} = 0 \\
+  \iff \vec{A} \cdot \vec{B} = 0 \\
+  \iff \vec{A} \perp \vec{B} \\
+\end{gather*}
+which is equivalent to the parallelogram is a rectangle.
+
+Therefore, it is proved that the diagonals of a parallelogram have equal lengths 
+if and only if it is a rectangle.
 
 6. Prove using vector methods (without components) that the diagonals of a
 parallelogram are perpendicular if and only if it is a rhombus, i.e., its four
 sides are equal.
 
+Proof:
+
+Let $\vec{A}$ and $\vec{B}$ denote the vectors of two adjecent sides of a parallelogram,
+and $\vec{D_1}$ and $\vec{D_2}$ denote the two diagonals of the parallelogram.
+\begin{gather*}
+  \vec{D_1} = \vec{A} + \vec{B} \\
+  \vec{D_2} = \vec{A} - \vec{B} \\
+\end{gather*}
+The two diagonals are perpendicular is equivalent to 
+\begin{gather*}
+  \vec{D_1} \perp \vec{D_2} \\
+  \iff \vec{D_1} \cdot \vec{D_2} = 0 \\
+  \iff (\vec{A} + \vec{B}) \cdot (\vec{A} - \vec{B}) = 0 \\
+  \iff |\vec{A}|^2 - |\vec{B}|^2 = 0 \\
+  \iff |\vec{A}|^2 = |\vec{B}|^2 \\
+  \iff |\vec{A}| = |\vec{B}| \\
+\end{gather*}
+which is equivalent to the four sides of the parallelogram are equal.
+
+Therefore, it is proved that the diagonals of a parallelogram are perpendicular 
+if and only if it is a rhombus, i.e., its four sides are equal.
+
 7. Prove using vector methods (without components) that an angle inscribed in
 a semicircle is a right angle.
 
-8. Prove the trigonometric formula: $\cos(\theta_{1} - \theta_{2}) =
-\cos\theta_{1}\cos\theta_{2} + \sin\theta_{1}\sin\theta_{2}$.
+Proof:
+
+\begin{tikzpicture}
+  [help lines/.style={dashed}]
+  \draw (-2, 0) .. controls (-2, 1.11) and (-1.11, 2) .. (0, 2)
+                .. controls (1.11, 2) and (2, 1.11) .. (2, 0);
+  \draw[-] (-2, 0) node[anchor=north]{A} -- (2, 0) node[anchor=north]{B};
+  \draw[-] (-1.414, 1.414) node[anchor=south]{P} -- (-2, 0);
+  \draw[-] (-1.414, 1.414) -- (2, 0);
+  \draw[-] (-1.414, 1.414) -- (0, 0) node[anchor=north]{O};
+\end{tikzpicture}
+
+Suppose $P$ is a random point on the semicircle, then $APB$ is an angle 
+inscribed in a semicircle.
+\begin{equation*}
+\begin{split}
+  \vec{PA} \cdot \vec{PB} &= (\vec{OA} - \vec{OP}) \cdot (\vec{OB} - \vec{OP}) \\
+                          &= \vec{OA} \cdot \vec{OB} + |\vec{OP}|^2 - \vec{OA} \cdot \vec{OP} - \vec{OB} \cdot \vec{OP} \\
+                          &= -|\vec{OA}|^2 + |\vec{OP}|^2 - (\vec{OA} + \vec{OB}) \cdot \vec{OP} \\
+\end{split}
+\end{equation*}
+Given that $APB$ is inscribed in a semicircle, 
+$|\vec{OA}| = |\vec{OB}| = |\vec{OP}|$, and $\vec{OA} = -\vec{OB}$.
+\begin{gather*}
+  \begin{split}
+    \vec{PA} \cdot \vec{PB} &= -|\vec{OA}|^2 + |\vec{OP}|^2 - (\vec{OA} + \vec{OB}) \cdot \vec{OP} \\ 
+                            &= -|\vec{OP}|^2 + |\vec{OP}|^2 - \vec{0} \cdot \vec{OP} \\
+                            &= 0 \\
+  \end{split} \\
+  \vec{PA} \perp \vec{PB}
+\end{gather*}
+Therefore, it is proved that an angle inscribed in a semicircle is a right 
+angle.
+
+8. Prove the trigonometric formula: 
+$\cos(\theta_1 - \theta_2) = \cos\theta_1\cos\theta_2 + \sin\theta_1\sin\theta_2$.
+
+Proof:
+
+Suppose the angle between the unit vector $\vec{u_1}$ and $\vec{i}$ is 
+$\theta_1$, and the angle between the unit vector $\vec{u_2}$ and $\vec{i}$ is 
+$\theta_2$.
+\begin{gather*}
+  \vec{u_1} = <\cos\theta_1, \sin\theta_1> \\
+  \vec{u_2} = <\cos\theta_2, \sin\theta_2> \\
+\end{gather*}
+The angle between $\vec{u_1}$ and $\vec{u_2}$ is $|\theta_1 - \theta_2|$. Hence,
+\begin{gather*}
+  \begin{split}
+    \vec{u_1} \cdot \vec{u_2} &= |\vec{u_1}| \cdot |\vec{u_2}| \cdot \cos(|\theta_1 - \theta_2|) \\
+                              &= |\vec{u_1}| \cdot |\vec{u_2}| \cdot \cos(\theta_1 - \theta_2) \\
+                              &= \cos(\theta_1 - \theta_2) \\
+  \end{split} \\
+  \begin{split}
+    \vec{u_1} \cdot \vec{u_2} &= <\cos\theta_1, \sin\theta_1> \cdot <\cos\theta_2, \sin\theta_2> \\
+                              &= \cos\theta_1\cos\theta_2 + \sin\theta_1\sin\theta_2 \\
+  \end{split} \\
+  \cos(\theta_1 - \theta_2) = \cos\theta_1\cos\theta_2 + \sin\theta_1\sin\theta_2 \\
+\end{gather*}
+
+Therefore, it is proved that 
+$\cos(\theta_1 - \theta_2) = \cos\theta_1\cos\theta_2 + \sin\theta_1\sin\theta_2$.
 
 \subsection*{Unit 3 Determinants}
 
 1. Calculate the value of the determinants\\
 a) $\begin{vmatrix}
     1 & 4 \\
-    2 & -1
-\end{vmatrix}$\\
-b) $\begin{vmatrix}
-    3 & -4 \\
-    -1 & -2
+    2 & -1 \\
 \end{vmatrix}$
 
-2. Calculate $\begin{vmatrix}
-    -1 & 0 & 4 \\
-    1 & 2 & 2 \\
-    3 & -2 & -1
+b) $\begin{vmatrix}
+    3 & -4 \\
+    -1 & -2 \\
+\end{vmatrix}$
+
+Solution:
+
+a)
+\[
+  \begin{vmatrix}
+    1 & 4 \\
+    2 & -1 \\
+  \end{vmatrix} = (1 \times (-1)) - (4 \times 2) = -9
+\]
+
+b)
+\[
+  \begin{vmatrix}
+    3 & -4 \\
+    -1 & -2 \\
+  \end{vmatrix} = (3 \times (-2)) - ((-4) \times (-1)) = -10
+\]
+
+2. Calculate 
+$\begin{vmatrix}
+  -1 & 0 & 4 \\
+  1 & 2 & 2 \\
+  3 & -2 & -1 \\
 \end{vmatrix}$ using the Laplace expansion by the cofactors of:\\
 a) the first row \hspace{10px} b) the first column
 
+Solution:
+
+a)
+\begin{equation*}
+\begin{split}
+  \begin{vmatrix}
+    -1 & 0 & 4 \\
+    1 & 2 & 2 \\
+    3 & -2 & -1 \\
+  \end{vmatrix} 
+  &= (-1) \cdot \begin{vmatrix}
+                  2 & 2 \\
+                  -2 & -1 \\ 
+                \end{vmatrix} -
+     0 \cdot \begin{vmatrix}
+               1 & 2 \\
+               3 & -1 \\ 
+             \end{vmatrix} +
+     4 \cdot \begin{vmatrix}
+               1 & 2 \\
+               3 & -2 \\ 
+             \end{vmatrix} \\ 
+  &= (-1) \times 2 - 0 \times (-7) + 4 \times (-8) \\
+  &= -34 \\
+\end{split}
+\end{equation*}
+
+b)
+\begin{equation*}
+\begin{split}
+  \begin{vmatrix}
+    -1 & 0 & 4 \\
+    1 & 2 & 2 \\
+    3 & -2 & -1 \\
+  \end{vmatrix} 
+  &= (-1) \cdot \begin{vmatrix}
+                  2 & 2 \\
+                  -2 & -1 \\ 
+                \end{vmatrix} -
+     1 \cdot \begin{vmatrix}
+               0 & 4 \\
+               -2 & -1 \\ 
+             \end{vmatrix} +
+     3 \cdot \begin{vmatrix}
+               0 & 4 \\
+               2 & 2 \\ 
+             \end{vmatrix} \\ 
+  &= (-1) \times 2 - 1 \times (8) + 3 \times (-8) \\
+  &= -34 \\
+\end{split}
+\end{equation*}
+
 3. Find the area of the plane triangle whose vertices lie at\\
 a) $(0, 0), (1, 2), (1, -1)$ \hspace{10px} b) $(1, 2), (1, -1), (2, 3)$
+
+Solution:
+
+a) The vectors of the two edges of the plane triangle are $<1, 2>$ and 
+$<1, -1>$. The area of the plane triangle $A$ can be calculated as
+\begin{gather*}
+  \begin{split}
+    det(<1, 2>, <1, -1>) &= \begin{vmatrix}
+                              1 & 2 \\
+                              1 & -1 \\ 
+                            \end{vmatrix} \\
+                         &= -3
+  \end{split} \\
+  A = |det(<1, 2>, <1, -1>)| = 3 \\
+\end{gather*}
+
+b) The vectors of the two edges of the plane triangle are $<0, -3>$ and 
+$<1, 1>$. The area of the plane triangle $A$ can be calculated as
+\begin{gather*}
+  \begin{split}
+    det(<0, -3>, <1, 1>) &= \begin{vmatrix}
+                              0 & -3 \\
+                              1 & 1 \\ 
+                            \end{vmatrix} \\
+                         &= 3
+  \end{split} \\
+  A = |det(<1, 2>, <1, -1>)| = 3 \\
+\end{gather*}
 
 4. a) Show that the value of a $2 \times 2$ determinants is unchanged if you add
 to the second row a scalar multiple of the first row.\\
    b) Show that the value of a $2 \times 2$ determinants is unchanged if you add
 to the second column a scalar multiple of the first column.
 
-5. Use a Laplace expansion and Exercise 5a to show the value of a $3 \times 3$
+Solution:
+
+a)
+\begin{gather*}
+  \begin{vmatrix}
+    a_1 & a_2 \\
+    b_1 & b_2 \\
+  \end{vmatrix} = a_1b_2 - a_2b_1 \\
+  \begin{split}
+    \begin{vmatrix}
+      a_1 & a_2 \\
+      b_1 + c \cdot a_1 & b_2 + c \cdot a_2 \\
+    \end{vmatrix} &= 
+    a_1 \cdot (b_2 + c \cdot a_2) - a_2 \cdot (b_1 + c \cdot a_1) \\
+    &= a_1b_2 + c \cdot a_1a_2 - a_2b_1 - c \cdot a_1a_2 \\
+    &= a_1b_2 - a_2b_1 \\
+  \end{split} \\
+\end{gather*}
+
+b)
+\begin{gather*}
+  \begin{vmatrix}
+    a_1 & a_2 \\
+    b_1 & b_2 \\
+  \end{vmatrix} = a_1b_2 - a_2b_1 \\
+  \begin{split}
+    \begin{vmatrix}
+      a_1 & c \cdot a_1 + a_2 \\
+      b_1 & c \cdot b_1 + b_2 \\
+    \end{vmatrix} &= 
+    a_1 \cdot (c \cdot b_1 + b_2) - b_1 \cdot (c \cdot a_1 + a_2) \\
+    &= c \cdot a_1b_1 + a_1b_2 - c \cdot a_1b_1 - a_2b_1\\
+    &= a_1b_2 - a_2b_1 \\
+  \end{split} \\
+\end{gather*}
+
+5. Use a Laplace expansion and Exercise 4a to show the value of a $3 \times 3$
 determinants is unchanged if you add to the second row a scalar multiple of the
 third row.
+
+Solution:
+
+\begin{gather*}
+  \begin{vmatrix}
+    a_1 & a_2 & a_3 \\
+    b_1 & b_2 & b_3 \\
+    c_1 & c_2 & c_3 \\
+  \end{vmatrix} = 
+  a_1 \cdot \begin{vmatrix}
+              b_2 & b_3 \\
+              c_2 & c_3 \\ 
+            \end{vmatrix} -
+  a_2 \cdot \begin{vmatrix}
+              b_1 & b_3 \\
+              c_1 & c_3 \\
+            \end{vmatrix} + 
+  a_3 \cdot \begin{vmatrix}
+              b_1 & b_2 \\
+              c_1 & c_2 \\ 
+            \end{vmatrix} \\
+  \begin{vmatrix}
+    a_1 & a_2 & a_3 \\
+    b_1 + k \cdot c_1 & b_2 + k \cdot c_2 & b_3 + k \cdot c_3 \\
+    c_1 & c_2 & c_3 \\
+  \end{vmatrix} = 
+  a_1 \cdot \begin{vmatrix}
+              b_2 + k \cdot c_2 & b_3 + k \cdot c_3 \\
+              c_2 & c_3 \\ 
+            \end{vmatrix} - \\
+  a_2 \cdot \begin{vmatrix}
+              b_1 + k \cdot c_1 & b_3 + k \cdot c_3 \\
+              c_1 & c_3 \\
+            \end{vmatrix} + 
+  a_3 \cdot \begin{vmatrix}
+              b_1 + k \cdot c_1 & b_2 + k \cdot c_2 \\
+              c_1 & c_2 \\ 
+            \end{vmatrix} \\
+\end{gather*}
+According to the result of Exercise 4a,
+\begin{gather*}
+  \begin{vmatrix}
+    b_2 + k \cdot c_2 & b_3 + k \cdot c_3 \\
+    c_2 & c_3 \\ 
+  \end{vmatrix} = 
+  \begin{vmatrix}
+    b_2 & b_3 \\
+    c_2 & c_3 \\ 
+  \end{vmatrix} \\
+  \begin{vmatrix}
+    b_1 + k \cdot c_1 & b_3 + k \cdot c_3 \\
+    c_1 & c_3 \\ 
+  \end{vmatrix} = 
+  \begin{vmatrix}
+    b_1 & b_3 \\
+    c_1 & c_3 \\ 
+  \end{vmatrix} \\
+  \begin{vmatrix}
+    b_1 + k \cdot c_1 & b_2 + k \cdot c_2 \\
+    c_1 & c_2 \\ 
+  \end{vmatrix} = 
+  \begin{vmatrix}
+    b_1 & b_2 \\
+    c_1 & c_2 \\ 
+  \end{vmatrix} \\
+\end{gather*}
+Therefore,
+\begin{equation*}
+\begin{split}
+  \begin{vmatrix}
+    a_1 & a_2 & a_3 \\
+    b_1 + k \cdot c_1 & b_2 + k \cdot c_2 & b_3 + k \cdot c_3 \\
+    c_1 & c_2 & c_3 \\
+  \end{vmatrix} 
+  &= a_1 \cdot \begin{vmatrix}
+                 b_2 + k \cdot c_2 & b_3 + k \cdot c_3 \\
+                 c_2 & c_3 \\ 
+               \end{vmatrix} -
+     a_2 \cdot \begin{vmatrix}
+                 b_1 + k \cdot c_1 & b_3 + k \cdot c_3 \\
+                 c_1 & c_3 \\
+               \end{vmatrix} + \\
+     a_3 \cdot \begin{vmatrix}
+                 b_1 + k \cdot c_1 & b_2 + k \cdot c_2 \\
+                 c_1 & c_2 \\ 
+               \end{vmatrix} \\
+  &= a_1 \cdot \begin{vmatrix}
+                 b_2 & b_3 \\
+                 c_2 & c_3 \\ 
+               \end{vmatrix} -
+     a_2 \cdot \begin{vmatrix}
+                 b_1 & b_3 \\
+                 c_1 & c_3 \\
+               \end{vmatrix} + 
+     a_3 \cdot \begin{vmatrix}
+                 b_1 & b_2 \\
+                 c_1 & c_2 \\ 
+               \end{vmatrix} \\
+  &= \begin{vmatrix}
+       a_1 & a_2 & a_3 \\
+       b_1 & b_2 & b_3 \\
+       c_1 & c_2 & c_3 \\
+     \end{vmatrix} \\
+\end{split}
+\end{equation*}
 
 6. Let $(x_{1}, y_{1})$ and $(x_{2}, y_{2})$ both range over all unit vectors.
 Find the maximum value of the function $f(x_{1}, x_{2}, y_{1}, y_{2}) =
