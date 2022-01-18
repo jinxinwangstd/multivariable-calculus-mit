@@ -1,0 +1,159 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{tikz}
+\setlength{\parindent}{0pt}
+
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{definition}{Definition}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{corollary}{Corollary}
+\newtheorem{example}{Example}
+
+\title{Lecture 6: Kepler's Second Law}
+\author{}
+\date{}
+
+\begin{document}
+    
+\maketitle
+
+\section{Describe Motion with Vectors}
+
+With parametric equations, we have a way not only to describe a motion, but also 
+to analyze the motion with more details.
+
+\subsection{Position vectors}
+
+Position vectors are used to describe the position of a point in a motion.
+\[
+  \vec{r}(t) = <x(t), y(t), z(t)>
+\]
+
+Take the cycloid of the wheel of radius 1 rolling at unit speed as an example:
+\[
+  \vec{r}(t) = <t - \sin t, 1 - \cos t>
+\]
+
+\subsection{Velocity vectors}
+
+Velocity vectors are used to describe how fast and in what direction a point 
+moves in a motion.
+\begin{equation*}
+\begin{split}
+  \vec{v} &= \frac{d\vec{r}}{dt} \\
+          &= <\frac{dx}{dt}, \frac{dy}{dt}, \frac{dz}{dt}> \\
+\end{split}
+\end{equation*}
+Speed is a scalar, and used to describe how fast a point moves in a motion.
+\begin{equation*}
+  speed = |\vec{v}|
+\end{equation*}
+
+Take the cycloid of the wheel of radius 1 rolling at unit speed as an example:
+\begin{gather*}
+  \begin{split}
+    \vec{v} &= \frac{d\vec{r}}{dt} \\
+            &= <\frac{d(t - \sin t)}{dt}, \frac{d(1 - \cos t)}{dt}> \\
+            &= <1 - \cos t, \sin t> \\
+  \end{split} \\
+  \begin{split}
+    |\vec{v}| &= \sqrt{(1 - \cos t)^2 + \sin^2 t} \\
+              &= \sqrt{1 - 2\cos t + \cos^2 t + \sin^2 t} \\
+              &= \sqrt{2 - 2\cos t} \\
+  \end{split} \\
+\end{gather*}
+At $t = 0$, the velocity vector $\vec{v} = <0, 0>$, so the speed at that time is
+0.
+
+\subsection{Acceleration vectors}
+
+Acceleration vectors are used to describe how velocity changes in a motion.
+\begin{equation*}
+  \vec{a} = \frac{d\vec{v}}{dt}
+\end{equation*}
+
+Take the cycloid of the wheel of radius 1 rolling at unit speed as an example:
+\begin{equation*}
+\begin{split}
+  \vec{a} &= \frac{d\vec{v}}{dt} \\
+          &= <\frac{d(1 - \cos t)}{dt}, \frac{d(\sin t)}{dt}> \\
+          &= <\sin t, \cos t> \\
+\end{split}
+\end{equation*}
+At $t = 0$, the acceleration vector $\vec{a} = <0, 1>$, which means the point at 
+that time has an acceleration in the positive direction of the $y$ axis. 
+Combining with the previous conclusion that the velocity at this time is 0, it 
+explains why the trajectory between two arches has a vertical tangent line.
+
+\subsection{Arc length}
+
+Arc length, usually denoted by $s$, is the distance traveled along the 
+trajectory of a motion. According to this definition,
+\begin{equation*}
+  \frac{ds}{dt} = speed = |\vec{v}|
+\end{equation*}
+
+Take the cycloid of the wheel of radius 1 rolling at unit speed as an example. 
+The length of an arch of the cycloid is
+\begin{equation*}
+  \int_{0}^{2\pi} \sqrt{2 - 2\cos t} dt
+\end{equation*}
+
+\subsection{Unit tangent vector}
+
+Unit tangent vector, denoted by $\hat{T}$, is an unit vector in the direction of 
+the tangent line at a position in a motion.
+
+Since $\vec{v}$ is a tangent vector,
+\begin{equation*}
+  \hat{T} = \frac{\vec{v}}{|\vec{v}|}
+\end{equation*}
+
+Another definition for the unit tangent vector:
+\begin{gather*}
+  \begin{split}
+    \vec{v} &= \frac{d\vec{r}}{dt} \\
+            &= \frac{d\vec{r}}{ds} \cdot \frac{ds}{dt} \\
+            &= \frac{d\vec{r}}{ds} \cdot |\vec{v}| \\
+  \end{split} \\
+  \begin{split}
+    \frac{d\vec{r}}{ds} &= \frac{\vec{v}}{|\vec{v}|} \\
+                        &= \hat{T} \\
+  \end{split} \\
+  \vec{v} = \hat{T} \cdot \frac{ds}{dt} \\
+\end{gather*}
+
+Therefore, we can see the velocity vector can be interpreted as:
+\begin{enumerate}
+  \item direction: the unit tangent vector $\hat{T}$.
+  \item magnitude: the speed $\frac{ds}{dt}$.
+\end{enumerate}
+
+The geometric interpretation of $\frac{d\vec{r}}{ds} = \hat{T}$: during the time 
+period of $\Delta t$, 
+\begin{gather*}
+  \Delta \vec{r} = \vec{r}(t + \Delta t) - \vec{r}(t) \\
+  \Delta \vec{r} \approx \hat{T} \cdot \Delta s \\
+  \frac{\Delta \vec{r}}{\Delta t} \approx \hat{T} \cdot \frac{\Delta s}{\Delta t} \\
+\end{gather*}
+With $\Delta t$ approaches 0, the above formula becomes
+\begin{gather*}
+  \frac{d\vec{r}}{dt} = \hat{T} \cdot \frac{ds}{dt} \\
+  \frac{d\vec{r}}{ds} = \hat{T} \\
+\end{gather*}
+
+\section{Example of Describing Motion with Vectors: Kepler's Second Law}
+
+\subsection{Kepler's Second Law}
+
+Kepler's Second Law: Motion of planets is in a plane, and the area swept out by 
+the line from sun to planet at a constant rate.
+
+Newton later explain this law with gravitational attraction.
+
+\subsection{Translation with Vector Notations}
+
+\end{document}
