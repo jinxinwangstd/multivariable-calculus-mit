@@ -1,0 +1,91 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{tikz}
+\setlength{\parindent}{0pt}
+
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{definition}{Definition}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{corollary}{Corollary}
+\newtheorem{example}{Example}
+
+\title{Lecture 8: Partial Derivatives}
+\author{}
+\date{}
+
+\begin{document}
+    
+\maketitle
+
+\section{Multivariable Functions}
+
+Multivariable functions are functions whose values depend on more than one 
+independent variables.
+
+Examples of Multivariable functions:
+\begin{itemize}
+  \item $f(x, y) = x^2 + y^2$
+  \item $f(x, y) = \frac{1}{x + y},\, x + y \neq 0$
+  \item $f(x, y) = \frac{1}{\sqrt{y}},\, y > 0$
+  \item The temperature of a certain point on earth at a given time is a 
+  multivariable function of latitude, longitude, and height.
+\end{itemize}
+
+For simplicity, in this course we will mainly study multivariable functions with 
+two or three variables, but the concepts apply to any multivariable functions 
+with any number of variables.
+
+\section{Visualization of Multivariable Functions with Two Variables}
+
+\subsection{Function Graph}
+
+For a single-variable function $f$, we plot the function graph as $(x, f(x))$, 
+which is very straightforward.
+
+For a multivariable function with two variables $f$, we can similarly plot the 
+function graph as $(x, y, f(x, y))$, which is a surface in 3D space.
+
+\begin{example}
+  Plot the graph of the function $f(x, y) = -y$.
+
+  The equation of the function graph is $z = -y$, which is a plane.
+\end{example}
+
+\begin{example}
+  Plot the graph of the function $f(x, y) = 1 - x^2 - y^2$.
+
+  The equation of the function graph is $z = 1 - x^2 - y^2$, whose shape is not 
+  so easy to be identified. \\
+  We can first take a look at the intersection between the function graph and 
+  the $x-z$ plane, which means let $y = 0$. Hence, the equation of the 
+  intersection is $z = 1 - x^2$, which is a parabola. \\
+  We can then take a look at the intersection between the function graph and the 
+  $y-z$ plane, which means let $x = 0$. Hence, the equation of the intersection
+  is $z = 1 - y^2$, which is a parabola. \\
+  Finally, we can take a look at the intersection between the function graph and 
+  the $x-y$ plane, which means let $z = 0$. Hence the equation of the 
+  intersection is $x^2 + y^2 = 1$, which is a unit circle. \\
+  Based on the above information, we can guess the shape of the function graph 
+  is as follows:
+\end{example}
+
+From the above examples, we can see that the graph of multivariable functions 
+with two variables are not only hard to plot, but also often hard to read.
+
+\subsection{Contour Plot}
+
+Contour Plot is another way to visualize multivariable functions with two 
+variables. It basically shows all the points where $f(x, y) =$ some fixed 
+constants, which are chosen at regular intervals. Examples include contour map,
+isotherm map, etc.
+
+From geometric point of view, contour plot is equivalent to using horizontal 
+planes, $z =$ some fixed constants, to slice the function graph and combining 
+the intersection points.
+
+\section{Partial Derivatives}
+
+\end{document}
