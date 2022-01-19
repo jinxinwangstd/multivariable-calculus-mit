@@ -156,4 +156,39 @@ Newton later explain this law with gravitational attraction.
 
 \subsection{Translation with Vector Notations}
 
+The first part of Kepler's Second Law is: motion of planets is in a plane. The 
+plane of planet motion is determined by two vectors: the position vector of the 
+planet $\vec{r}$ and its velocity vector $\vec{v}$. The plane of planet motion 
+remains unchanged $\iff$ the direction of the normal vector of the plane remains
+unchanged $\iff$ $dir(\vec{r} \times \vec{v})$ is constant.
+
+The second part of Kepler's Second Law is: the area swept out by the line from 
+sun to planet at a constant rate. The area swept out in unit time can be 
+calculated as
+\begin{gather*}
+  \begin{split}
+    dA &= \frac{1}{2}|\vec{r} \times d\vec{r}| \\
+       &= \frac{1}{2}|\vec{r} \times \vec{v}| dt \\
+  \end{split} \\
+  \frac{dA}{dt} = \frac{1}{2}|\vec{r} \times \vec{v}| \\
+\end{gather*}
+Therefore, the area swept out by the line from sun to planet at a constant rate 
+$\iff$ $\frac{dA}{dt}$ is constant $\iff$ $|\vec{r} \times \vec{v}|$ is constant.
+
+Therefore, Kepler's Second Law $\iff$ both $dir(\vec{r} \times \vec{v})$ and 
+$|\vec{r} \times \vec{v}|$ are constant $\iff$ $\vec{r} \times \vec{v}$ is 
+constant $\iff$ $\frac{d}{dt}\vec{r} \times \vec{v} = 0$.
+
+\begin{gather*}
+  \frac{d}{dt}\vec{r} \times \vec{v} = 0 \\
+  \frac{d\vec{r}}{dt} \times \vec{v} + \vec{r} \times \frac{d\vec{v}}{dt} = 0 \\
+  \vec{v} \times \vec{v} + \vec{r} \times \vec{a} = 0 \\
+  0 + \vec{r} \times \vec{a} = 0 \\
+  \vec{r} \times \vec{a} = 0 \\
+  \vec{r} \parallel \vec{a} \\
+\end{gather*}
+
+Therefore, Kepler's Second Law holds for any moving object if and only if its 
+acceleration vector is always parallel to its position vector.
+
 \end{document}
