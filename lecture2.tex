@@ -31,17 +31,14 @@ these two vectors?
 
 \begin{tikzpicture}
   [help lines/.style={dashed}]
-  \draw[->] (0, 0, 0) -- 
-    (3, 0, 0) node[anchor=south] {$\vec{A}$};
-  \draw[->] (0, 0, 0) -- 
-    (2, 2, 0) node[anchor=south] {$\vec{B}$};
+  \draw[->] (0, 0, 0) -- (3, 0, 0) node[anchor=south] {$\vec{A}$};
+  \draw[->] (0, 0, 0) -- (2, 2, 0) node[anchor=south] {$\vec{B}$};
   \draw[help lines] (2, 2, 0) -- (2, 0, 0);
-  \draw[->, help lines] (0, 0, 0) -- 
-    (0, 3, 0) node[anchor=east] {$\vec{A'}$};
+  \draw[->, help lines] (0, 0, 0) -- (0, 3, 0) node[anchor=east] {$\vec{A'}$};
   \draw (2, 0.2, 0) -- (1.8, 0.2, 0) -- (1.8, 0, 0);
   \draw (0.2, 0) arc [start angle=0, end angle=45, radius=0.2] 
     node[anchor=west] {$\theta$};
-  \draw (0, 0.2) arc [start angle=90, end angle=45, radius=0.2]
+  \draw (0, 0.2) arc [start angle=90, end angle=45, radius=0.2] 
     node[anchor=south] {$\theta'$};
 \end{tikzpicture}
 
@@ -53,18 +50,14 @@ Apparently
 But it is hard to calculate $\sin\theta$, whereas it is easy to calculate
 $\cos\theta$ with dot products. Therefore, we can rotate $\vec{A}$ towards
 $\vec{B}$ by $90^{\circ}$ to get $\vec{A'}$ and hence
-
-\[
-  \sin\theta = \cos(90^{\circ} - \theta) = \cos(\theta')
-\]
-
-\[
+\begin{gather*}
+  \sin\theta = \cos(90^{\circ} - \theta) = \cos(\theta') \\
   \begin{split}
   Area  &= \frac{1}{2} |\vec{A}| |\vec{B}| \sin\theta \\
         &= \frac{1}{2} |\vec{A'}| |\vec{B}| \cos\theta' \\
-        &= \frac{1}{2} \vec{A'} \cdot \vec{B}
-  \end{split}
-\]
+        &= \frac{1}{2} \vec{A'} \cdot \vec{B} \\
+  \end{split} \\
+\end{gather*}
 
 Suppose that $\vec{A} = <a_1, a_2>$, and $\vec{B} = <b_1, b_2>$, then
 $\vec{A'} = <-a_2, a_1>$. Therefore,
@@ -89,17 +82,14 @@ negative value of the area.
 
 \begin{tikzpicture}
   [help lines/.style={dashed}]
-  \draw[->] (0, 0, 0) -- 
-    (3, 0, 0) node[anchor=south] {$\vec{A}$};
-  \draw[->] (0, 0, 0) -- 
-    (-2, 2, 0) node[anchor=south] {$\vec{B}$};
+  \draw[->] (0, 0, 0) -- (3, 0, 0) node[anchor=south] {$\vec{A}$};
+  \draw[->] (0, 0, 0) -- (-2, 2, 0) node[anchor=south] {$\vec{B}$};
   \draw[help lines] (0, 0, 0) -- (-3, 0, 0);
   \draw[help lines] (-2, 2, 0) -- (-2, 0, 0);
   \draw (-2, 0.2, 0) -- (-1.8, 0.2, 0) -- (-1.8, 0, 0);
   \draw (0.2, 0) arc [start angle=0, end angle=135, radius=0.2] 
     node[anchor=south west] {$\theta$};
-  \draw[->, help lines] (0, 0, 0) -- 
-    (0, 3, 0) node[anchor=east] {$\vec{A'}$};
+  \draw[->, help lines] (0, 0, 0) -- (0, 3, 0) node[anchor=east] {$\vec{A'}$};
   \draw (0, 0.4) arc [start angle=90, end angle=135, radius=0.4]
     node[anchor=south] {$\theta'$};
 \end{tikzpicture}
@@ -230,13 +220,10 @@ your right thumb is pointing to the direction of $\vec{A} \times \vec{B}$.
 \subsubsection{Commutative property}
 Cross product does not satisfy the commutative property.
 
-\[
-  \vec{A} \times \vec{B} \neq \vec{B} \times \vec{A}
-\]
-
-\[
-  \vec{A} \times \vec{B} = - \vec{B} \times \vec{A}
-\]
+\begin{gather*}
+  \vec{A} \times \vec{B} \neq \vec{B} \times \vec{A} \\
+  \vec{A} \times \vec{B} = - \vec{B} \times \vec{A} \\
+\end{gather*}
 
 In particular:
 \[
@@ -248,12 +235,10 @@ Cross product does not satisfy the associative property.
 
 Counter example: Suppose $\vec{A} = <1, 0, 1>$, $\vec{B} = <1, 1, 0>$,
 $\vec{C} = <0, 1, 1>$, then we can get
-\[
-  (\vec{A} \times \vec{B}) \times \vec{C} = <0, 1, -1>
-\]
-\[
-  \vec{A} \times (\vec{B} \times \vec{C}) = <1, 0, -1>
-\]
+\begin{gather*}
+  (\vec{A} \times \vec{B}) \times \vec{C} = <0, 1, -1> \\
+  \vec{A} \times (\vec{B} \times \vec{C}) = <1, 0, -1> \\
+\end{gather*}
 
 \subsection{Application of cross product}
 
@@ -284,12 +269,11 @@ vectors. We usually use $\vec{N}$ to represent a normal vector.
 The result of a cross product of two vectos is a normal vector of the
 parallelogram formed by the two vectos. With that being said, $P$ is in the
 plane if and only if $\vec{P_1P} \perp \vec{N}$, which is equivalent to
-\[
-  \vec{P_1P} \cdot \vec{N} = 0
-\]
-\[
-  \vec{P_1P} \cdot (\vec{P_1P_2} \times \vec{P_1P_3}) = 0
-\]
+\begin{gather*}
+  \vec{P_1P} \cdot \vec{N} = 0 \\
+  \vec{P_1P} \cdot (\vec{P_1P_2} \times \vec{P_1P_3}) = 0 \\
+\end{gather*}
+
 Therefore, the two equations are actually equivalent:
 \[
   det(\vec{P_1P_2}, \vec{P_1P_3}, \vec{P_1P}) = \vec{P_1P} \cdot (\vec{P_1P_2} \times \vec{P_1P_3}) = 0
