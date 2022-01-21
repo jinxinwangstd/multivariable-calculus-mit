@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{tikz}
+\setlength{\parindent}{0pt}
+
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{definition}{Definition}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{corollary}{Corollary}
+\newtheorem{example}{Example}
+\newtheorem{trick}{Trick}
+\newtheorem{question}{Question}
+
+\title{Lecture 9: Max-Min and Least Squares}
+\author{}
+\date{}
+
+\begin{document}
+    
+\maketitle
+
+\section{Application of Partial Derivatives: Optimization Problem}
+
+Optimization problems refer to the tasks of finding the maximum or minimum point 
+of a function. Here we focus on finding the maximum or minimum point of 
+multivariable functions, such as $f(x, y)$.
+
+Another concept is local max/min point, which means the function value of this 
+point is greater/less than the function values of adjacent points, but it is not 
+necessarily the greatest or leaast function value in the function domain.
+
+\begin{theorem}
+  If a point in a function $f$ is a local max/min point, then all of the partial 
+  derivatives at this point are equal to 0.
+
+  Proof: \\
+  We will prove it by contradiction. Suppose there is a local max/min point in a 
+  function $f(x_1, x_2, ..., x_n)$, and one of its partial derivative 
+  $\frac{\partial f}{\partial x_i}$ is not 0. According to the definition of 
+  partial derivatives, in that direction the function values of the two adjacent 
+  point are 
+  \begin{gather*}
+    f(x_1, x_2, ..., x_i + \Delta x_i, ..., x_n) = f(x_1, x_2, ..., x_n) + \frac{\partial f}{\partial x_i} \Delta x_i \\
+    f(x_1, x_2, ..., x_i - \Delta x_i, ..., x_n) = f(x_1, x_2, ..., x_n) - \frac{\partial f}{\partial x_i} \Delta x_i \\
+  \end{gather*}
+  Therefore, one of them is less than the local max/min point and the other is 
+  greater than the local max/min point. Hence, it is not a local max/min point.
+  There is a contradiction.
+
+  Therefore, it is proved that if a point in a function $f$ is a local max/min 
+  point, then all of the partial derivatives at this point are equal to 0.
+\end{theorem}
+
+Therefore, A point is a local max/min point \\
+$\Rightarrow$ All partial derivatives at that point are 0 \\
+$\iff$ The tangent plane at that point is horizontal \\
+$\iff$ The point is a critical point.
+
+\section{Example of Optimization Problem: Least Squares}
+
+\end{document}
