@@ -24,6 +24,8 @@
 
 \section{Application of Partial Derivatives: Optimization Problem}
 
+\subsection{Max-Min}
+
 Optimization problems refer to the tasks of finding the maximum or minimum point 
 of a function. Here we focus on finding the maximum or minimum point of 
 multivariable functions, such as $f(x, y)$.
@@ -58,6 +60,84 @@ Therefore, A point is a local max/min point \\
 $\Rightarrow$ All partial derivatives at that point are 0 \\
 $\iff$ The tangent plane at that point is horizontal \\
 $\iff$ The point is a critical point.
+
+\subsection{Critical Points}
+
+\begin{definition}
+  A point is a critical point of a function $f$ if and only if all the partial 
+  derivatives on this point are equal to 0.
+\end{definition}
+For a multivariable function with two independent variables $f(x, y)$, a point 
+$(x_0, y_0)$ is a critical point if 
+$\frac{\partial f}{\partial x}(x_0, y_0) = 0$ and 
+$\frac{\partial f}{\partial y}(x_0, y_0) = 0$.
+
+\begin{example}
+  Find all the critical points of the function 
+  $f(x, y) = x^2 - 2xy + 3y^2 + 2x - 2y$.
+
+  Solution: \\
+  \begin{gather*}
+    \frac{\partial f}{\partial x} = 2x - 2y + 2 \\
+    \frac{\partial f}{\partial y} = -2x + 6y - 2 \\
+  \end{gather*}
+  For critical points, they should satisfy 
+  \begin{equation*}
+    \left\{ \begin{array}{ll}
+      \frac{\partial f}{\partial x} = 2x - 2y + 2 = 0 \\
+      \frac{\partial f}{\partial y} = -2x + 6y - 2 = 0 \\
+    \end{array} \right. \\
+  \end{equation*}
+  Solving this linear system, the result is $(-1, 0)$. Therefore, there are only 
+  one critical point for this function, which is $(-1, 0)$.
+\end{example}
+
+\subsection{Types of Critical Points}
+
+A critical point of a function $f$ can be 
+\begin{itemize}
+  \item local maximum point
+  \item local minimum point
+  \item saddle point
+\end{itemize}
+
+\begin{question}
+  Is there any other possibilities for a critical point of a multivariable 
+  function? If not, how to prove it?
+\end{question}
+
+How to determine the type of a critical point?
+\begin{itemize}
+  \item Test the second derivative (cover in the next lecture).
+  \item Find the codomain of the function and compare the function value on the 
+  critical point with the codomain.
+\end{itemize}
+
+\begin{example}
+  Find the type of the critical point $(-1, 0)$ of the function 
+  $f(x, y) = x^2 - 2xy + 3y^2 + 2x - 2y$.
+
+  Solution: \\
+  The function value of the critical point $(-1, 0)$ is 
+  \begin{equation*}
+    \begin{split}
+      f(-1, 0) &= (-1)^2 - 2 \times (-1) \times 0 + 3 \times 0^2 + 2 \times (-1) - 2 \times 0 \\
+               &= 1 - 2 \\
+               &= -1 \\
+    \end{split}
+  \end{equation*}
+  To find the codomain of the function, we can transform its formula
+  \begin{equation*}
+    \begin{split}
+      f(x, y) &= x^2 - 2xy + 3y^2 + 2x - 2y \\
+              &= (x - y)^2 + 2y^2 + 2x - 2y \\
+              &= ((x - y)^2 + 2(x - y) + 1) + 2y^2 - 1 \\
+              &= (x - y + 1)^2 + 2y^2 - 1 \\
+    \end{split}
+  \end{equation*}
+  Therefore, it is apparent that the codomain of the function is $[-1, \infty]$. 
+  Hence, the critical point $(-1, 0)$ is the minimum point of the function.
+\end{example}
 
 \section{Example of Optimization Problem: Least Squares}
 
