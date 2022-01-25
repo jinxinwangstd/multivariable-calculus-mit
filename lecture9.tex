@@ -83,10 +83,10 @@ $\frac{\partial f}{\partial y}(x_0, y_0) = 0$.
   \end{gather*}
   For critical points, they should satisfy 
   \begin{equation*}
-    \left\{ \begin{array}{ll}
+    \begin{cases}
       \frac{\partial f}{\partial x} = 2x - 2y + 2 = 0 \\
       \frac{\partial f}{\partial y} = -2x + 6y - 2 = 0 \\
-    \end{array} \right. \\
+    \end{cases} \\
   \end{equation*}
   Solving this linear system, the result is $(-1, 0)$. Therefore, there are only 
   one critical point for this function, which is $(-1, 0)$.
@@ -139,6 +139,67 @@ How to determine the type of a critical point?
   Hence, the critical point $(-1, 0)$ is the minimum point of the function.
 \end{example}
 
-\section{Example of Optimization Problem: Least Squares}
+\section{Example of Optimization Problems: Least Squares}
+
+Given a series of discrete points $(x_1, y_1)$, $(x_2, y_2)$, ..., $(x_n, y_n)$, 
+find the "best fit" line $y = ax + b$.
+
+The task is to find the best values of $a$ and $b$ in the line equation 
+$y = ax + b$.
+
+We can define a distance function about the line equation $y = ax + b$, and find 
+proper values of $a$ and $b$ to minimize the distance function, in other words, 
+find the minimum point $(a_0, b_0)$.
+
+\bigskip
+
+One way to define the distance function about the line equation $y = ax + b$ is 
+to use the total square deviation, where deviation means the vertical distance 
+between an actual point and the line $y = ax + b$, described by the formula 
+$y_i - (ax_i + b)$. This method is called \textbf{least squares}.
+
+Therefore, the distance function is 
+\begin{gather*}
+  \begin{split}
+    D &= (y_1 - ax_1 - b)^2 + (y_2 - ax_2 - b)^2 + ... + (y_n - ax_n - b)^2 \\
+      &= \sum_{i=1}^{n}(y_i - ax_i - b)^2 \\
+  \end{split} \\
+  \frac{\partial D}{\partial a} = \sum_{i=1}^{n}-2x_i(y_i - ax_i - b) \\
+  \frac{\partial D}{\partial b} = \sum_{i=1}^{n}-2(y_i - ax_i - b) \\
+\end{gather*}
+
+To find the minimum point, we need to solve the following system of equations:
+\begin{gather*}
+  \begin{cases}
+    \frac{\partial D}{\partial a} = \sum_{i=1}^{n}-2x_i(y_i - ax_i - b) = 0 \\
+    \frac{\partial D}{\partial b} = \sum_{i=1}^{n}-2(y_i - ax_i - b) = 0 \\
+  \end{cases} \\
+\end{gather*}
+which is a linear system of $a$ and $b$. After simplified, it becomes
+\begin{gather*}
+  \begin{cases}
+    (\sum_{i=1}^{n}x_i^2)a + (\sum_{i=1}^{n}x_i)b = \sum_{i=1}^{n}x_iy_i \\
+    (\sum_{i=1}^{n}x_i)a + nb = \sum_{i=1}^{n}y_i \\
+  \end{cases}
+\end{gather*}
+Therefore, we can solve the linear system to get the critical points of the 
+distance function, and hence get the minimum point $(a_0, b_0)$.
+
+\bigskip
+
+The least squares method can be more general. First of all, it can be used to 
+approximate any polynomial functions, since the deviation is a linear function 
+of unknown parameters. For example,
+\begin{gather*}
+  y = ax^2 + bx + c \\
+  d_i = y_i - ax_i^2 - bx_i - c \\
+\end{gather*}
+Second, for other functions, we can try to transform it into polynomial 
+functions. A typical example is exponential functions:
+\begin{gather*}
+  y = ce^{ax} \\
+  \ln y = ax + \ln c \\
+  d_i = \ln y_i - ax_i - \ln c \\
+\end{gather*}
 
 \end{document}
