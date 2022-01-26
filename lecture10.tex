@@ -22,4 +22,198 @@
     
 \maketitle
 
+How do we know the global maximum or minimum values of a function?
+
+Similar to single-variable functions, the global max/min value of a 
+multivariable function can be the function value of:
+\begin{itemize}
+  \item Either a local max/min point.
+  \item Or the boundary or infinity.
+\end{itemize}
+
+We know that local max/min points are critical points. Then how do we determine 
+the type of a critical point? Except the method we talked about in the previous 
+lecture, there is a systematic way to do it, called 
+\textbf{Second Derivative Test}.
+
+\section{A Simple Case: Quadratic Functions}
+
+Suppose that we have a quadratic multivariable function 
+\begin{equation*}
+  z = f(x, y) = ax^2 + bxy + cy^2, a \neq 0
+\end{equation*}
+We can calculate its partial derivatives and find that $(0, 0)$ is a critical 
+point of the function:
+\begin{gather*}
+  \frac{\partial f}{\partial x} = 2ax + by \\
+  \frac{\partial f}{\partial y} = 2cy + bx \\
+  \frac{\partial f}{\partial x}(0, 0) = 0 \\
+  \frac{\partial f}{\partial y}(0, 0) = 0 \\
+\end{gather*}
+The value of the function on the critical point $(0, 0)$ is 
+\begin{equation*}
+  z = f(0, 0) = a \cdot 0^2 + b \cdot 0 \cdot 0 + c \cdot 0^2 = 0
+\end{equation*}
+Let's try to find the type of this critical point.
+\begin{gather*}
+  \begin{split}
+    z &= ax^2 + bxy + cy^2 \\
+      &= a(x^2 + \frac{b}{a}xy) + cy^2 \\
+      &= a(x^2 + \frac{b}{a}xy + \frac{b^2}{4a^2}y^2) + (c - \frac{b^2}{4a})y^2 \\
+      &= a(x + \frac{b}{2a}y)^2 + \frac{1}{4a}(4ac - b^2)y^2 \\
+      &= \frac{1}{4a}[4a^2(x + \frac{b}{2a}y)^2 + (4ac - b^2)y^2] \\
+  \end{split}
+\end{gather*}
+We can see that the quadratic function is actually a sum of two terms:
+\begin{itemize}
+  \item $4a^2(x + \frac{b}{2a}y)^2$, which is always greater than or equal to 0.
+  \item $(4ac - b^2)y^2$, which is either always greater than or equal to 0, or 
+    always less than or equal to 0, depending on the sign of $(4ac - b^2)$.
+\end{itemize}
+Therefore, we can discuss different cases here:
+\begin{itemize}
+  \item If $4ac - b^2 < 0$, the two terms would have different signs, no matter 
+    what sign the factor $\frac{1}{4a}$ has. Therefore, starting from the 
+    critical point $(0, 0)$, in one direction (perpendicular to the direction 
+    represented by the positive term) the function value would increase, and in 
+    another direction (perpendicular to the direction represented by the 
+    negative term) the function value would decrease. Therefore, the critical 
+    point $(0, 0)$ is actually a \textbf{saddle point}.
+  \item If $4ac - b^2 = 0$, the function is actually $a(x + \frac{b}{2a}y)^2$. 
+    Therefore, the function would have degenerate critical points along a 
+    direction, which is perpendicular to the direction represented by the left 
+    term, and it means along the direction the function value won't change.
+  \item If $4ac - b^2 > 0$, both of the two terms are either $\leq 0$, or 
+    $\geq 0$, depending on the sign of the factor $\frac{1}{4a}$. Therefore,
+    \begin{itemize}
+      \item When $a > 0$, both terms are positive, then the critical point 
+        $(0, 0)$ is a \textbf{local minimum point}.
+      \item When $a < 0$, both terms are negative, then the critical point
+        $(0, 0)$ is a \textbf{local maximum point}.
+    \end{itemize}
+\end{itemize}
+
+\section{General Cases: Second Derivative Test}
+
+\subsection{Second Derivatives}
+
+\textbf{Second derivatives} are partial derivatives of partial derivatives of 
+multivariable functions. For multivariable functions with two independent 
+variables, there are four second derivatives:
+\begin{gather*}
+  \frac{\partial^2 f}{\partial x^2} = f_{xx} \\
+  \frac{\partial^2 f}{\partial x \partial y} = f_{xy} \\
+  \frac{\partial^2 f}{\partial y \partial x} = f_{yx} \\
+  \frac{\partial^2 f}{\partial y^2} = f_{yy} \\
+\end{gather*}
+
+A property of second derivatives is:
+\begin{equation*}
+  \frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x}
+\end{equation*}
+which means the order of partial derivatives taken doesn't affect the result.
+
+\subsection{Rules of Second Derivative Test}
+
+At a critical point $(x_0, y_0)$ of a multivariable function $f$, let
+\begin{gather*}
+  A = f_{xx}(x_0, y_0) \\
+  B = f_{xy}(x_0, y_0) \\
+  C = f_{yy}(x_0, y_0) \\
+\end{gather*}
+The conclusions are as follows:
+\begin{itemize}
+  \item If $AC - B^2 < 0$, then the critical point is a saddle point.
+  \item If $AC - B^2 = 0$, then the type of the critical point is unknown.
+  \item If $AC - B^2 > 0$, then
+    \begin{itemize}
+      \item If $A > 0$, then the critical point is a local minimum point.
+      \item If $A < 0$, then the critical point is a local maximum point.
+    \end{itemize}
+\end{itemize}
+
+We can verify that the second derivative test is consistent with the conclusions 
+we get from the simple quadratic function case in the previous section.
+\begin{gather*}
+  z = f(x, y) = ax^2 + bxy + cy^2 \\
+  f_x = 2ax + by \\
+  f_y = 2cy + bx \\
+  f_{xx} = 2a \\
+  f_{xy} = b \\
+  f_{yx} = b \\
+  f_{yy} = 2c \\
+\end{gather*}
+Therefore
+\begin{gather*}
+  A = f_{xx} = 2a \\
+  B = f_{xy} = b \\
+  C = f_{yy} = 2c \\
+  AC - B^2 = 4ac - b^2 \\
+\end{gather*}
+
+\subsection{Ideas behind Second Derivative Test}
+
+The reason why the second derivative test holds can be explained by quadratic 
+approximation. According to quadratic approximation, the function value around 
+a point $(x_0, y_0)$ can be approximated as
+\begin{gather*}
+  f \approx f(x_0, y_0) + f_x(x - x_0) + f_y(y - y_0) + \frac{1}{2}f_{xx}(x - x_0)^2 + f_{xy}(x - x_0)(y - y_0) + \frac{1}{2}f_{yy}(y - y_0)^2
+\end{gather*}
+
+For critical points, $f_x = f_y = 0$, hence the approximation formula becomes 
+\begin{gather*}
+  f \approx f(x_0, y_0) + \frac{1}{2}f_{xx}(x - x_0)^2 + f_{xy}(x - x_0)(y - y_0) + \frac{1}{2}f_{yy}(y - y_0)^2
+\end{gather*}
+Therefore, the general case reduces to a quadratic function case.
+
+Quadratic approximation also explains why we cannot draw any conclusion about 
+the critical point when $AC - B^2 = 0$, i.e. the degenerate cases. In those cases, 
+the function values along the direction are actually affected by the high-order 
+terms that we ignored in the quadratic approximation. Therefore, we do not 
+really know what the shape of the function graph is around the critical point.
+
+\begin{example}
+  Find the global maximum and minimum values of the function 
+  $f(x, y) = x + y + \frac{1}{xy}, x > 0, y > 0$.
+
+  Solution: \\
+  \begin{gather*}
+    f_x = 1 - \frac{1}{x^2y} \\
+    f_y = 1 - \frac{1}{xy^2} \\
+    f_{xx} = \frac{2}{x^3y} \\
+    f_{xy} = \frac{1}{x^2y^2} \\
+    f_{yy} = \frac{2}{xy^3} \\
+  \end{gather*}
+  Solving the system of equations
+  \begin{equation*}
+    \begin{cases}
+      f_x = 1 - \frac{1}{x^2y} = 0 \\
+      f_y = 1 - \frac{1}{xy^2} = 0 \\
+    \end{cases}
+  \end{equation*}
+  we find that there are only one critical point $(1, 1)$, whose value is $3$.
+
+  According to the second derivative test,
+  \begin{gather*}
+    A = f_{xx}(1, 1) = 2 \\
+    B = f_{xy}(1, 1) = 1 \\
+    C = f_{yy}(1, 1) = 2 \\
+    AC - B^2 = 3 > 0 \\
+    A > 0 \\
+  \end{gather*}
+  Therefore, the critical point $(1, 1)$ is a local minimum point. 
+  
+  Then let's check the boundary and infinity:
+  \begin{gather*}
+    \lim_{x \to 0}f(x, y) = \infty \\
+    \lim_{y \to 0}f(x, y) = \infty \\
+    \lim_{x \to \infty}f(x, y) = \infty \\
+    \lim_{y \to \infty}f(x, y) = \infty \\
+  \end{gather*}
+
+  Therefore, the global minimum point is the only local minimum point $(1, 1)$, 
+  whose value is $3$, and the global maximum point is the boundary or infinity, 
+  where the function value is $\infty$.
+\end{example}
+
 \end{document}
