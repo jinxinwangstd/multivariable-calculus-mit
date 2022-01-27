@@ -1,0 +1,171 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{tikz}
+\setlength{\parindent}{0pt}
+
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{definition}{Definition}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{corollary}{Corollary}
+\newtheorem{example}{Example}
+\newtheorem{trick}{Trick}
+\newtheorem{question}{Question}
+
+\title{Lecture 11: Chain Rule}
+\author{}
+\date{}
+
+\begin{document}
+    
+\maketitle
+
+Now with partial derivatives, we can learn more tools to study multivariable 
+functions.
+
+\section{Total Differential}
+
+Total differential describes the rate of change of the value of a function in 
+terms of all variables.
+
+Suppose there is a function $f(x, y, z)$:
+\begin{gather*}
+  \begin{split}
+    df &= f_xdx + f_ydy + f_zdz \\
+       &= \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy + \frac{\partial f}{\partial z}dz \\
+  \end{split}
+\end{gather*}
+Notice that $df$ is not a real number, nor is it $\Delta f$. It is an abstract 
+notion. So are $dx$, $dy$, and $dz$.
+
+\begin{question}
+  What is the intuitive way to understand the total differential formula? It is 
+  hard to reason about whether it is valid or not.
+\end{question}
+
+How do we use the total differential?
+\begin{itemize}
+  \item The total differential encodes how changes in independent variables 
+    affect the function value.
+  \item We can replace $dx$, $dy$, and $dz$ with small variations $\Delta x$, 
+    $\Delta y$, and $\Delta z$ to get approximated change of the function value, 
+    which is the approximation formula:
+    \begin{equation*}
+      \Delta f \approx f_x \Delta x + f_y \Delta y + f_z \Delta z
+    \end{equation*}
+  \item We can divide both sides of the total differential by the differential 
+    of a common parameter, such as $dt$, to get the rate of change in terms of 
+    this common parameter.
+\end{itemize}
+
+\section{Chain Rule}
+
+Actually, the third usage of the total differential described above derives the 
+formula of chain rule in multivariable functions.
+
+Suppose there is a function $f(x, y, z)$, and there exists $x = x(t)$, 
+$y = y(t)$, and $z = z(t)$, then
+\begin{equation*}
+  \begin{split}
+    \frac{df}{dt} &= f_x \frac{dx}{dt} + f_y \frac{dy}{dt} + f_z \frac{dz}{dt} \\
+                  &= \frac{\partial f}{\partial x}\frac{dx}{dt} + \frac{\partial f}{\partial y}\frac{dy}{dt} + \frac{\partial f}{\partial z}\frac{dz}{dt} \\
+  \end{split}
+\end{equation*}
+
+Why is the formula of chain rule valid?
+
+We can start with the approximation formula. We know that
+\begin{equation*}
+  \Delta f \approx f_x \Delta x + f_y \Delta y + f_z \Delta z
+\end{equation*}
+Then we can divide both sides of the equation by a change of the parameter $t$, 
+which is $\Delta t$:
+\begin{equation*}
+  \frac{\Delta f}{\Delta t} \approx f_x \frac{\Delta x}{\Delta t} + f_y \frac{\Delta y}{\Delta t} + f_z \frac{\Delta z}{\Delta t}
+\end{equation*}
+With $\Delta t \to 0$, according to the definition of derivatives:
+\begin{gather*}
+  \lim_{\Delta t \to 0}\frac{\Delta f}{\Delta t} = \frac{df}{dt} \\
+  \lim_{\Delta t \to 0}\frac{\Delta x}{\Delta t} = \frac{dx}{dt} \\
+  \lim_{\Delta t \to 0}\frac{\Delta y}{\Delta t} = \frac{dy}{dt} \\
+  \lim_{\Delta t \to 0}\frac{\Delta z}{\Delta t} = \frac{dz}{dt} \\
+\end{gather*}
+and the approximation becomes more and more accurate. Eventually
+\begin{equation*}
+  \frac{df}{dt} = f_x \frac{dx}{dt} + f_y \frac{dy}{dt} + f_z \frac{dz}{dt}
+\end{equation*}
+
+\begin{example}
+  Given that $w = f(x, y, z) = x^2y + z$, $x = t$, $y = e^t$, and $z = \sin t$, 
+  find $\frac{dw}{dt}$.
+
+  Solution:
+
+  \begin{gather*}
+    \frac{dw}{dt} = f_x \frac{dx}{dt} + f_y \frac{dy}{dt} + f_z \frac{dz}{dt} \\
+    f_x = 2xy = 2te^t \\
+    f_y = x^2 = t^2 \\
+    f_z = 1 \\
+    \frac{dx}{dt} = 1 \\
+    \frac{dy}{dt} = e^t \\
+    \frac{dz}{dt} = \cos t \\
+    \begin{split}
+      \frac{dw}{dt} &= f_x \frac{dx}{dt} + f_y \frac{dy}{dt} + f_z \frac{dz}{dt} \\
+                    &= 2t \cdot e^t \cdot 1 + t^2 \cdot e^t + 1 \cdot \cos t \\
+                    &= 2te^t + t^2e^t + \cos t \\
+    \end{split} \\
+  \end{gather*}
+
+  We can verify the result by first find the formula of $w$ with respect to $t$, 
+  and then calculate its derivative:
+  \begin{gather*}
+    \begin{split}
+      w &= x^2y + z \\
+        &= t^2e^t + \sin t \\
+    \end{split} \\
+    \begin{split}
+      \frac{dw}{dt} &= \frac{d(t^2e^t + \sin t)}{dt} \\
+                    &= 2te^t + t^2e^t + \cos t \\
+    \end{split} \\
+  \end{gather*}
+  The results from the two methods are the same.
+\end{example}
+
+We can use chain rule of multivariable functions to derive the product and 
+quotient rule of derivatives of single-variable functions:
+\begin{itemize}
+  \item Product rule:
+    \begin{gather*}
+      f = u \cdot v \\
+      \begin{split}
+        \frac{df}{dt} &= \frac{d(u \cdot v)}{dt} \\
+                      &= f_u \frac{du}{dt} + f_v \frac{dv}{dt} \\
+                      &= \frac{du}{dt} v + u \frac{dv}{dt} \\
+      \end{split} \\
+    \end{gather*}
+  \item Quotient rule:
+    \begin{gather*}
+      f = \frac{u}{v} \\
+      \begin{split}
+        \frac{df}{dt} &= \frac{d(\frac{u}{v})}{dt} \\
+                      &= f_u \frac{du}{dt} + f_v \frac{dv}{dt} \\
+                      &= \frac{1}{v} \cdot \frac{du}{dt} + \frac{-u}{v^2} \cdot \frac{dv}{dt} \\
+                      &= \frac{\frac{du}{dt}v - u\frac{dv}{dt}}{v^2} \\
+      \end{split} \\
+    \end{gather*}
+\end{itemize}
+
+\section{Chain Rule with More Variables}
+
+Suppose there is a function $w = f(x, y)$, where $x = x(u, v)$, and 
+$y = y(u, v)$, how to find the total differential of $w$ with respect to $u$ and 
+$v$?
+
+According to the total differential formula,
+\begin{equation*}
+  dw = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy
+\end{equation*}
+
+\end{document}
