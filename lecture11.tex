@@ -45,6 +45,13 @@ notion. So are $dx$, $dy$, and $dz$.
   hard to reason about whether it is valid or not.
 \end{question}
 
+\begin{question}
+  If we read the total differential formula from left to right, it seems that we 
+  distribute the change in the function value into different dimensions 
+  according to partial derivatives. Is this the correct way to understand this 
+  formula?
+\end{question}
+
 How do we use the total differential?
 \begin{itemize}
   \item The total differential encodes how changes in independent variables 
@@ -159,6 +166,8 @@ quotient rule of derivatives of single-variable functions:
 
 \section{Chain Rule with More Variables}
 
+\subsection{Formula of Chain Rule with More Variable}
+
 Suppose there is a function $w = f(x, y)$, where $x = x(u, v)$, and 
 $y = y(u, v)$, how to find the total differential of $w$ with respect to $u$ and 
 $v$?
@@ -167,5 +176,61 @@ According to the total differential formula,
 \begin{equation*}
   dw = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy
 \end{equation*}
+If we apply the total differential formula to the independent variables, then we 
+get
+\begin{gather*}
+  dx = \frac{\partial x}{\partial u}du + \frac{\partial x}{\partial v}dv \\
+  dy = \frac{\partial y}{\partial u}du + \frac{\partial y}{\partial v}dv \\
+\end{gather*}
+Therefore
+\begin{gather*}
+  \begin{split}
+    dw &= \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy \\
+       &= \frac{\partial f}{\partial x}(\frac{\partial x}{\partial u}du + \frac{\partial x}{\partial v}dv) + \frac{\partial f}{\partial y}(\frac{\partial y}{\partial u}du + \frac{\partial y}{\partial v}dv) \\
+       &= (\frac{\partial f}{\partial x} \cdot \frac{\partial x}{\partial u} + \frac{\partial f}{\partial y} \cdot \frac{\partial y}{\partial u})du + (\frac{\partial f}{\partial x} \cdot \frac{\partial x}{\partial v} + \frac{\partial f}{\partial y} \cdot \frac{\partial y}{\partial v})dv \\
+  \end{split} \\
+  \frac{\partial w}{\partial u} = \frac{\partial f}{\partial x} \cdot \frac{\partial x}{\partial u} + \frac{\partial f}{\partial y} \cdot \frac{\partial y}{\partial u} \\
+  \frac{\partial w}{\partial v} = \frac{\partial f}{\partial x} \cdot \frac{\partial x}{\partial v} + \frac{\partial f}{\partial y} \cdot \frac{\partial y}{\partial v} \\
+\end{gather*}
+That's the chain rule of multivariable functions where the independent variables 
+are also multivariable functions of some parameters.
+
+Notice that
+\begin{equation*}
+  \frac{\partial f}{\partial x} \cdot \frac{\partial x}{\partial u} \neq \frac{\partial f}{\partial u}
+\end{equation*}
+Since they are only part of the change, rather than the full change $dx$, they 
+cannot be cancelled.
+
+\subsection{Intuition behind the Formula}
+
+Why the formula is valid?
+
+Suppose that there is a small change in the independent variable $u$, the change 
+affects the values of both $x$ and $y$, described by their corresponding partial 
+derivatives. Then the change of $x$ and $y$ affects the value of $w$ eventually, 
+and the relation is described by the total differential formula.
+
+So the chain rule actually describes the propogation relation between 
+independent variables and some function values.
+
+\begin{example}
+  Conversion between Cartesian coordinate system and polar coordinate system.
+
+  Suppose there is a function formula described in Cartesian coordinate system 
+  $f(x, y)$.
+  \begin{gather*}
+    x = r \cos\theta \\
+    y = r \sin\theta \\
+    \begin{split}
+      \frac{\partial f}{\partial r} &= \frac{\partial f}{\partial x}\frac{\partial x}{\partial r} + \frac{\partial f}{\partial y}\frac{\partial y}{\partial r} \\
+                                    &= \frac{\partial f}{\partial x} \cos\theta + \frac{\partial f}{\partial y} \sin\theta \\
+    \end{split} \\
+    \begin{split}
+      \frac{\partial f}{\partial \theta} &= \frac{\partial f}{\partial x}\frac{\partial x}{\partial \theta} + \frac{\partial f}{\partial y}\frac{\partial y}{\partial \theta} \\
+                                         &= -r \sin\theta \frac{\partial f}{\partial x} + r \cos\theta \frac{\partial f}{\partial y} \\
+    \end{split} \\
+  \end{gather*}
+\end{example}
 
 \end{document}
