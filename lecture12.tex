@@ -1,0 +1,41 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{tikz}
+\setlength{\parindent}{0pt}
+
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{definition}{Definition}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{corollary}{Corollary}
+\newtheorem{example}{Example}
+\newtheorem{trick}{Trick}
+\newtheorem{question}{Question}
+
+\title{Lecture 12: Gradient}
+\author{}
+\date{}
+
+\begin{document}
+    
+\maketitle
+
+\section{Gradient}
+
+According to the chain rule, suppose that there is a function $w = w(x, y, z)$, 
+where $x = x(t)$, $y = y(t)$, and $z = z(t)$, then
+\begin{gather*}
+  \begin{split}
+    \frac{dw}{dt} &= w_x \frac{dx}{dt} + w_y \frac{dy}{dt} + w_z \frac{dz}{dt} \\
+                  &= <w_x, w_y, w_z> \cdot <\frac{dx}{dt}, \frac{dy}{dt}, \frac{dz}{dt}> \\
+                  &= \nabla w \cdot \frac{d\vec{r}}{dt} \\
+  \end{split} \\
+  \nabla w = <w_x, w_y, w_z> \\
+\end{gather*}
+The vector $<w_x, w_y, w_z>$ is called gradient, denoted as $\nabla w$.
+
+\section{Directional Derivatives}
+
+\end{document}
