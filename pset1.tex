@@ -1123,7 +1123,31 @@ $\frac{\pi}{4}$.
 
 Solution:
 
+\begin{gather*}
+  \vec{PQ} = <-2, 1, 1> \\
+  \vec{PR} = <-1, 0, 1> \\
+  \vec{PS} = <2, 1, -2> \\
+\end{gather*}
 
+According to the geometric interpretation of $3 \times 3$ determinants, the 
+volume of the tetrahedron with the described vertices can be calculated as
+\begin{gather*}
+  \begin{split}
+    det(\vec{PQ}, \vec{PR}, \vec{PS}) 
+    &= \begin{vmatrix}
+         -2 & 1 & 1 \\
+         -1 & 0 & 1 \\
+         2 & 1 & -2 \\
+       \end{vmatrix} \\
+    &= -2 \times (-1) - 1 \times 0 + 1 \times (-1) \\
+    &= 1
+  \end{split} \\
+  \begin{split}
+    V &= |det(\vec{PQ}, \vec{PR}, \vec{PS})| \\
+      &= 1 \\
+  \end{split} \\
+\end{gather*}
+Therefore, the volume of the described tetrahedron is 1.
 
 \begin{center}
 \section*{Part II}
@@ -1131,14 +1155,108 @@ Solution:
 
 1. Find the dihedral angle between two faces of a regular tetrahedron.
 
+Solution:
+
+\begin{definition}
+  A dihedral angle is the angle between two intersecting planes or half-planes.
+\end{definition}
+
+\begin{definition}
+  A regular tetrahedron is a tetrahedron in which all four faces are equilateral 
+  triangles.
+\end{definition}
+
+\begin{definition}
+  In geometry, an equilateral triangle is a triangle in which all three sides 
+  have the same length.
+\end{definition}
+
+\begin{tikzpicture}
+  [help line/.style={dashed}]
+  \draw[->] (-3, 0, 0) -- (3, 0, 0) node[below right] {x};
+  \draw[->] (0, -1, 0) -- (0, 3, 0) node[right] {y};
+  \draw (0, 0) node[below right] {O};
+  \draw[-] (-1, 0, 0) -- (1, 0, 0);
+  \draw[-] (-1, 0, 0) -- (0, 1.732, 0);
+  \draw[-] (1, 0, 0) -- (0, 1.732, 0);
+  \draw (0, 1.732) node[above] {A};
+  \draw (-1, 0) node[left] {B};
+  \draw (1, 0) node[right] {C};
+  \draw[help line] (0, 1.732, 0) -- (0, 0, 0);
+  \draw[help line] (-1, 0, 0) -- (0.5, 0.866, 0);
+  \draw[help line] (1, 0, 0) -- (-0.5, 0.866, 0);
+  \draw (0, 0.577) node[below right] {S'};
+\end{tikzpicture}
+
+Suppose that there is a regular tetrahedron whose length is 2. Let A, B, C, S 
+denote the four vertices of the tetrahedron, and we'll build a Cartesian 
+coordinate system as shown in the diagram.
+
+According to the geometric property of a regular tetrahedron, we can get 
+the coordinates of the four vertices:
+\[ A = (0, \sqrt{3}, 0), B = (-1, 0, 0), C = (1, 0, 0), S = (0, \frac{\sqrt{3}}{3}, \frac{2\sqrt{3}}{3})\]
+
+To calculate the dihedral angle between two planes, we can find a point on the 
+intersection line, and from that point find two lines in two planes respectively 
+which is perpendicular to the intersection line. 
+
+In this case, we 'll try to find the dihedral angle between the plane $ABC$ and 
+$SBC$, using the point $O$ as the starting point and hence $BC$ as the 
+intersection line. According to the geometric property of equilateral triangles:
+\[ OA \perp BC, OS \perp BC \]
+Therefore, the dihedral angle between the plane $ABC$ and $SBC$ is the angle 
+$\angle{AOS}$ between the line $OA$ and $OS$.
+\begin{gather*}
+  \vec{OA} = <0, \sqrt{3}, 0> \\
+  \vec{OS} = <0, \frac{\sqrt{3}}{3}, \frac{2\sqrt{3}}{3}> \\
+  \begin{split}
+    \cos\angle{AOS} &= \frac{\vec{OA} \cdot \vec{OS}}{|\vec{OA}| \cdot |\vec{OS}|} \\
+                    &= \frac{0 \times 0 + \sqrt{3} \times \frac{\sqrt{3}}{3} + 0 \times \frac{2\sqrt{3}}{3}}{\sqrt{3} \times \sqrt{(\frac{\sqrt{3}}{3})^2 + (\frac{2\sqrt{3}}{3})^2}} \\
+                    &= \frac{\sqrt{5}}{5} \\
+  \end{split} \\
+  \angle{AOS} = cos^{-1}(\frac{\sqrt{5}}{5}) \\
+\end{gather*}
+Therefore, the dihedral angle between two faces of a regular tetrahedron is 
+$cos^{-1}(\frac{\sqrt{5}}{5})$.
+
 2. a) Show that the 'polarization identity'
-$\frac{1}{4}\left( |\vec{u} + \vec{v}|^{2} - |\vec{u} - \vec{v}|^{2} \right) =
-\vec{u} \cdot \vec{v}$ holds for any two n-vectors $\vec{u}$ and $\vec{v}$. (Use
-vector algebra, not components.) \\
+$\frac{1}{4}(|\vec{u} + \vec{v}|^{2} - |\vec{u} - \vec{v}|^{2}) = \vec{u} \cdot \vec{v}$ 
+holds for any two n-vectors $\vec{u}$ and $\vec{v}$. (Use vector algebra, not 
+components.) \\
 b) Given two non-zero vectors $\vec{u}$ and $\vec{v}$, give the formula for the
 unit vector which bisects the (smaller) angle between $\vec{u}$ and $\vec{v}$.
 (Use the notation $\hat{\vec{u}}$ for the unit vector in the $\vec{u}$ -
 direction.)
+
+Solution:
+
+a) Proof:
+\begin{gather*}
+  \begin{split}
+    \frac{1}{4}(|\vec{u} + \vec{v}|^{2} - |\vec{u} - \vec{v}|^{2}) &= \frac{1}{4}((\vec{u} + \vec{v})^2 - (\vec{u} - \vec{v})^2) \\
+                                                                   &= \frac{1}{4}((\vec{u}^2 + \vec{v}^2 + 2\vec{u} \cdot \vec{v}) - (\vec{u}^2 + \vec{v}^2 - 2\vec{u} \cdot \vec{v})) \\
+                                                                   &= \frac{1}{4}(4\vec{u} \cdot \vec{v}) \\
+                                                                   &= \vec{u} \cdot \vec{v} \\
+  \end{split} \\
+\end{gather*}
+
+b) According to the geometric interpretation of the addition of vectors, for two 
+unit vectors $\vec{a}$ and $\vec{b}$, the vector $\vec{a} + \vec{b}$ bisects the 
+(smaller) angle between $\vec{a}$ and $\vec{b}$ because $\vec{a}$, $\vec{b}$, 
+and $\vec{a} + \vec{b}$ would form an isosceles triangle where the $\vec{a}$ and 
+$\vec{b}$ are the two side that have equal lengths.
+
+Therefore, to find the unit vector which bisects the (smaller) angle between 
+$\vec{u}$ and $\vec{v}$, we can find the unit vector which bisects the (smaller) 
+angle between $\hat{\vec{u}}$ and $\hat{\vec{v}}$, which is
+\begin{gather*}
+  \begin{split}
+    \vec{w} &= \frac{\hat{\vec{u}} + \hat{\vec{v}}}{|\hat{\vec{u}} + \hat{\vec{v}}|} \\
+            &= \frac{\frac{\vec{u}}{|\vec{u}|} + \frac{\vec{v}}{|\vec{v}|}}{\sqrt{(\frac{\vec{u}}{|\vec{u}|} + \frac{\vec{v}}{|\vec{v}|})^2}} \\
+            &= \frac{\frac{|\vec{v}| \cdot \vec{u} + |\vec{u}| \cdot \vec{v}}{|\vec{u}| \cdot |\vec{v}|}}{\sqrt{2 + 2\frac{\vec{u} \cdot \vec{v}}{|\vec{u} \cdot |\vec{v}|}}} \\
+            &= \frac{|\vec{v}| \cdot \vec{u} + |\vec{u}| \cdot \vec{v}}{\sqrt{2|\vec{u}|^2 \cdot |\vec{v}|^2 + 2|\vec{u}||\vec{v}|\vec{u} \cdot \vec{v}}}
+  \end{split} \\
+\end{gather*}
 
 3. In this problem we examine tacking, which is the process sailboats use to
 travel against the wind. Sails are a familar tool to harness the energy of the
