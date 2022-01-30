@@ -1283,17 +1283,66 @@ resultant force is projected on the axis of the boat to find the direction the
 boat is being pushed. By orienting the sail correctly this double projection
 can result in a vector with a component pointing into the wind.
 
-In the picture $\vec{w} = a \vec{i}$ is the wind direction. The line $l_{s}$
-is perpendicular to the sail (with $0 \leq \alpha \leq \frac{\pi}{2}$). And the
-line $l_{B}$ is along the boat's axis (with $0 \leq \beta \leq \frac{\pi}{2}$).
+\begin{tikzpicture}
+  [help line/.style={dashed}]
+  \draw[help line] (-3, 0, 0) -- (3, 0, 0) node[right] {x};
+  \draw[help line] (0, -3, 0) -- (0, 3, 0) node[above] {y};
+  \draw[->] (0, 0, 0) -- (2, 0, 0) node[below] {$\vec{w} = a\vec{i}$};
+  \draw[-] (-1, -1.732, 0) -- (1, 1.732, 0) node[above right] {$l_s$};
+  \draw[-] (1, -1.732, 0) -- (-1, 1.732, 0) node[above left] {$l_B$};
+  \draw (0, 0, 0) node[above right] {$\alpha$};
+  \draw (0, 0, 0) node[above] {$\beta$};
+\end{tikzpicture}
 
-a) Let $\vec{w_{1}}$ be the projection of $\vec{w}$ onto the line $l_{s}$. Show
-that $\vec{w_{1}}$ does not have a non-zero component in the direction opposite
+In the picture $\vec{w} = a \vec{i}$ is the wind direction. The line $l_s$ is 
+perpendicular to the sail (with $0 \leq \alpha \leq \frac{\pi}{2}$). And the 
+line $l_B$ is along the boat's axis (with $0 \leq \beta \leq \frac{\pi}{2}$).
+
+a) Let $\vec{w_1}$ be the projection of $\vec{w}$ onto the line $l_s$. Show that 
+$\vec{w_1}$ does not have a non-zero component in the direction opposite 
 $\vec{w}$. (It is sufficient to show the projections on the sketch.)
 
 b) Find the projection of $\vec{w_{1}}$ onto $l_{B}$. (Give an explicit formula
 in terms of $\alpha$ and $\beta$.) What is the condition on $\alpha$ and $\beta$
 that this projection has a component in the $-\vec{i}$ direction? (For warmup
 you might try the specific case $\alpha = \frac{\pi}{3} = \beta$.)
+
+Solution:
+
+a) According to the definition of additions and decomposition of vectors, the 
+projection $\vec{w_1}$ of $\vec{w}$ along the line $l_s$ must have an acute 
+angle, which is $\alpha$, with $\vec{w}$. Therefore, $\vec{w_1}$ has an obtuse 
+angle with the reverse direction of $\vec{w}$. Therefore, according to the rule 
+of vector decomopsition, $\vec{w_1}$ cannot have a non-zero component on the 
+reverse direction of $\vec{w}$. 
+
+b) Let $\vec{w_B}$ denote the projection vector of $\vec{w_1}$ onto $l_B$. Then
+\begin{gather*}
+  \begin{split}
+    |\vec{w_B}| &= |\vec{w_1}| \cos\beta \\
+                &= |\vec{w}| \cos\alpha \cos\beta \\
+                &= a \cos\alpha \cos\beta \\
+  \end{split} \\
+\end{gather*}
+From geometric point of view, for the projection of $\vec{w_B}$ on the x axis, 
+we can see from the diagram that if $l_B$ passes the second quadrant, 
+$\vec{w_B}$ would has a non-zero component along the reverse direction of 
+$\vec{i}$. Therefore, the condition is that $\alpha + \beta > \frac{\pi}{2}$.
+
+From analytical point of view, the component of $\vec{w_B}$ on the $-\vec{i}$ 
+direction can be calculated as
+\begin{gather*}
+  \begin{split}
+    |\vec{w_B}| \cos(\pi - \alpha - \beta) = -|\vec{w_B}| \cos(\alpha + \beta)
+  \end{split}
+\end{gather*}
+Therefore, to make sure the component on the $-\vec{i}$ direction is non-zero, 
+the condition is:
+\begin{itemize}
+  \item $|\vec{w_B}|$ is non-zero, which is guaranteed by the values of $a$, 
+    $\alpha$ and $\beta$.
+  \item $\cos(\alpha + \beta) < 0$, which is equivalent to 
+    $\alpha + \beta > \frac{\pi}{2}$.
+\end{itemize}
 
 \end{document}
