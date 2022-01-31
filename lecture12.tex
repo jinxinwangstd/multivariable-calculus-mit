@@ -11,8 +11,8 @@
 \newtheorem*{lemma}{Lemma}
 \newtheorem*{corollary}{Corollary}
 \newtheorem{example}{Example}
-\newtheorem{trick}{Trick}
-\newtheorem{question}{Question}
+\newtheorem*{trick}{Trick}
+\newtheorem*{question}{Question}
 
 \title{Lecture 12: Gradient}
 \author{}
@@ -24,6 +24,8 @@
 
 \section{Gradient}
 
+\subsection{Introduce Gradient}
+
 According to the chain rule, suppose that there is a function $w = w(x, y, z)$, 
 where $x = x(t)$, $y = y(t)$, and $z = z(t)$, then
 \begin{gather*}
@@ -33,9 +35,128 @@ where $x = x(t)$, $y = y(t)$, and $z = z(t)$, then
                   &= \nabla w \cdot \frac{d\vec{r}}{dt} \\
   \end{split} \\
   \nabla w = <w_x, w_y, w_z> \\
+  \frac{d\vec{r}}{dt} = <\frac{dx}{dt}, \frac{dy}{dt}, \frac{dz}{dt}> \\
 \end{gather*}
-The vector $<w_x, w_y, w_z>$ is called gradient, denoted as $\nabla w$.
+The vector $<w_x, w_y, w_z>$ is called gradient, denoted as $\nabla w$. 
+Gradients on different positions can have different directions and magnitude.
+
+\subsection{A Property of Gradient}
+
+\begin{theorem}
+  The gradient of a function is always perpendicular to the level surfaces of 
+  the function, where a level surface means the set of points on the function 
+  domain whose function values are equal to a constant.
+\end{theorem}
+Notice that the level surfaces refer to points in the function domain, rather 
+than on the function graph. It doesn't include the dimension of the function 
+value.
+
+\begin{example}
+  Examine the relation between the gradient and the level surfaces for the 
+  function $w = a_1x + a_2y + a_3z$.
+
+  \begin{gather*}
+    \frac{\partial w}{\partial x} = a_1 \\
+    \frac{\partial w}{\partial y} = a_2 \\
+    \frac{\partial w}{\partial z} = a_3 \\
+    \nabla w = <a_1, a_2, a_3> \\
+  \end{gather*}
+
+  The level surfaces of the function $w = a_1x + a_2y + a_3z = c$, where $c$ is 
+  any constant, are a series of planes parallel to each other. For any level 
+  surfaces of the function, the gradient $\nabla w$ is a normal vector to it. 
+  Therefore, the gradient is always perpendicular to the level surfaces for the 
+  function $w = a_1x + a_2y + a_3z$.
+\end{example}
+
+\begin{example}
+  Examine the relation between the gradient and the level surfaces for the 
+  function $w = x^2 + y^2$.
+
+  \begin{gather*}
+    \frac{\partial w}{\partial x} = 2x \\
+    \frac{\partial w}{\partial y} = 2y \\
+    \nabla w = <2x, 2y> = <x, y> \\
+  \end{gather*}
+
+  The level surfaces of the function $w = x^2 + y^2 = c$, where $c$ is any 
+  constant, are a series of circles whose centers are the origin. At any point 
+  $(x_0, y_0)$ in the function domain, the gradient vector is $<x_0, y_0>$, 
+  which has the same direction as the radius through $(x_0, y_0)$ on the level 
+  surface $x^2 + y^2 = x_0^2 + y_0^2$. A circle's radius is always perpendicular 
+  to the circle, hence the gradient vector is perpendicular to the level surface. 
+  Therefore, the gradient is always perpendicular to the level surfaces for the 
+  function $w = x^2 + y^2$.
+\end{example}
+
+Proof of the theorem:
+
+Suppose there is a curve $\vec{r} = \vec{r}(t)$ that always stays on a level 
+surface of a function $f$. The velocity vector $\frac{d\vec{r}}{dt}$ is tangent 
+to the curve, and therefore tangent to the level surface on which the curve 
+stays.
+
+By chain rule, on any level surfaces it satisfies the following equation:
+\begin{equation*}
+  \frac{df}{dt} = \nabla f \cdot \frac{d\vec{r}}{dt} = 0
+\end{equation*}
+Therefore, at any points of a curve that stays on a level surface:
+\begin{equation*}
+  \nabla f \perp \frac{d\vec{r}}{dt}
+\end{equation*}
+The same reasoning applies to any curves on a level surface, so at any points on 
+a level surface, the gradient $\nabla f$ is perpendicular to velocity vectors of 
+every directiona, which are tangent to the level surface. Therefore, at any 
+points on a level surface, the gradient $\nabla f$ is perpendicular to the 
+tangent plane to the level surface.
+
+\subsection{Application of Gradient}
+
+We can use gradients to find the equation of the tangent line of a function 
+graph at any points.
+
+\begin{example}
+  Find the equation of the tangent plane to the surface $x^2 + y^2 - z^2 = 4$ at 
+  the point (2, 1, 1).
+
+  Solution:
+
+  The surface $x^2 + y^2 - z^2 = 4$ is a level surface of the function 
+  $w = x^2 + y^2 - z^2$.
+  \begin{gather*}
+    \frac{\partial w}{\partial x} = 2x \\
+    \frac{\partial w}{\partial y} = 2y \\
+    \frac{\partial w}{\partial z} = -2z \\
+    \nabla w = <2x, 2y, -2z> = <x, y, -z> \\
+  \end{gather*}
+  Hence the gradient of the function at the point (2, 1, 1) is $<2, 1, -1>$. 
+  According to the property of gradients, the gradient is perpendicular to the 
+  tangent plane of the corresponding level surface at the point. Therefore, the 
+  equation of the tangent plane is 
+  \[ 2x + y - z = c, \textnormal{where c is a constant} \]
+  Then we can substitute the coordinate of the point (2, 1, 1) into the plane 
+  equation:
+  \[ c = 2 \times 2 + 1 \times 1 - 1 \times 1 = 4 \]
+  Therefore, the equation of the tangent plane to the surface 
+  $x^2 + y^2 - z^2 = 4$ at the point (2, 1, 1) is
+  \[ 2x + y - z = 4 \]
+\end{example}
 
 \section{Directional Derivatives}
+
+How to calculate the partial derivative towards any direction $\vec{u}$, rather 
+than only along the $x$ axis and $y$ axis?
+
+Suppose there is a multivariable function $f(x, y)$, and an unit vector 
+$\hat{\vec{u}} = <a, b>$. The partial derivative along a direction is the rate 
+of change of the function value $f(x, y)$ over the arclength, hence we need the 
+differential of the arclength along the direction of $\hat{\vec{u}}$, which is 
+denoted by $ds$. 
+
+By chain rule, we have
+\begin{gather*}
+  df = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy \\
+  \frac{df}{ds} = \frac{\partial f}{\partial x}\frac{dx}{ds} + \frac{\partial f}{\partial y}\frac{dy}{ds} \\
+\end{gather*}
 
 \end{document}
