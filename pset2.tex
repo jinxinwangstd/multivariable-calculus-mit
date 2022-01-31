@@ -1,0 +1,855 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{tikz}
+\setlength{\parindent}{0pt}
+
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{definition}{Definition}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{corollary}{Corollary}
+\newtheorem{example}{Example}
+\newtheorem{trick}{Trick}
+\newtheorem{question}{Question}
+
+\title{Problem Set 2}
+\author{}
+\date{}
+
+\begin{document}
+
+\begin{center}
+{\rmfamily\bfseries\Large 18.02 EXERCISES}
+
+\vspace{25px}
+
+{\rmfamily\bfseries\LARGE Problem Set 2: Matrices and Systems of Equations}
+\end{center}
+
+\begin{center}
+\section*{Part I}
+\end{center}
+
+\subsection*{Unit 1E Equations of Lines and Planes}
+
+1. Find the equations of the following planes: \\
+a) through (2, 0, -1) and perpendicular to $\vec{i} + 2\vec{j} - 2\vec{k}$. \\
+b) through the origin, (1, 1, 0), and (2, -1, 3) \\
+c) through (1, 0, 1), (2, -1, 2), (-1, 3, 2) \\
+d) through the points on the $x$, $y$ and $z$-axes where $x = a$, $y = b$, 
+$z = c$ respectively (give the equation in the form $Ax + By + Cz = 1$ and 
+remember it) \\
+e) through (1, 0, 1) and (0, 1, 1) and parallel to $\vec{i} - \vec{j} + 2\vec{k}$
+
+Solution:
+
+a) According to the problem description, the vector $<1, 2, -2>$ is a normal 
+vector to the plane. Therefore, the equation of the plane is
+\[ x + 2y - 2z = c, \textnormal{where c is a constant} \]
+Then we can put the point (2, 0, -1) into the equation:
+\[ c = 2 + 2 \times 0 - 2 \times (-1) = 4 \]
+Hence, the equation of the plane is 
+\[ x + 2y - 2z = 4 \]
+
+b) According to the problem description, two vectors on the plane are
+\[ <1, 1, 0>, <2, -1, 3> \]
+Therefore, a normal vector to the plane can be calculated as
+\begin{gather*}
+  \begin{split}
+    <1, 1, 0> \times <2, -1, 3> 
+    &= \begin{vmatrix}
+         \vec{i} & \vec{j} & \vec{k} \\
+         1 & 1 & 0 \\
+         2 & -1 & 3 \\
+       \end{vmatrix} \\
+    &= <3, -3, -3> \\
+  \end{split}
+\end{gather*}
+Therefore, the equation of the plane is
+\[ 3x - 3y - 3z = c, \textnormal{where c is a constant} \]
+Then we can put the point (0, 0, 0) into the equation:
+\[ c = 0 \]
+Hence the equation of the plane is 
+\[ 3x - 3y - 3z = 0 \]
+
+c) According to the problem description, two vectors on the plane are
+\[ <1, -1, 1>, <-2, 3, 1> \]
+Therefore, a normal vector to the plane can be calculated as
+\begin{gather*}
+  \begin{split}
+    <1, -1, 1> \times <-2, 3, 1> 
+    &= \begin{vmatrix}
+         \vec{i} & \vec{j} & \vec{k} \\
+         1 & -1 & 1 \\
+         2 & 3 & 1 \\
+       \end{vmatrix} \\
+    &= <-4, 1, 5> \\
+  \end{split}
+\end{gather*}
+Therefore, the equation of the plane is
+\[ -4x + y + 5z = c, \textnormal{where c is a constant} \]
+Then we can put the point (1, 0, 1) into the equation:
+\[ c = -4 \times 1 + 0 + 5 \times 1 = 1 \]
+Hence the equation of the plane is 
+\[ -4x + y + 5z = 1 \]
+
+d) According to the problem description, two vectors on the plane are
+\[ <-a, b, 0>, <-a, 0, c> \]
+Therefore, a normal vector to the plane can be calculated as
+\begin{gather*}
+  \begin{split}
+    <-a, b, 0> \times <-a, 0, c> 
+    &= \begin{vmatrix}
+         \vec{i} & \vec{j} & \vec{k} \\
+         -a & b & 0 \\
+         -a & 0 & c \\
+       \end{vmatrix} \\
+    &= <bc, ac, ab> \\
+  \end{split}
+\end{gather*}
+Therefore, the equation of the plane is
+\[ bcx + acy + abz = k, \textnormal{where k is a constant} \]
+Then we can put the point (a, 0, 0) into the equation:
+\[ k = bc \cdot a + ac \cdot 0 + ab \cdot 0 = abc \]
+Hence the equation of the plane is 
+\begin{gather*}
+   bcx + acy + abz = abc \\
+   \frac{x}{a} + \frac{y}{b} + \frac{z}{c} = 1 \\
+\end{gather*}
+
+e) According to the problem description, one vector parallel to the plane can be 
+derived from the two points (1, 0, 1) and (0, 1, 1), which is $<-1, 1, 0>$. 
+Therefore, a normal vector to the plane can be calculated as
+\begin{gather*}
+  \begin{split}
+    <-1, 1, 0> \times <1, -1, 2> 
+    &= \begin{vmatrix}
+         \vec{i} & \vec{j} & \vec{k} \\
+         -1 & 1 & 0 \\
+         1 & -1 & 2 \\
+       \end{vmatrix} \\
+    &= <2, 2, 0> \\
+  \end{split}
+\end{gather*}
+Therefore, the equation of the plane is 
+\[ 2x + 2y = c, \textnormal{where c is a constant} \]
+Then we can put the point (1, 0, 1) into the equation:
+\[ c = 2 \times 1 + 2 \times 0 = 2 \]
+Hence the equation of the plane is
+\begin{gather*}
+  2x + 2y = 2 \\
+  x + y = 1 \\
+\end{gather*}
+
+2. Find the dihedral angle between the planes $2x - y + z = 3$ and 
+$x + y + 2z = 1$.
+
+Solution:
+
+Suppose that the intersection line between the planes $2x - y + z = 3$ and 
+$x + y + 2z = 1$ is $l$. By the definition of dihedral angles, we can find a 
+point $O$ on the line $l$, and in the plane $2x - y + z = 3$ find a line 
+$OA \perp l$, and in the plane $x + y + 2z = 1$ find a line $OB \perp l$. Then 
+the angle $\angle{AOB}$ is the dihedral angle.
+
+Notice that any normal vectors to the plane $2x - y + z = 3$ and the plane 
+$x + y + 2z = 1$ are also perpendicular to the line $l$ because $l$ is on both 
+planes. Therefore, the vector $\vec{n_1} = <2, -1, 1>$, which is a normal vector 
+to the plane $2x - y + z = 3$, and the vector $\vec{n_2} = <1, 1, 2>$, which is 
+a normal vector to the plane $x + y + 2z = 1$, are perpendicular to the line $l$.
+
+Therefore, all four vectors $\vec{OA}$, $\vec{OB}$, $\vec{n_1}$, and $\vec{n_2}$ 
+are all parallel to the same plane, whose normal vectors are along the line $l$, 
+and they form a quadrilateral. Since $\vec{OA} \perp \vec{n_1}$, and 
+$\vec{OB} \perp \vec{n_2}$, the angle $\angle{AOB}$ is either equal to or 
+supplementary to the angle $\theta$ between two normal vectors $\vec{n_1}$ and 
+$\vec{n_2}$.
+
+\begin{gather*}
+  \begin{split}
+    \cos\theta &= \frac{\vec{n_1} \cdot \vec{n_2}}{|\vec{n_1}||\vec{n_2}|} \\
+               &= \frac{3}{\sqrt{6} \times \sqrt{6}} \\
+               &= \frac{1}{2} \\
+  \end{split} \\
+  \theta = \frac{\pi}{3} \\
+\end{gather*}
+Therefore, the dihedral angle between the two planes are $\frac{\pi}{3}$.
+
+3. Find in parametric form the equations for \\
+a) the line through (1, 0, -1) and parallel to $2\vec{i} - \vec{j} + 3\vec{k}$ \\
+b) the line through (2, -1, -1) and perpendicular to the plane $x - y + 2z = 3$ \\
+c) all lines passing through (1, 1, 1) and lying in the plane $x + 2y - z = 2$
+
+Solution:
+
+a)
+\begin{gather*}
+  x(t) = 1 + 2t \\
+  y(t) = -t \\
+  z(t) = -1 + 3t \\
+\end{gather*}
+
+b) 
+The line is perpendicular to the plane $x - y + 2z = 3$ 
+$\iff$ The line is parallel to the normal vectors of the plane $x - y + 2z = 3$
+$\iff$ The line is parallel to the vector $<1, -1, 2>$.
+
+Therefore, the parametric equation of the line is
+\begin{gather*}
+  x(t) = 2 + t \\
+  y(t) = -1 - t \\
+  z(t) = -1 + 2t \\
+\end{gather*}
+
+c)
+Since the line is lying in the plane $x + 2y - z = 2$, suppose the line vector 
+is $<a, b, c>$, then it satisfies
+\begin{gather*}
+  <a, b, c> \cdot <1, 2, -1> = 0 \\
+  a + 2b - c = 0 \\
+  c = a + 2b \\
+\end{gather*}
+Therefore, the parametric equations of all lines described above are
+\begin{gather*}
+  x(t) = 1 + at \\
+  y(t) = 1 + bt \\
+  z(t) = 1 + (a + 2b)t \\
+\end{gather*}
+where $a$ and $b$ are any constants.
+
+5. The line passing through (1, 1, -1) and perpendicular to the plane 
+$x + 2y - z = 3$ intersects the plane $2x - y + z = 1$ at what point?
+
+Solution:
+
+The line is perpendicular to the plane $x + 2y - z = 3$ 
+$\iff$ The line is parallel to the normal vectors of the plane $x + 2y - z = 3$
+$\iff$ The line is parallel to the vector $<1, 2, -1>$.
+
+Therefore, the parametric equation of the line is
+\begin{gather*}
+  x(t) = 1 + t \\
+  y(t) = 1 + 2t \\
+  z(t) = -1 - t \\
+\end{gather*}
+
+For the intersection point between the line and the plane, we have
+\begin{gather*}
+  2x(t) - y(t) + z(t) = 1 \\
+  2(1 + t) - (1 + 2t) + (-1 - t) = 1 \\
+  t = -1 \\
+\end{gather*}
+Therefore, the intersection point is $(x(-1), y(-1), z(-1))$, which is 
+$(0, -1, 0)$.
+
+6. Show that the distance $D$ from the origin to the plane $ax + by + cz = d$ is 
+given by the formula $D = \frac{|d|}{\sqrt{a^2 + b^2 + c^2}}$.
+
+Solution:
+
+We need to find the parametric equation of the line through the origin and 
+perpendicular to the plane $ax + by + cz = d$.
+
+The line is perpendicular to the plane $ax + by + cz = d$ 
+$\iff$ The line is parallel to the normal vectors of the plane $ax + by + cz = d$
+$\iff$ The line is parallel to the vector $<a, b, c>$.
+
+Therefore, the parametric equation of the line is
+\begin{gather*}
+  x(t) = 0 + at = at \\
+  y(t) = 0 + bt = bt \\
+  z(t) = 0 + ct = ct \\
+\end{gather*}
+
+For the intersection point between the line and the plane, we have
+\begin{gather*}
+  ax(t) + by(t) + cz(t) = d \\
+  a^2t + b^2t + c^2t = d \\
+  t = \frac{d}{a^2 + b^2 + c^2} \\
+\end{gather*}
+Therefore, the intersection point is 
+$(\frac{ad}{a^2 + b^2 + c^2}, \frac{bd}{a^2 + b^2 + c^2}, \frac{cd}{a^2 + b^2 + c^2})$
+
+Therefore, the distance $D$ from the origin to the plane is equivalent to the 
+distance between these two points:
+\begin{gather*}
+  \begin{split}
+    D &= \sqrt{(\frac{ad}{a^2 + b^2 + c^2})^2 + (\frac{bd}{a^2 + b^2 + c^2})^2 + (\frac{cd}{a^2 + b^2 + c^2})^2)} \\
+      &= \sqrt{\frac{(a^2 + b^2 + c^2)d^2}{(a^2 + b^2 + c^2)^2}} \\
+      &= \frac{|d|}{\sqrt{a^2 + b^2 + c^2}}
+  \end{split}
+\end{gather*}
+
+\subsection*{Unit 1F Matrix Algebra}
+
+5. a) Let $A = \begin{pmatrix}
+                 0 & 1 \\
+                 1 & 1 \\ 
+               \end{pmatrix}$. Compute $A^2, A^3$. \\
+b) Find $A^2, A^3, A^n$ if $A = \begin{pmatrix}
+                                  1 & 1 \\
+                                  0 & 1 \\ 
+                                \end{pmatrix}$.
+
+Solution:
+
+a) 
+\begin{gather*}
+  \begin{split}
+    A^2 &= \begin{pmatrix}
+             0 & 1 \\
+             1 & 1 \\ 
+           \end{pmatrix} \cdot
+           \begin{pmatrix}
+             0 & 1 \\
+             1 & 1 \\
+           \end{pmatrix} \\
+        &= \begin{pmatrix}
+             1 & 1 \\
+             1 & 2 \\ 
+           \end{pmatrix} \\
+  \end{split} \\
+  \begin{split}
+    A^3 &= A^2 \cdot A \\
+        &= \begin{pmatrix}
+             1 & 1 \\
+             1 & 2 \\ 
+           \end{pmatrix} \cdot
+           \begin{pmatrix}
+             0 & 1 \\
+             1 & 1 \\
+           \end{pmatrix} \\
+        &= \begin{pmatrix}
+             1 & 2 \\
+             2 & 3 \\ 
+           \end{pmatrix} \\
+  \end{split} \\
+\end{gather*}
+
+b)
+\begin{gather*}
+  \begin{split}
+    A^2 &= A \cdot A \\
+        &= \begin{pmatrix}
+             1 & 1 \\
+             0 & 1 \\ 
+           \end{pmatrix} \cdot
+           \begin{pmatrix}
+             1 & 1 \\
+             0 & 1 \\
+           \end{pmatrix} \\
+        &= \begin{pmatrix}
+             1 & 2 \\
+             0 & 1 \\ 
+           \end{pmatrix} \\
+  \end{split} \\
+  \begin{split}
+    A^3 &= A^2 \cdot A \\
+        &= \begin{pmatrix}
+             1 & 2 \\
+             0 & 1 \\ 
+           \end{pmatrix} \cdot
+           \begin{pmatrix}
+             1 & 1 \\
+             0 & 1 \\
+           \end{pmatrix} \\
+        &= \begin{pmatrix}
+             1 & 3 \\
+             0 & 1 \\ 
+           \end{pmatrix}
+  \end{split} \\
+\end{gather*}
+The first column in $A$ determines that the first column in $A^{k+1}$ will be 
+the same as the first column in $A^k$ where $k$ can be any positive integers.
+The second column in $A$ determines that the second column in $A^{k+1}$ will be 
+the sum of the first and second columns in $A^k$ where $k$ can be any positive 
+integers. Therefore, we can induce that
+\begin{gather*}
+  A^n = \begin{pmatrix}
+          1 & n \\
+          0 & 1 \\ 
+        \end{pmatrix} \\
+\end{gather*}
+
+8. a) If $A \begin{pmatrix}
+              1 \\
+              0 \\
+              0 \\
+            \end{pmatrix} = 
+            \begin{pmatrix}
+              2 \\
+              3 \\
+              1 \\
+            \end{pmatrix}$,
+         $A \begin{pmatrix}
+              0 \\
+              1 \\
+              0 \\
+            \end{pmatrix} = 
+            \begin{pmatrix}
+              -1 \\
+              0 \\
+              4 \\
+            \end{pmatrix}$,
+         $A \begin{pmatrix}
+              0 \\
+              0 \\
+              1 \\
+            \end{pmatrix} = 
+            \begin{pmatrix}
+              1 \\
+              1 \\
+              -1 \\
+            \end{pmatrix}$, what is the $3 \times 3$ matrix $A$? \\
+b) If $A \begin{pmatrix}
+           2 \\
+           0 \\
+           0 \\
+         \end{pmatrix} = 
+         \begin{pmatrix}
+           -2 \\
+           0 \\
+           4 \\
+         \end{pmatrix}$,
+      $A \begin{pmatrix}
+           1 \\
+           1 \\
+           1 \\
+         \end{pmatrix} = 
+         \begin{pmatrix}
+           3 \\
+           0 \\
+           3 \\
+         \end{pmatrix}$,
+      $A \begin{pmatrix}
+           0 \\
+           2 \\
+           1 \\
+         \end{pmatrix} = 
+         \begin{pmatrix}
+           7 \\
+           1 \\
+           1 \\
+         \end{pmatrix}$, what is the $3 \times 3$ matrix $A$?
+
+Solution:
+
+a) 
+According to the definition of matrix product, the result of 
+$A \begin{pmatrix}
+     1 \\
+     0 \\
+     0 \\
+   \end{pmatrix}$ is the first column of $A$, the result of 
+$A \begin{pmatrix}
+     0 \\
+     1 \\
+     0 \\
+   \end{pmatrix}$ is the second column of $A$, and the result of 
+$A \begin{pmatrix}
+     0 \\
+     0 \\
+     1 \\
+   \end{pmatrix}$ is the third column of $A$. Therefore,
+\begin{gather*}
+  A = \begin{pmatrix}
+        2 & -1 & 1 \\
+        3 & 0 & 1 \\
+        1 & 4 & -1 \\ 
+      \end{pmatrix} \\
+\end{gather*}
+
+a) (Method 2) 
+If we combine the three matrix equations, we can get
+\begin{gather*}
+  A \cdot \begin{pmatrix}
+            1 & 0 & 0 \\
+            0 & 1 & 0 \\
+            0 & 0 & 1 \\
+          \end{pmatrix} =
+  \begin{pmatrix}
+    2 & -1 & 1 \\
+    3 & 0 & 1 \\
+    1 & 4 & -1 \\
+  \end{pmatrix} \\
+  A = \begin{pmatrix}
+        2 & -1 & 1 \\
+        3 & 0 & 1 \\
+        1 & 4 & -1 \\ 
+      \end{pmatrix} \cdot
+      \begin{pmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 1 \\
+      \end{pmatrix}^{-1} \\
+  A = \begin{pmatrix}
+        2 & -1 & 1 \\
+        3 & 0 & 1 \\
+        1 & 4 & -1 \\ 
+      \end{pmatrix} \cdot
+      \begin{pmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 1 \\
+      \end{pmatrix} \\
+  A = \begin{pmatrix}
+        2 & -1 & 1 \\
+        3 & 0 & 1 \\
+        1 & 4 & -1 \\ 
+      \end{pmatrix} \\
+\end{gather*}
+
+b) (Method 1) 
+Suppose $A = \begin{pmatrix}
+                  a_1 & a_2 & a_3 \\
+                  b_1 & b_2 & b_3 \\
+                  c_1 & c_2 & c_3 \\  
+                \end{pmatrix}$. Then
+\begin{gather*}
+  A \begin{pmatrix}
+      2 \\
+      0 \\
+      0 \\
+    \end{pmatrix} = 
+    \begin{pmatrix}
+      -2 \\
+      0 \\
+      4 \\
+    \end{pmatrix} \\
+  \begin{pmatrix}
+    a_1 & a_2 & a_3 \\
+    b_1 & b_2 & b_3 \\
+    c_1 & c_2 & c_3 \\
+  \end{pmatrix} \cdot 
+  \begin{pmatrix}
+    2 \\
+    0 \\
+    0 \\
+  \end{pmatrix} = 
+  \begin{pmatrix}
+    -2 \\
+    0 \\
+    4 \\
+  \end{pmatrix} \\
+  \begin{pmatrix}
+    2a_1 \\
+    2b_1 \\
+    2c_1 \\
+  \end{pmatrix} = 
+  \begin{pmatrix}
+    -2 \\
+    0 \\
+    4 \\
+  \end{pmatrix} \\
+  a_1 = -1, b_1 = 0, c_1 = 2 \\
+\end{gather*}
+Also
+\begin{gather*}
+  A \begin{pmatrix}
+      1 \\
+      1 \\
+      1 \\
+    \end{pmatrix} = 
+    \begin{pmatrix}
+      3 \\
+      0 \\
+      3 \\
+    \end{pmatrix} \\
+  \begin{pmatrix}
+    a_1 & a_2 & a_3 \\
+    b_1 & b_2 & b_3 \\
+    c_1 & c_2 & c_3 \\
+  \end{pmatrix} \cdot 
+  \begin{pmatrix}
+    1 \\
+    1 \\
+    1 \\
+  \end{pmatrix} = 
+  \begin{pmatrix}
+    3 \\
+    0 \\
+    3 \\
+  \end{pmatrix} \\
+  \begin{pmatrix}
+    a_1 + a_2 + a_3 \\
+    b_1 + b_2 + b_3 \\
+    c_1 + c_2 + c_3 \\
+  \end{pmatrix} = 
+  \begin{pmatrix}
+    3 \\
+    0 \\
+    3 \\
+  \end{pmatrix} \\
+  a_1 + a_2 + a_3 = 3 \\
+  b_1 + b_2 + b_3 = 0 \\
+  c_1 + c_2 + c_3 = 3 \\
+\end{gather*}
+And
+\begin{gather*}
+  A \begin{pmatrix}
+      0 \\
+      2 \\
+      1 \\
+    \end{pmatrix} = 
+    \begin{pmatrix}
+      7 \\
+      1 \\
+      1 \\
+    \end{pmatrix} \\
+  \begin{pmatrix}
+    a_1 & a_2 & a_3 \\
+    b_1 & b_2 & b_3 \\
+    c_1 & c_2 & c_3 \\
+  \end{pmatrix} \cdot 
+  \begin{pmatrix}
+    0 \\
+    2 \\
+    1 \\
+  \end{pmatrix} = 
+  \begin{pmatrix}
+    7 \\
+    1 \\
+    1 \\
+  \end{pmatrix} \\
+  \begin{pmatrix}
+    2a_2 + a_3 \\
+    2b_2 + b_3 \\
+    2c_2 + c_3 \\
+  \end{pmatrix} = 
+  \begin{pmatrix}
+    7 \\
+    1 \\
+    1 \\
+  \end{pmatrix} \\
+  2a_2 + a_3 = 7 \\
+  2b_2 + b_3 = 1 \\
+  2c_2 + c_3 = 1 \\
+\end{gather*}
+Hence we derive the following system of equations:
+\begin{gather*}
+  \begin{cases}
+     a_1 = -1 \\
+     b_1 = 0 \\
+     c_1 = 2 \\
+     a_1 + a_2 + a_3 = 3 \\
+     b_1 + b_2 + b_3 = 0 \\
+     c_1 + c_2 + c_3 = 3 \\
+     2a_2 + a_3 = 7 \\
+     2b_2 + b_3 = 1 \\
+     2c_2 + c_3 = 1 \\
+  \end{cases} \\
+\end{gather*}
+We can solve this system of equations and get
+\begin{gather*}
+  A = \begin{pmatrix}
+        -1 & 3 & 1 \\
+        0 & 1 & -1 \\
+        2 & 0 & 1 \\ 
+      \end{pmatrix} \\
+\end{gather*}
+
+b) (Method 2) 
+If we combine the three matrix equations, we can get
+\begin{gather*}
+  A \cdot \begin{pmatrix}
+            2 & 1 & 0 \\
+            0 & 1 & 2 \\
+            0 & 1 & 1 \\
+          \end{pmatrix} =
+  \begin{pmatrix}
+    -2 & 3 & 7 \\
+    0 & 0 & 1 \\
+    4 & 3 & 1 \\
+  \end{pmatrix} \\
+  A = \begin{pmatrix}
+        -2 & 3 & 7 \\
+        0 & 0 & 1 \\
+        4 & 3 & 1 \\ 
+      \end{pmatrix} \cdot
+      \begin{pmatrix}
+        2 & 1 & 0 \\
+        0 & 1 & 2 \\
+        0 & 1 & 1 \\
+      \end{pmatrix}^{-1}
+\end{gather*}
+
+9. A square $n \times n$ matrix is called \textbf{orthogonal} if 
+$A \cdot A^T = I_n$. Show that this condition is equivalent to saying that \\
+a) each row of $A$ is a row vector of length 1. \\
+b) two different rows are orthogonal vectors.
+
+Solution:
+
+Suppose $A = \begin{pmatrix}
+               a_1 & a_2 & a_3 \\
+               b_1 & b_2 & b_3 \\
+               c_1 & c_2 & c_3 \\ 
+             \end{pmatrix}$, then
+$A^T = \begin{pmatrix}
+         a_1 & b_1 & c_1 \\
+         a_2 & b_2 & c_2 \\
+         a_3 & b_3 & c_3 \\ 
+       \end{pmatrix}$.
+\begin{gather*}
+  A \cdot A^T = I_n \\
+  \begin{pmatrix}
+    a_1 & a_2 & a_3 \\
+    b_1 & b_2 & b_3 \\
+    c_1 & c_2 & c_3 \\
+  \end{pmatrix} \cdot
+  \begin{pmatrix}
+    a_1 & b_1 & c_1 \\
+    a_2 & b_2 & c_2 \\
+    a_3 & b_3 & c_3 \\
+  \end{pmatrix} = 
+  \begin{pmatrix}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 1 \\
+  \end{pmatrix} \\
+\end{gather*}
+Expand the matrix equation, we can derive the following equations:
+\begin{gather*}
+  a_1^2 + a_2^2 + a_3^3 = 1 \\
+  b_1^2 + b_2^2 + b_3^3 = 1 \\
+  c_1^2 + c_2^2 + c_3^3 = 1 \\
+  a_1b_1 + a_2b_2 + a_3b_3 = 0 \\
+  b_1c_1 + b_2c_2 + b_3c_3 = 0 \\
+  a_1c_1 + a_2c_2 + a_3c_3 = 0 \\
+\end{gather*}
+which is equivalent to that each row of $A$ is a row vector of length 1, and two 
+different rows in $A$ are orthogonal.
+
+Therefore, the statement in the problem description is proved.
+
+\subsection*{Unit 1G Solving Square Systems; Inverse Matrices}
+
+3. $A = \begin{pmatrix}
+          1 & -1 & 1 \\
+          0 & 1 & 1 \\
+          -1 & -1 & 2 \\
+        \end{pmatrix}$, $b = \begin{pmatrix}
+                               2 \\
+                               0 \\
+                               3 \\ 
+                             \end{pmatrix}$. Solve $Ax = b$ by finding $A^{-1}$.
+                        
+Solution:
+
+\begin{gather*}
+  Ax = b \\
+  x = A^{-1}b \\
+  x = \frac{1}{det(A)}adj(A) \cdot b \\
+  x = \begin{pmatrix}
+        1 & -1 & 1 \\
+        0 & 1 & 1 \\
+        -1 & -1 & 2 \\ 
+      \end{pmatrix}^{-1} \cdot
+      \begin{pmatrix}
+        2 \\
+        0 \\
+        3 \\
+      \end{pmatrix} \\
+  x = \begin{pmatrix}
+        \frac{3}{5} & \frac{1}{5} & -\frac{2}{5} \\
+        -\frac{1}{5} & \frac{3}{5} & -\frac{1}{5} \\
+        \frac{1}{5} & \frac{2}{5} & \frac{1}{5} \\ 
+      \end{pmatrix} \cdot
+      \begin{pmatrix}
+        2 \\
+        0 \\
+        3 \\
+      \end{pmatrix} \\
+  x = \begin{pmatrix}
+        0 \\
+        -1 \\
+        1 \\ 
+      \end{pmatrix}
+\end{gather*}
+
+4. Referring to Exercise 3 above, solve the system 
+\[ x_1 - x_2 + x_3 = y_1, x_2 + x_3 = y_2, -x_1 - x_2 + 2x_3 = y_3 \]
+for the $x_i$ as functions of the $y_i$.
+
+Solution:
+
+\begin{gather*}
+  \begin{cases}
+    x_1 - x_2 + x_3 = y_1 \\
+    x_2 + x_3 = y_2 \\
+    -x_1 - x_2 + 2x_3 = y_3 \\
+  \end{cases} \\
+  \begin{pmatrix}
+    1 & -1 & 1 \\
+    0 & 1 & 1 \\
+    -1 & -1 & 2 \\
+  \end{pmatrix} \cdot
+  \begin{pmatrix}
+    x_1 \\
+    x_2 \\
+    x_3 \\
+  \end{pmatrix} = 
+  \begin{pmatrix}
+    y_1 \\
+    y_2 \\
+    y_3 \\
+  \end{pmatrix} \\
+  \begin{pmatrix}
+    x_1 \\
+    x_2 \\
+    x_3 \\
+  \end{pmatrix} = 
+  \begin{pmatrix}
+    1 & -1 & 1 \\
+    0 & 1 & 1 \\
+    -1 & -1 & 2 \\
+  \end{pmatrix}^{-1} \cdot
+  \begin{pmatrix}
+    y_1 \\
+    y_2 \\
+    y_3 \\
+  \end{pmatrix} \\
+  \begin{pmatrix}
+    x_1 \\
+    x_2 \\
+    x_3 \\
+  \end{pmatrix} = 
+  \begin{pmatrix}
+    \frac{3}{5} & \frac{1}{5} & -\frac{2}{5} \\
+    -\frac{1}{5} & \frac{3}{5} & -\frac{1}{5} \\
+    \frac{1}{5} & \frac{2}{5} & \frac{1}{5} \\ 
+  \end{pmatrix} \cdot
+  \begin{pmatrix}
+    y_1 \\
+    y_2 \\
+    y_3 \\
+  \end{pmatrix} \\
+  \begin{cases}
+    x_1 = \frac{3}{5}y_1 + \frac{1}{5}y_2 - \frac{2}{5}y_3 \\
+    x_2 = -\frac{1}{5}y_1 + \frac{3}{5}y_2 - \frac{1}{5}y_3 \\
+    x_3 = \frac{1}{5}y_1 + \frac{2}{5}y_2 + \frac{1}{5}y_3 \\ 
+  \end{cases} \\
+\end{gather*}
+
+5. Show that $(AB)^{-1} = B^{-1}A^{-1}$, by using the definition of inverse 
+matrix.
+
+Solution:
+
+By the definition of inverse matrix,
+\begin{gather*}
+  AB \cdot (AB)^{-1} = I_n \\
+  A^{-1}AB \cdot (AB)^{-1} = A^{-1}I_n \\
+  B \cdot (AB)^{-1} = A^{-1}I_n \\
+  B^{-1}B \cdot (AB)^{-1} = B^{-1}A^{-1}I_n \\
+  (AB)^{-1} = B^{-1}A^{-1}I_n \\
+  (AB)^{-1} = B^{-1}A^{-1} \\
+\end{gather*}
+
+\begin{center}
+\section*{Part II}
+\end{center}
+
+\end{document}
