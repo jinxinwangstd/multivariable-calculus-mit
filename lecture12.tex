@@ -106,7 +106,7 @@ Therefore, at any points of a curve that stays on a level surface:
 \end{equation*}
 The same reasoning applies to any curves on a level surface, so at any points on 
 a level surface, the gradient $\nabla f$ is perpendicular to velocity vectors of 
-every directiona, which are tangent to the level surface. Therefore, at any 
+every direction, which are tangent to the level surface. Therefore, at any 
 points on a level surface, the gradient $\nabla f$ is perpendicular to the 
 tangent plane to the level surface.
 
@@ -144,6 +144,8 @@ graph at any points.
 
 \section{Directional Derivatives}
 
+\subsection{Introduce Directional Derivatives}
+
 How to calculate the partial derivative towards any direction $\vec{u}$, rather 
 than only along the $x$ axis and $y$ axis?
 
@@ -157,6 +159,66 @@ By chain rule, we have
 \begin{gather*}
   df = \frac{\partial f}{\partial x}dx + \frac{\partial f}{\partial y}dy \\
   \frac{df}{ds} = \frac{\partial f}{\partial x}\frac{dx}{ds} + \frac{\partial f}{\partial y}\frac{dy}{ds} \\
+  \frac{df}{ds} = <\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}> \cdot <\frac{dx}{ds}, \frac{dy}{ds}> \\
+  \frac{df}{ds} = \nabla f \cdot \frac{d\vec{r}}{ds} \\
 \end{gather*}
+Therefore, we need to describe the position vector $\vec{r}$ along the straight 
+line trajectory with the direction $\vec{u}$ using the parameter $s$, the 
+arclength.
+\begin{gather*}
+  \begin{cases}
+    x(s) = x_0 + as \\
+    y(s) = y_0 + bs \\
+  \end{cases} \\
+  \frac{d\vec{r}}{ds} = <a, b> \\
+  \frac{d\vec{r}}{ds} = \vec{u} \\
+\end{gather*}
+Therefore,
+\begin{equation*}
+  \begin{split}
+    \frac{df}{ds} &= \nabla f \cdot \frac{d\vec{r}}{ds} \\
+                  &= \nabla f \cdot \vec{u} \\
+  \end{split}
+\end{equation*}
+which is the formula for directional derivatives.
+
+\begin{definition}
+  The instantaneous rate of change of a multivariable function $f$ at a given 
+  direction $\vec{u}$ is called the directional derivative, whose notation is 
+  $\frac{df}{ds}|_{\vec{u}}$. The formula of directional derivatives is 
+  \[ \frac{df}{ds}|_{\vec{u}} = \nabla f \cdot \vec{u} \]
+\end{definition}
+
+\subsection{Geometric Interpretation of Directional Derivatives}
+
+For a multivariable function $f$ with two independent variables, the geometric 
+interpretation of the function toward a direction $\vec{u}$ is the slope of the 
+slice of the function graph by a vertical plane parallel to $\vec{u}$.
+
+\begin{example}
+  Verify the formula of directional derivatives by finding the partial 
+  derivative along the $x$ axis.
+
+  Suppose there is a multivariable function $f(x, y)$.
+  \begin{equation*}
+    \begin{split}
+      \frac{\partial f}{\partial x} &= \nabla f \cdot \vec{i} \\
+                                    &= <\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}> \cdot \vec{i} \\
+                                    &= \frac{\partial f}{\partial x} \\
+    \end{split}
+  \end{equation*}
+\end{example}
+
+\subsection{Max/Min of Directional Derivatives}
+
+According to the geometric interpretation of dot product of vectors:
+\begin{equation*}
+  \begin{split}
+    \frac{df}{ds}|_{\vec{u}} &= \nabla f \cdot \vec{u} \\
+                             &= |\nabla f| \times |\vec{u}| \times \cos\theta \\
+                             &= \cos\theta \times |\nabla f| \\
+  \end{split}
+\end{equation*}
+
 
 \end{document}
