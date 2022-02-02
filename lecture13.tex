@@ -22,4 +22,70 @@
     
 \maketitle
 
+\section{Motivation of Lagrange Multipliers}
+
+The usage of Lagrange multipliers is to maximize/minimize the value of a 
+function $f(x, y, z)$ where $x$, $y$, and $z$ are not independent, in other 
+words there is a constraint $g(x, y, z) = c$.
+
+Real world example: In thermodynamics, we often deal with a system with 
+parameters such as temperature T, pressure P, and volume V. These parameters are 
+not independent, and they satisfy a relation $PV = nRT$.
+
+Those kinds of problems cannot be solved by only checking the critical points of 
+the function $f(x, y, z)$, because they probably don't satisfy the existing 
+constraint $g(x, y, z) = c$.
+
+\begin{example}
+  Find the point closest to the origin on the hyperbola $xy = 3$.
+
+  We need to minimize the function $f(x, y) = \sqrt{x^2 + y^2}$, or more 
+  conveniently, the function $f(x, y) = x^2 + y^2$, with the constraint 
+  $g(x, y) = xy = 3$.
+
+  From geometric perspective, we can plot the function graph of 
+  $g(x, y) = xy = 3$, and the contour plot of the function 
+  $f(x, y) = x^2 + y^2$. We can see that with a large constant $c_1$, the graphs 
+  of $g(x, y) = 3$ and $f(x, y) = c_1$ have four intersection points; with a 
+  small constant $c_2$, the two graphs have no intersection point. With the 
+  correct solution $c_0$, the two graphs have exactly two intersection points.
+\end{example}
+
+\section{Solution with Lanrange Multipliers}
+
+One key observation to the above example: At the minimum, the level curve of the 
+function $f(x, y)$ is tangent to the hyperbola $xy = 3$, which is another level 
+curve of the function $g(x, y)$.
+
+Then how to find the point $(x, y)$ where the level curves of $f(x, y)$ and 
+$g(x, y)$ are tangent to each other?
+
+Notice: The level curves of $f(x, y)$ and $g(x, y)$ are tangent to each other \\
+$\iff$ The level curves of $f(x, y)$ and $g(x, y)$ have the same tangent line \\
+$\iff$ The gradients of $f(x, y)$ and $g(x, y)$ are parallel to each other \\
+$\iff$ $\nabla f = \lambda \nabla g$, where $\lambda \neq 0$.
+
+Therefore, we can derive a system of equations from the above statement:
+
+From $\nabla f = \lambda \nabla g$, we can derive that
+\begin{equation*}
+  \begin{cases}
+    f_x = \lambda g_x \\
+    f_y = \lambda g_y \\
+  \end{cases}
+\end{equation*}
+Also we have the constraint $g(x, y) = c$.
+
+Therefore, for a optimization problem of a function with two variables, the 
+derived system of equations is
+\begin{equation*}
+  \begin{cases}
+    f_x = \lambda g_x \\
+    f_y = \lambda g_y \\
+    g(x, y) = c \\
+  \end{cases}
+\end{equation*}
+It is sufficient to solve the point $(x, y)$ as well as the factor $\lambda$. 
+This factor $\lambda$ is called the Lagrange multiplier.
+
 \end{document}
