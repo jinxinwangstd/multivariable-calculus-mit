@@ -88,4 +88,191 @@ derived system of equations is
 It is sufficient to solve the point $(x, y)$ as well as the factor $\lambda$. 
 This factor $\lambda$ is called the Lagrange multiplier.
 
+\begin{example}
+  Find the point closest to the origin on the hyperbola $xy = 3$ (Continue'd).
+
+  \begin{gather*}
+    f(x, y) = x^2 + y^2 \\
+    f_x = 2x \\
+    f_y = 2y \\
+    g(x, y) = xy \\
+    g_x = y \\
+    g_y = x \\
+  \end{gather*}
+  Therefore, we can derive the following system of equations to solve the 
+  minimum point of $f(x, y)$ under the constraint $g(x, y) = xy = 3$.
+  \begin{equation*}
+    \begin{cases}
+      2x = \lambda y \\
+      2y = \lambda x \\
+      xy = 3 \\
+    \end{cases}
+  \end{equation*}
+  If we focus on the first two equations, we can rewrite them as
+  \begin{gather*}
+    \begin{cases}
+      2x - \lambda y = 0 \\
+      \lambda x - 2y = 0 \\
+    \end{cases} \\
+    \begin{bmatrix}
+      2 & -\lambda \\
+      \lambda & -2 \\
+    \end{bmatrix} \cdot
+    \begin{bmatrix}
+      x \\
+      y \\
+    \end{bmatrix} = 
+    \begin{bmatrix}
+      0 \\
+      0 \\
+    \end{bmatrix} \\
+  \end{gather*}
+  For this linear system, we have a trivial solution $x = y = 0$, but it doesn't 
+  satisfy the constraint. Based on our exploration from geometric perspective, 
+  we know that there are two solutions other than $x = y = 0$ for this system of 
+  equations. Hence the linear system has more than one solution, which is 
+  equivalent to
+  \begin{gather*}
+    det(A) = 0 \\
+    \begin{vmatrix}
+      2 & -\lambda \\
+      \lambda & -2 \\
+    \end{vmatrix} = 0 \\
+    \lambda^2 - 4 = 0 \\
+    \lambda = \pm 2 \\
+  \end{gather*}
+  When $\lambda = 2$,
+  \begin{gather*}
+    \begin{cases}
+      2x - 2y = 0 \\
+      2x - 2y = 0 \\
+      xy = 3 \\
+    \end{cases}\\
+    x = \sqrt{3}, y = \sqrt{3} \\
+    or\, x = -\sqrt{3}, y = -\sqrt{3} \\
+  \end{gather*}
+  When $\lambda = -2$,
+  \begin{gather*}
+    \begin{cases}
+      2x + 2y = 0 \\
+      2x + 2y = 0 \\
+      xy = 3 \\
+    \end{cases} \\
+    \textnormal{There is no solution.}
+  \end{gather*}
+  Therefore, there are two points closest to the origin on the hyperbola 
+  $xy = 3$, which are $(\sqrt{3}, \sqrt{3})$ and $(-\sqrt{3}, -\sqrt{3})$.
+\end{example}
+
+\section{Justification of Lagrange Multipliers}
+
+At the constrained maximum/minimum points of a function $f$, in any direction 
+along the level sets of $g = c$, the rate of change of $f$ must be 0. If not, 
+then an adjacent point along the direction must be greater than or less than the 
+maximum/minimum point, which is a contradiction to the fact of maximum/minimum 
+point.
+
+For any direction $\hat{u}$ tangent to the level set $g = c$, it holds that
+\begin{gather*}
+  \frac{df}{ds}|_{\hat{u}} = 0 \\
+  \nabla f \cdot \hat{u} = 0 \\
+\end{gather*}
+Therefore, $\nabla f$ is perpendicular to any direction $\hat{u}$ tangent to the 
+level set of $g$. Therefore, $\nabla f$ is perpendicular to the level set of 
+$g$. Also according to the property of gradient, $\nabla g$ is also 
+perpendicular to the level set of $g$. Therefore 
+\[ \nabla f \parallel \nabla g \]
+
+\section{Restriction of Lagrange Multipliers}
+
+WARNING: the method of Lagrange multipliers doesn't tell whether a solution is a 
+maximum or minimum points. We need to check other solutions as well as boundary 
+values to determine whether it is a maximum point or minimum point.
+
+Also, we cannot use the second derivative test to determine the type of a 
+solution by the method of Lagrange multipliers.
+
+\begin{example}
+  Suppose that we want to build a pyramid with the given triangular base and the 
+  given volume, find the shape with the minimum total surface area.
+
+  Recall that the formula of the volume of a tetraheron is
+  \[ V = \frac{1}{3}(\textnormal{base area})(\textnormal{height}) \]
+
+  Since we are given the triangular base and the given volume, the height of the 
+  tetraheron is actually fixed. Let $h$ denote the fixed height.
+
+  One method is to suppose that the coordinate of the top vertex is $(x, y, h)$. 
+  The coordinates of all other vertices are known: $(x_1, y_1, 0)$, 
+  $(x_2, y_2, 0)$, and $(x_3, y_3, 0)$. So we can get the function of the total 
+  surface area, which is a function of $x$ and $y$, and then try to minimize the 
+  function. The problem with this method is that the function can be too 
+  complex to minimize.
+
+  \begin{tikzpicture}
+    [help line/.style={dashed}]
+    \draw (-3, -1.732) node[below left] {$P_1$};
+    \draw (3, -1.732) node[below right] {$P_2$};
+    \draw (0, 3.464) node[above] {$P_3$};
+    \draw (-3, -1.732) -- (0, -1.732) node[below] {$a_1$} -- (3, -1.732);
+    \draw (-3, -1.732) -- (-1.5, 0.866) node[above left] {$a_2$} -- (0, 3.464);
+    \draw (3, -1.732) -- (1.5, 0.866) node[above right] {$a_3$} -- (0, 3.464);
+    \draw (0, 0) node[right] {Q};
+    \draw[help line] (0, 0) -- (0, -0.866) node[right] {$u_1$} -- (0, -1.732);
+    \draw[help line] (0, 0) -- (-0.75, 0.433) node[right] {$u_2$} -- (-1.5, 0.866);
+    \draw[help line] (0, 0) -- (0.75, 0.433) node[right] {$u_3$} -- (1.5, 0.866);
+  \end{tikzpicture}
+
+  Another method is to use different variables to calculate the total surface 
+  area. As shown in the above diagram, suppose that the cast point of the top 
+  vertex in the base is the point $Q$, and the lengths of the three edges are 
+  $a_1$, $a_2$, and $a_3$. From $Q$ we construct perpendicular lines to the 
+  three edges of the base, and let $u_1$, $u_2$, and $u_3$ denote their lengths.
+
+  The heights of the three faces can be calculated as
+  \begin{gather*}
+    h_1 = \sqrt{u_1^2 + h^2} \\
+    h_2 = \sqrt{u_2^2 + h^2} \\
+    h_3 = \sqrt{u_3^2 + h^2} \\
+  \end{gather*}
+  The area of the three faces can be calculated as
+  \begin{gather*}
+    s_1 = \frac{1}{2}a_1\sqrt{u_1^2 + h^2} \\
+    s_2 = \frac{1}{2}a_2\sqrt{u_2^2 + h^2} \\
+    s_3 = \frac{1}{2}a_3\sqrt{u_3^2 + h^2} \\
+  \end{gather*}
+  Therefore, the total area of the three faces can be calculated as
+  \begin{equation*}
+    s = f(u_1, u_2, u_3) = \frac{1}{2}a_1\sqrt{u_1^2 + h^2} + \frac{1}{2}a_2\sqrt{u_2^2 + h^2} + \frac{1}{2}a_3\sqrt{u_3^2 + h^2}
+  \end{equation*}
+  Also we have the constraint about the base area:
+  \begin{equation*}
+    s_b = g(u_1, u_2, u_3) = \frac{1}{2}a_1u_1 + \frac{1}{2}a_2u_2 + \frac{1}{2}a_3u_3
+  \end{equation*}
+  We need to find the minimum point of the total area of the three faces 
+  $s = f(u_1, u_2, u_3)$. According to the method of Lagrange multipliers, we 
+  can derive the following system of equations:
+  \begin{gather*}
+    \begin{cases}
+      f_{u_1} = \lambda g_{u_1} \\
+      f_{u_2} = \lambda g_{u_2} \\
+      f_{u_3} = \lambda g_{u_3} \\
+      g(u_1, u_2, u_3) = c \\
+    \end{cases} \\
+    \begin{cases}
+      \frac{a_1}{2}\frac{u_1}{\sqrt{u_1^2 + h^2}} = \lambda \frac{a_1}{2} \\
+      \frac{a_2}{2}\frac{u_2}{\sqrt{u_2^2 + h^2}} = \lambda \frac{a_2}{2} \\
+      \frac{a_3}{2}\frac{u_3}{\sqrt{u_3^2 + h^2}} = \lambda \frac{a_3}{2} \\
+      g(u_1, u_2, u_3) = c \\
+    \end{cases} \\
+    \begin{cases}
+      \frac{u_1}{\sqrt{u_1^2 + h^2}} = \lambda \\
+      \frac{u_2}{\sqrt{u_2^2 + h^2}} = \lambda \\
+      \frac{u_3}{\sqrt{u_3^2 + h^2}} = \lambda \\
+      g(u_1, u_2, u_3) = c \\
+    \end{cases} \\
+  \end{gather*}
+  Therefore, when the total surface area is minimum, $u_1 = u_2 = u_3$.
+\end{example}
+
 \end{document}
