@@ -131,6 +131,94 @@ describes:
   (\frac{\partial f}{\partial x})_y \neq (\frac{\partial f}{\partial u})_v
 \end{equation*}
 
+The use case of the new notation in this lecture is that it helps us to specify 
+among the variables of a multivariable function which ones are considered as 
+independent. The variables appearing in the new notation are independent 
+variables.
+
 \section{Partial Derivatives of Function Value with regards to Independent Variables}
+
+\begin{example}
+  Find the rate of change of the area of the following triangle with regards to 
+  the angle $\theta$ in the diagram.
+
+  \begin{tikzpicture}
+    [help line/.style={dashed}]
+    \draw (0, 0) -- (2, 0) -- (2, 2) -- (0, 0);
+    \draw (1, 0) node[below] {a};
+    \draw (1, 1) node[above left] {b};
+    \draw (0.2, 0) arc [start angle=0, end angle=45, radius=0.2] node[right] 
+      {$\theta$};
+    \draw (2, 0.2) -- (1.8, 0.2) -- (1.8, 0);
+  \end{tikzpicture}
+
+  Since the triangle is a right triangle, the three variables $a$, $b$, and 
+  $\theta$ cannot be independent at the same time. They satisfy the following 
+  constraint:
+  \[ a = b\cos\theta \]
+  According to the geometric knowledge, the area of the triangle is
+  \[ A = \frac{1}{2}ab\sin\theta \]
+  We need to find the rate of change of $A$ with regards to $\theta$.
+
+  Since there is a non-independent variable, we need to discuss different 
+  possible cases by considering which variables are considered as independent:
+  \begin{itemize}
+    \item If we consider the variables $a$ and $\theta$ as independent 
+      variables, then the rate of change of $A$ with regards to $\theta$ can be 
+      expressed as $(\frac{\partial A}{\partial \theta})_a$.
+    \item If we consider the variables $b$ and $\theta$ as independent
+      variables, then the rate of change of $A$ with regards to $\theta$ can be 
+      expressed as $(\frac{\partial A}{\partial \theta})_b$.
+  \end{itemize}
+
+  Suppose we consider $a$ and $\theta$ as independent variables and want to find 
+  $(\frac{\partial A}{\partial \theta})_a$, there are two methods:
+  \begin{itemize}
+    \item Method 1: Use the total differential formula.
+
+      Let's look at the constraint first.
+      \begin{gather*}
+        a = b\cos\theta \\
+        a - b\cos\theta = 0 \\
+        da - \cos\theta db + b\sin\theta d\theta = 0 \\
+        (\frac{\partial b}{\partial \theta})_a = b\tan\theta \\
+      \end{gather*}
+      Then we look at the multivariable function.
+      \begin{gather*}
+        A = \frac{1}{2}ab\sin\theta \\
+        dA = \frac{1}{2}b\sin\theta da + \frac{1}{2}a\sin\theta db + \frac{1}{2}ab\cos\theta d\theta \\
+      \end{gather*}
+      When we try to calculate $(\frac{\partial A}{\partial \theta})_a$, we 
+      consider the variable $a$ as constant. Then
+      \begin{gather*}
+        \frac{1}{2}b\sin\theta da = \frac{1}{2}b\sin\theta \cdot 0 = 0 \\
+        \begin{split}
+          \frac{1}{2}a\sin\theta db &= \frac{1}{2}a\sin\theta ((\frac{\partial b}{\partial \theta})_a d\theta + (\frac{\partial b}{\partial a})_\theta da) \\
+                                    &= \frac{1}{2}a\sin\theta ((\frac{\partial b}{\partial \theta})_a d\theta + (\frac{\partial b}{\partial a})_\theta \cdot 0) \\
+                                    &= \frac{1}{2}a\sin\theta \cdot (\frac{\partial b}{\partial \theta})_a \cdot d\theta \\
+                                    &= \frac{1}{2}ab\sin\theta \tan\theta \cdot d\theta
+        \end{split} \\
+        \begin{split}
+          dA &= \frac{1}{2}b\sin\theta da + \frac{1}{2}a\sin\theta db + \frac{1}{2}ab\cos\theta d\theta \\
+             &= \frac{1}{2}ab\sin\theta \tan\theta \cdot d\theta + \frac{1}{2}ab\cos\theta d\theta \\
+             &= \frac{1}{2}ab(\sin\theta \tan\theta + \cos\theta) d\theta \\
+             &= \frac{1}{2}ab\sec\theta d\theta \\
+        \end{split} \\
+        (\frac{\partial A}{\partial \theta})_a = \frac{1}{2}ab\sec\theta \\
+      \end{gather*}
+    \item Method 2: Use the chain rule.
+    
+      According to the chain rule,
+      \begin{gather*}
+        (\frac{\partial A}{\partial \theta})_a = A_\theta (\frac{\partial \theta}{\partial \theta})_a + A_a (\frac{\partial a}{\partial \theta})_a + A_b (\frac{\partial b}{\partial \theta})_a \\
+        (\frac{\partial A}{\partial \theta})_a = A_\theta \cdot 1 + A_a \cdot 0 + A_b (\frac{\partial b}{\partial \theta})_a \\
+        (\frac{\partial A}{\partial \theta})_a = A_\theta + A_b (\frac{\partial b}{\partial \theta})_a \\
+        (\frac{\partial A}{\partial \theta})_a = \frac{1}{2}ab\cos\theta + \frac{1}{2}a\sin\theta \cdot b\tan\theta \\
+        (\frac{\partial A}{\partial \theta})_a = \frac{1}{2}ab(\cos\theta + \sin\theta \tan\theta) \\
+        (\frac{\partial A}{\partial \theta})_a = \frac{1}{2}ab\sec\theta \\
+      \end{gather*}
+  \end{itemize}
+  We can see the two methods reach to the same results.
+\end{example}
 
 \end{document}
