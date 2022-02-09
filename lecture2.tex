@@ -32,16 +32,16 @@ these two vectors?
 \subsubsection{Calculate the area of the triangle formed by two vectors with an acute angle}
 
 \begin{tikzpicture}
-  [help lines/.style={dashed}]
-  \draw[->] (0, 0, 0) -- (3, 0, 0) node[anchor=south] {$\vec{A}$};
-  \draw[->] (0, 0, 0) -- (2, 2, 0) node[anchor=south] {$\vec{B}$};
-  \draw[help lines] (2, 2, 0) -- (2, 0, 0);
-  \draw[->, help lines] (0, 0, 0) -- (0, 3, 0) node[anchor=east] {$\vec{A'}$};
-  \draw (2, 0.2, 0) -- (1.8, 0.2, 0) -- (1.8, 0, 0);
-  \draw (0.2, 0) arc [start angle=0, end angle=45, radius=0.2] 
-    node[anchor=west] {$\theta$};
-  \draw (0, 0.2) arc [start angle=90, end angle=45, radius=0.2] 
-    node[anchor=south] {$\theta'$};
+  [help line/.style={dashed}]
+  \draw[->] (0, 0) -- (3, 0) node[above] {$\vec{A}$};
+  \draw[->] (0, 0) -- (2, 2) node[above] {$\vec{B}$};
+  \draw[help line] (2, 2) -- (2, 0);
+  \draw[->, help line] (0, 0) -- (0, 3) node[left] {$\vec{A'}$};
+  \draw (2, 0.2) -- (1.8, 0.2) -- (1.8, 0);
+  \draw (0.2, 0) arc [start angle=0, end angle=45, radius=0.2] node[right] 
+    {$\theta$};
+  \draw (0, 0.2) arc [start angle=90, end angle=45, radius=0.2] node[above] 
+    {$\theta'$};
 \end{tikzpicture}
 
 Apparently
