@@ -22,4 +22,169 @@
     
 \maketitle
 
+\section{Definition of Double Integrals}
+
+For single-variable functions, we use integral to calculate the area under the 
+function curve. For a multivariable function with two independent variables 
+$z = f(x, y)$, we define double integrals to calculate the volume under the 
+function graph over a region $R$ in the $x$$y$-plane. The notation is 
+$\iint_R f(x, y)dA$.
+
+\bigskip
+
+Definition of double integrals:
+
+If we cut the region $R$ into small pieces of area $\Delta A_i$, then the volume 
+can be calculated as 
+\begin{equation*}
+  V \approx \sum_i f(x_i, y_i) \Delta A_i
+\end{equation*}
+If we take the limit of $\Delta A_i$ to 0, then it becomes the double integral
+\begin{equation*}
+  \iint_R f(x, y) dA = \lim_{\Delta A_i \to 0} \sum_i f(x_i, y_i) \Delta A_i
+\end{equation*}
+
+\section{Calculation of Double Integrals}
+
+To compute a double integral $\iint_R f(x, y) dA$, we can take slices of the 
+function graph along one dimension and use integral to get the area of slices. 
+In this way, the area of all slices becomes a function of another dimension, 
+then we can use the integral again to sum up those slices to get the volume.
+
+More concretely, let $S(x)$ denote the area of slices by plane parallel to 
+$y$$z$-plane. Then
+\begin{equation*}
+  \iint_R f(x, y) dA = \int_{x_min}^{x_max} S(x) dx
+\end{equation*}
+For a given $x_0$, the area of the slice
+\begin{equation*}
+  S(x_0) = \int_{y_min(x_0)}^{y_max(x_0)} f(x, y) dy
+\end{equation*}
+Therefore, the double integral
+\begin{equation*}
+  \begin{split}
+    \iint_R f(x, y) dA &= \int_{x_min}^{x_max} S(x) dx \\
+                       &= \int_{x_min}^{x_max} \int_{y_min(x_0)}^{y_max(x_0)} f(x, y) dy dx
+  \end{split}
+\end{equation*}
+This calculation method is called \textbf{iterated integral}, because we iterate 
+twice through both dimensions to get the integral.
+
+Notice that the bounds of the outer integral are numbers, and the bounds of the 
+inner integral are numbers or functions depending on the variable of the outer 
+integral. The bounds of both outer and inner integrals are determined by the 
+region of the double integral.
+
+\section{Examples of Double Integral}
+
+\begin{example}
+  Find the value of the double integral of the function $z = 1 - x^2 - y^2$ over 
+  the region $R$ as $0 \leq x \leq 1$, $0 \leq y \leq 1$.
+
+  Solution:
+
+  By using iterated integrals,
+  \begin{equation*}
+    \iint_R f(x, y) dA = \int_0^1 \int_0^1 1 - x^2 - y^2 dy dx
+  \end{equation*}
+  For the inner integral,
+  \begin{equation*}
+    \begin{split}
+      \int_0^1 1 - x^2 - y^2 dy &= (y - x^2y - \frac{y^3}{3})|_0^1 \\
+                                &= 1 - x^2 - \frac{1}{3} \\
+                                &= \frac{2}{3} - x^2 \\
+    \end{split}
+  \end{equation*}
+  For the outer integral,
+  \begin{equation*}
+    \begin{split}
+      \int_0^1 \frac{2}{3} - x^2 dx &= (\frac{2x}{3} - \frac{x^3}{3})|_0^1 \\
+                                    &= \frac{2}{3} - \frac{1}{3} \\
+                                    &= \frac{1}{3} \\
+    \end{split}
+  \end{equation*}
+  Therefore, the value of the double integral is $\frac{1}{3}$.
+\end{example}
+
+\begin{example}
+  Find the value of the double integral of the function $z = 1 - x^2 - y^2$ over 
+  the region $R$ as 
+  \begin{equation*}
+    \begin{cases}
+      x^2 + y^2 \leq 1 \\
+      x \geq 0 \\
+      y \geq 0 \\
+    \end{cases}
+  \end{equation*}
+
+  By the equation of the region $R$, we can get that for any given $x_0$, the 
+  range of $y$ in the region $R$ is $[0, \sqrt{1 - x^2}]$.
+
+  By using iterated integrals,
+  \begin{equation*}
+    \iint_R f(x, y) dA = \int_0^1 \int_0^{\sqrt{1 - x^2}} 1 - x^2 - y^2 dy dx
+  \end{equation*}
+  For the inner integral,
+  \begin{equation*}
+    \begin{split}
+      \int_0^{\sqrt{1 - x^2}} 1 - x^2 - y^2 dy &= (y - x^2y - \frac{y^3}{3})|_0^{\sqrt{1 - x^2}} \\
+                                               &= \sqrt{1 - x^2} - x^2\sqrt{1 - x^2} - \frac{(1 - x^2)^{\frac{3}{2}}}{3}\\
+                                               &= \frac{2}{3}(1 - x^2)^{\frac{3}{2}} \\
+    \end{split}
+  \end{equation*}
+  For the outer integral,
+  \begin{equation*}
+    \begin{split}
+      \int_0^1 \frac{2}{3}(1 - x^2)^{\frac{3}{2}} dx &= \int_0^{\frac{\pi}{2}} \frac{2}{3}(1 - \sin^2\theta)^{\frac{3}{2}} d(\sin\theta) \\
+                                                     &= \frac{2}{3} \int_0^{\frac{\pi}{2}} \cos^4\theta d\theta \\
+                                                     &= \frac{2}{3} \int_0^{\frac{\pi}{2}} (\frac{1 + \cos 2\theta}{2})^2 d\theta \\
+                                                     &= \frac{1}{6} \int_0^{\frac{\pi}{2}} (1 + 2\cos2\theta + \cos^2 2\theta) d\theta \\
+                                                     &= \frac{1}{6} \int_0^{\frac{\pi}{2}} (1 + 2\cos2\theta + \frac{1 + \cos 4\theta}{2}) d\theta \\
+                                                     &= \frac{1}{12} \int_0^{\frac{\pi}{2}} (3 + 4\cos2\theta + \cos 4\theta) d\theta \\
+                                                     &= \frac{1}{12} (3\theta + 2\sin2\theta + \frac{1}{4}\cos 4\theta)|_0^{\frac{\pi}{2}} \\
+                                                     &= \frac{1}{12} \cdot \frac{3\pi}{2} \\
+                                                     &= \frac{\pi}{8} \\
+    \end{split}
+  \end{equation*}
+  Therefore, the value of the double integral is $\frac{\pi}{8}$.
+\end{example}
+
+\section{Exchange the Order of Iterated Integrals}
+
+In theory, no matter in which order we calculate the iterated integral, the 
+values always exist and are the same. However, in practice an order requires 
+much more complex computation than the other; sometimes we might not even be 
+able to compute the double integral with a specific order, but able to do it 
+with the other order. Therefore, we need to be mindful about the order of 
+iterated integral we use.
+
+In some cases, we can exchange the order of an iterated integral, with some 
+adaption to the bounds of integrals.
+
+\begin{example}
+  \begin{equation*}
+    \int_0^1 \int_0^2 dx dy = \int_0^2 \int_0^1 dy dx
+  \end{equation*}
+  For rectangle regions, the bounds of the inner integral don't depend on the 
+  variable of the outer integral, so we can exchange the inner integral and 
+  outer integral freely.
+
+  From the perspective of the definition of iterated integrals, for rectangle 
+  regions, slices of either direction don't change the set of small pieces of 
+  area $dA_i$ to sum up.
+\end{example}
+
+\begin{example}
+  Find the value of $\int_0^1 \int_x^{\sqrt{x}} \frac{e^y}{y} dy dx$.
+
+  It is too difficult to calculate $\int_x^{\sqrt{x}} \frac{e^y}{y} dy$, so we 
+  need to consider exchanging the order of integrals.
+
+  By looking at the region, we derive that
+  \begin{equation*}
+    \int_0^1 \int_x^{\sqrt{x}} \frac{e^y}{y} dy dx = \int_0^1 \int_{y^2}^y \frac{e^y}{y} dx dy
+  \end{equation*}
+  and the one on the right-hand side is doable.
+\end{example}
+
 \end{document}
