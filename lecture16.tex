@@ -185,6 +185,24 @@ adaption to the bounds of integrals.
     \int_0^1 \int_x^{\sqrt{x}} \frac{e^y}{y} dy dx = \int_0^1 \int_{y^2}^y \frac{e^y}{y} dx dy
   \end{equation*}
   and the one on the right-hand side is doable.
+
+  For the inner integral,
+  \begin{equation*}
+    \begin{split}
+      \int_{y^2}^y \frac{e^y}{y} dx &= \frac{xe^y}{y}|_{y^2}^y \\
+                                    &= e^y - ye^y \\
+    \end{split}
+  \end{equation*}
+  For the outer integral,
+  \begin{equation*}
+    \begin{split}
+      \int_0^1 e^y - ye^y dy &= (2e^y - ye^y)|_0^1 \\
+                             &= 2e - e - 2 \\
+                             &= e - 2 \\
+    \end{split}
+  \end{equation*}
+  Therefore, the value of $\int_0^1 \int_x^{\sqrt{x}} \frac{e^y}{y} dy dx$ is 
+  $e - 2$.
 \end{example}
 
 \end{document}
