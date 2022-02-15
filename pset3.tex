@@ -1,0 +1,169 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{tikz}
+\setlength{\parindent}{0pt}
+
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{definition}{Definition}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{corollary}{Corollary}
+\newtheorem{example}{Example}
+\newtheorem{trick}{Trick}
+\newtheorem{question}{Question}
+
+\title{Problem Set 3}
+\author{}
+\date{}
+
+\begin{document}
+
+\begin{center}
+{\rmfamily\bfseries\Large 18.02 EXERCISES}
+
+\vspace{25px}
+
+{\rmfamily\bfseries\LARGE Problem Set 3: Parametric Equations for Curves}
+\end{center}
+
+\begin{center}
+\section*{Part I}
+\end{center}
+
+\subsection*{Unit 1E Equations of Lines and Planes}
+
+\bigskip
+
+4. Where does the line through $(0, 1, 2)$ and $(2, 0, 3)$ intersect the plane 
+$x + 4y + z = 4$?
+
+Solution:
+
+A vector along the line is $<2, -1, 1>$. Hence, the parametric equation of the 
+line is
+\begin{equation*}
+  \begin{cases}
+    x = x(t) = 0 + 2t = 2t \\
+    y = y(t) = 1 - t \\
+    z = z(t) = 2 + t \\
+  \end{cases}
+\end{equation*}
+
+For the intersection point of the line and the plane, it satisfies
+\begin{gather*}
+  x(t) + 4y(t) + z(t) = 4 \\
+  2t + 4(1 - t) + 2 + t = 4 \\
+  -t = -2 \\
+  t = 2 \\
+\end{gather*}
+
+Therefore, the coordinates of the intersection point is $(x(2), y(2), z(2))$, 
+which is $(4, -1, 4)$.
+
+\bigskip
+
+7. Formulate a general method for finding the distance between two skew (i.e., 
+non-intersecting) lines in space, and carry it out for two non-intersecting 
+lines lying along the diagonals of two adjacent faces of the unit cube (place it 
+in the first octant, with one vertex at the origin).
+
+Solution:
+
+7-1. Formulate a general method for finding the distance between two parallel 
+planes in space:
+
+Suppose that the equations of two parallel planes are respectively
+\begin{gather*}
+  n_1x + n_2y + n_3z = c_1 \\
+  n_1x + n_2y + n_3z = c_2 \\
+\end{gather*}
+Then the vector $<n_1, n_2, n_3>$ is one of the normal vectors of the two 
+planes. Therefore, we can construct the parametric equation of a line 
+perpendicular to the two planes as
+\begin{equation*}
+  \begin{cases}
+    x(t) = n_1t \\
+    y(t) = n_2t \\
+    z(t) = n_3t \\
+  \end{cases}
+\end{equation*}
+Therefore, the two intersection points the line has with the two planes 
+respectively satisfy
+\begin{gather*}
+  n_1x(t_1) + n_2y(t_1) + n_3z(t_1) = c_1 \\
+  n_1^2t_1 + n_2^2t_1 + n_3^2t_1 = c_1 \\
+  t_1 = \frac{c_1}{n_1^2 + n_2^2 + n_3^2} \\
+  n_1x(t_2) + n_2y(t_2) + n_3z(t_2) = c_2 \\
+  n_1^2t_2 + n_2^2t_2 + n_3^2t_2 = c_1 \\
+  t_2 = \frac{c_2}{n_1^2 + n_2^2 + n_3^2} \\
+\end{gather*}
+The distance between two points in the line can be calculated as 
+\begin{equation*}
+  \begin{split}
+    d &= \sqrt{(x(t_1) - x(t_2))^2 + (y(t_1) - y(t_2))^2 + (z(t_1) - z(t_2))^2} \\
+      &= \sqrt{(n_1^2 + n_2^2 + n_3^2)(t_1 - t_2)^2} \\
+      &= \sqrt{(n_1^2 + n_2^2 + n_3^2)(\frac{c_1 - c_2}{n_1^2 + n_2^2 + n_3^2})^2} \\
+      &= \frac{|c_1 - c_2|}{\sqrt{n_1^2 + n_2^2 + n_3^2}} \\
+  \end{split}
+\end{equation*}
+
+7-2. Formulate a general method for finding the distance between two parallel 
+lines in space:
+
+Suppose that the equations of two parallel lines are respectively
+\begin{gather*}
+  \begin{cases}
+    x(t) = x_1 + n_1t \\
+    y(t) = y_1 + n_2t \\
+    z(t) = z_1 + n_3t \\
+  \end{cases} \\
+  \begin{cases}
+    x(t) = x_2 + n_1t \\
+    y(t) = y_2 + n_2t \\
+    z(t) = z_2 + n_3t \\
+  \end{cases} \\
+\end{gather*}
+
+The two parallel lines determine a plane in space. The normal vector of the 
+plane can be calculated as the cross product of the two vectors:
+\begin{equation*}
+  \begin{split}
+    &<x_1 - x_2, y_1 - y_2, z_1 - z_2> \times <n_1, n_2, n_3> \\
+    &= \begin{vmatrix}
+         \vec{i} & \vec{j} & \vec{k} \\
+         n_1 & n_2 & n_3 \\
+         (x_1 - x_2) & (y_1 - y_2) & (z_1 - z_2) \\
+       \end{vmatrix} \\
+    &= <n_2(z_1 - z_2) - n_3(y_1 - y_2), n_3(x_1 - x_2) - n_1(z_1 - z_2), n_1(y_1 - y_2) - n_2(x_1 - x_2)>
+  \end{split}
+\end{equation*}
+
+Then we can find the vector perpendicular to the two parallel lines and lying in 
+the plane determined by the two parallel lines by calculating the cross product 
+of the normal vector and the line vector $<n_1, n_2, n_3>$:
+
+
+\begin{center}
+\section*{Part II}
+\end{center}
+
+\bigskip
+
+1. A circular disk of radius 2 has a dot marked at a point half-way between the 
+center and the circumference. Denote this point by $P$. Suppose that the disk is 
+tangent to the $x$-axis with the center initially at $(0, 2)$ and $P$ initially 
+at $(0, 1)$ and that it starts to roll to the right on the $x$-axis at unit 
+speed. Let $C$ be the curve traced out by the point $P$. \\
+a) Make a sketch of what you think the curve $C$ will look like. \\
+b) Use vectors to find the parametric equations for $\vec{OP}$ as a function of 
+time $t$. \\
+c) Open the 'Mathlet' Wheel (with link on course webpage) and set the parameters 
+to view an animation of this particular motion problem. Then activate the 
+'Trace' function to see a graph of the curve $C$. If this graph is substantially 
+different from your hand sketch, sketch it also and then describe what led you 
+to produce your first idea of the graph.
+
+
+\end{document}
