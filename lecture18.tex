@@ -22,4 +22,143 @@
     
 \maketitle
 
+\section{Introduction to Change of Variables in Double Integrals}
+
+\begin{example}
+  Calculate the area of the ellipse with semiaxes $a$ and $b$.
+
+  We can use double integrals to calculate the area. By definition of double 
+  integrals, the area of the described ellipse 
+  \begin{equation*}
+    \begin{split}
+      A &= \iint_R 1 dA \\
+        &= \iint_{(\frac{x}{a})^2 + (\frac{y}{b})^2 = 1} dx dy \\
+    \end{split}
+  \end{equation*}
+  
+  To simplify the equation, we can set
+  \begin{gather*}
+    u = \frac{x}{a} \\
+    v = \frac{y}{b} \\
+  \end{gather*}
+  Then
+  \begin{gather*}
+    du = \frac{dx}{a} \\
+    dv = \frac{dy}{b} \\
+    du dv = \frac{dx dy}{ab} \\
+    dx dy = ab du dv \\
+  \end{gather*}
+  
+  Therefore, the equation of the double integral is equivalent to
+  \begin{equation*}
+    \begin{split}
+      A &= \iint_{(\frac{x}{a})^2 + (\frac{y}{b})^2 = 1} dx dy \\
+        &= \iint_{u^2 + v^2 = 1} ab du dv \\
+        &= ab \iint_{u^2 + v^2 = 1} du dv \\
+        &= \pi ab \\
+    \end{split}
+  \end{equation*}
+
+  Therefore, the area of the ellipse with semiaxes $a$ and $b$ is $\pi ab$.
+\end{example}
+
+From the above example we can see, in general when we change the variables in a 
+double integral, we need to find the scaling factor between $dA = dx dy$ and 
+$dA' = du dv$. In order to ensure the correctness of the double integral after 
+changing the variables, we need to multiply the scaling factor with 
+differentials of changed variables, to ensure the differential of area is still 
+$dA$ rather than $dA'$. Also note that the scaling factor between $dA$ and $dA'$ 
+might not be constant in the region $R$.
+
+\begin{question}
+  Why when we make sure $dA$ is correctly expressed by $du dv$ the double 
+  integral with change of variables yields the correct result?
+
+  Answer:
+
+  Probably think about it from the definition of double integral, and the 
+  geometric interpretation of change of variables.
+\end{question}
+
+\section{Change of Variables with Linear Transformation}
+
+\begin{example}
+  Find the scaling factor between $dA = dx dy$ and $dA' = du dv$ with the 
+  following linear transformation:
+  \begin{equation*}
+    \begin{cases}
+      u = 3x - 2y \\
+      v = x + y \\
+    \end{cases}
+  \end{equation*}
+
+  In the $xy$-coordinates, $dA = dx dy$ represents a small rectangle. Regarding 
+  the geometric interpretation of the linear transformation, we have the 
+  following two observations:
+  \begin{itemize}
+    \item A rectangle in the $xy$-coordinates corresponds to a parallelogram in 
+    the $uv$-coordinates. The ratio of the area of the parallelogram in the 
+    $uv$-coordinates to the area of the rectangle in the $xy$-coordinates is the 
+    area scaling factor.
+    \item The area scaling factor of the linear transformation doesn't depend on 
+    the choice of rectangles, either the position or the area.
+  \end{itemize}
+
+  Based on the above two observations, we can study a special case to find the 
+  scaling factor of the linear transformation. The special case we choose is a 
+  unit rectangle with the left bottom corner on the origin.
+
+  \begin{tikzpicture}
+    [help line/.style={dashed}]
+    \draw[->] (-1, 0) -- (2, 0) node[right] {x};
+    \draw[->] (0, -1) -- (0, 2) node[right] {y};
+    \draw (0, 0) node[below right] {O};
+    \draw[-] (0, 0) -- (0, 1) -- (1, 1) -- (1, 0) -- (0, 0);
+  \end{tikzpicture}
+
+  After the linear transformation,
+  \begin{gather*}
+    (0, 0) \rightarrow (0, 0) \\
+    (1, 0) \rightarrow (3, 1) \\
+    (1, 1) \rightarrow (1, 2) \\
+    (0, 1) \rightarrow (-2, 1) \\
+  \end{gather*}
+
+  \begin{tikzpicture}
+    [help line/.style={dashed}]
+    \draw[->] (-2, 0) -- (3, 0) node[right] {u};
+    \draw[->] (0, -1) -- (0, 3) node[right] {v};
+    \draw (0, 0) node[below right] {O};
+    \draw[-] (0, 0) -- (3, 1) -- (1, 2) -- (-2, 1) -- (0, 0);
+  \end{tikzpicture}
+
+  We can use the determinant to calculate the area of a parallelogram in a plane
+  \begin{equation*}
+    \begin{split}
+      A &= \det(<3, 1>, <-2, 1>) \\
+        &= \begin{vmatrix}
+             3 & 1 \\
+             -2 & 1 \\ 
+           \end{vmatrix} \\
+        &= 5 \\
+    \end{split}
+  \end{equation*}
+
+  Therefore, the scaling factor of the linear transformation is $5$:
+  \begin{gather*}
+    dA' = 5dA \\
+    dA = \frac{1}{5} dA' \\
+    dx dy = \frac{1}{5} du dv \\
+  \end{gather*}
+
+\end{example}
+
+\begin{question}
+  Why the scaling factor in the above example is $5$ rather than $\frac{1}{5}$?
+
+  Answer:
+\end{question}
+
+\section{Change of Variables in General}
+
 \end{document}
