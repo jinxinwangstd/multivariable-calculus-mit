@@ -79,8 +79,8 @@ Suppose that the equations of two parallel planes are respectively
   n_1x + n_2y + n_3z = c_1 \\
   n_1x + n_2y + n_3z = c_2 \\
 \end{gather*}
-Then the vector $<n_1, n_2, n_3>$ is one of the normal vectors of the two 
-planes. Therefore, we can construct the parametric equation of a line 
+Then the vector $\vec{n} = <n_1, n_2, n_3>$ is one of the normal vectors of the 
+two planes. Therefore, we can construct the parametric equation of a line 
 perpendicular to the two planes as
 \begin{equation*}
   \begin{cases}
@@ -106,44 +106,166 @@ The distance between two points in the line can be calculated as
       &= \sqrt{(n_1^2 + n_2^2 + n_3^2)(t_1 - t_2)^2} \\
       &= \sqrt{(n_1^2 + n_2^2 + n_3^2)(\frac{c_1 - c_2}{n_1^2 + n_2^2 + n_3^2})^2} \\
       &= \frac{|c_1 - c_2|}{\sqrt{n_1^2 + n_2^2 + n_3^2}} \\
+      &= \frac{|c_1 - c_2|}{|\vec{n}|} \\
   \end{split}
 \end{equation*}
 
-7-2. Formulate a general method for finding the distance between two parallel 
-lines in space:
+7-2. Formulate a general method for finding the distance between two 
+non-parallel lines in space:
 
-Suppose that the equations of two parallel lines are respectively
+Suppose that there are two non-parallel lines in space named $l_a$ and $l_b$. 
+Their normal vectors are respectively 
+$\vec{n_a} = \langle n_{ax}, n_{ay}, n_{az} \rangle$ and 
+$\vec{n_b} = \langle n_{bx}, n_{by}, n_{bz} \rangle$, and their parametric 
+equations are respectively:
 \begin{gather*}
   \begin{cases}
-    x(t) = x_1 + n_1t \\
-    y(t) = y_1 + n_2t \\
-    z(t) = z_1 + n_3t \\
+    x_a(t) = x_{a0} + n_{ax}t \\
+    y_a(t) = y_{a0} + n_{ay}t \\
+    z_a(t) = z_{a0} + n_{az}t \\
   \end{cases} \\
   \begin{cases}
-    x(t) = x_2 + n_1t \\
-    y(t) = y_2 + n_2t \\
-    z(t) = z_2 + n_3t \\
+    x_b(t) = x_{b0} + n_{bx}t \\
+    y_b(t) = y_{b0} + n_{by}t \\
+    z_b(t) = z_{b0} + n_{bz}t \\
   \end{cases} \\
 \end{gather*}
 
-The two parallel lines determine a plane in space. The normal vector of the 
-plane can be calculated as the cross product of the two vectors:
+Then we can find the vector $\vec{n}$ which is perpendicular to both $l_a$ and 
+$l_b$ by
 \begin{equation*}
   \begin{split}
-    &<x_1 - x_2, y_1 - y_2, z_1 - z_2> \times <n_1, n_2, n_3> \\
-    &= \begin{vmatrix}
-         \vec{i} & \vec{j} & \vec{k} \\
-         n_1 & n_2 & n_3 \\
-         (x_1 - x_2) & (y_1 - y_2) & (z_1 - z_2) \\
-       \end{vmatrix} \\
-    &= <n_2(z_1 - z_2) - n_3(y_1 - y_2), n_3(x_1 - x_2) - n_1(z_1 - z_2), n_1(y_1 - y_2) - n_2(x_1 - x_2)>
+    \vec{n} &= \vec{n_a} \times \vec{n_b} \\
+            &= \langle n_x, n_y, n_z \rangle \\
   \end{split}
 \end{equation*}
 
-Then we can find the vector perpendicular to the two parallel lines and lying in 
-the plane determined by the two parallel lines by calculating the cross product 
-of the normal vector and the line vector $<n_1, n_2, n_3>$:
+Then the distance between $l_a$ and $l_b$ is equal to the distance between the 
+two planes $P_a$ and $P_b$ with $\vec{n}$ as their normal vectors where $l_a$ 
+and $l_b$ lie within respectively.
 
+The equation of $P_a$ is
+\begin{equation*}
+  n_x x + n_y y + n_z z = n_x x_{a0} + n_y y_{a0} + n_z z_{a0}
+\end{equation*}
+
+The equation of $P_b$ is 
+\begin{equation*}
+  n_x x + n_y y + n_z z = n_x x_{b0} + n_y y_{b0} + n_z z_{b0}
+\end{equation*}
+
+According to the previous part, the distance between $P_a$ and $P_b$ is
+\begin{equation*}
+  \begin{split}
+    d &= \frac{|(n_x x_{a0} + n_y y_{a0} + n_z z_{a0}) - (n_x x_{b0} + n_y y_{b0} + n_z z_{b0})|}{|\vec{n}|} \\
+      &= \frac{|\vec{n} \cdot \langle (x_{a0} - x_{b0}), (y_{a0} - y_{b0}), (z_{a0} - z_{b0}) \rangle|}{|\vec{n}|} \\
+      &= \frac{|\vec{n} \cdot \vec{A_0B_0}|}{|\vec{n}|} \\
+      &= \frac{|(\vec{n_a} \times \vec{n_b}) \cdot \vec{A_0B_0}|}{|\vec{n_a} \times \vec{n_b}|} \\
+  \end{split}
+\end{equation*}
+
+Therefore, the distance between $l_a$ and $l_b$ is
+\begin{equation*}
+  d = \frac{|(\vec{n_a} \times \vec{n_b}) \cdot \vec{A_0B_0}|}{|\vec{n_a} \times \vec{n_b}|}
+\end{equation*}
+
+7-3 Apply the above method to find the distance between two non-intersecting 
+lines lying along the diagonals of two adjacent faces of the unit cube (place it 
+in the first octant, with one vertex at the origin).
+
+The two non-intersecting diagonals of two adjacent faces of the unit cube I 
+choose are the diagonal between $(0, 0, 0)$ and $(1, 0, 1)$, and the diagonal 
+between $(0, 1, 0)$ and $(0, 0, 1)$. Therefore, the parametric equations of 
+these two lines along the described diagonals are respectively:
+\begin{gather*}
+  \begin{cases}
+    x_a(t) = t \\
+    y_a(t) = 0 \\
+    z_a(t) = t \\
+  \end{cases} \\
+  \begin{cases}
+    x_b(t) = 0 \\
+    y_b(t) = 1 - t \\
+    z_b(t) = t \\
+  \end{cases} \\
+\end{gather*}
+
+Therefore,
+\begin{gather*}
+  \vec{n_a} = \langle 1, 0, 1 \rangle \\
+  \vec{n_b} = \langle 0, -1, 1 \rangle \\
+  A_0 = (0, 0, 0) \\
+  B_0 = (0, 1, 0) \\
+  \vec{A_0B_0} = \langle 0, 1, 0 \rangle \\
+\end{gather*}
+
+Therefore, the distance between the two non-intersecting diagonals is
+\begin{equation*}
+  \begin{split}
+    d &= \frac{|(\vec{n_a} \times \vec{n_b}) \cdot \vec{A_0B_0}|}{|\vec{n_a} \times \vec{n_b}|} \\
+      &= \frac{|\langle 1, -1, -1 \rangle \cdot \langle 0, 1, 0 \rangle|}{|\langle 1, -1, -1 \rangle|} \\
+      &= \frac{\sqrt{3}}{3} \\
+  \end{split}
+\end{equation*}
+
+Therefore, the distance between the two non-intersecting diagonals of two 
+adjacent faces of the unit cube is $\frac{\sqrt{3}}{3}$.
+
+\subsection*{Unit 1I Vector Functions and Parametric Equations}
+
+\bigskip
+
+1. The point $P$ moves with constant speed $v$ in the direction of the constant 
+vector $a \vec{i} + b \vec{j}$. If at time $t = 0$ it is at $(x_0, y_0)$, what 
+is its position vector function $\vec{r}(t)$?
+
+Solution:
+
+The direction of the constant vector $a \vec{i} + b \vec{j}$ is
+\begin{equation*}
+  dir(A) = \frac{a}{\sqrt{a^2 + b^2}} \vec{i} + \frac{b}{\sqrt{a^2 + b^2}} \vec{j}
+\end{equation*}
+
+Hence in a period of time $t$, the point $P$ moves in a distance of $vt$ in the 
+direction 
+$\langle \frac{a}{\sqrt{a^2 + b^2}}, \frac{b}{\sqrt{a^2 + b^2}} \rangle$. Hence 
+along the $x$-axis it moves in a distance of $\frac{a}{\sqrt{a^2 + b^2}} vt$, 
+and along the $y$-axis it moves in a distance of 
+$\frac{b}{\sqrt{a^2 + b^2}} vt$.
+
+Therefore, the position vector function of the point $P$ is
+\begin{equation*}
+  \vec{r}(t) = \langle x_0 + \frac{a}{\sqrt{a^2 + b^2}} vt, y_0 + \frac{b}{\sqrt{a^2 + b^2}} vt \rangle
+\end{equation*}
+
+\bigskip
+
+3. Describe the motions given by each of the following position vector 
+functions, as $t$ goes from $-\infty$ to $\infty$. In each case, give the 
+$xy$-equation of the curve along which $P$ travels, and tell what part of the 
+curve is actually traced out by $P$. \\
+a) $\vec{r} = 2 \cos^2 t \vec{i} + \sin^2 t \vec{j}$ \\
+b) $\vec{r} = \cos 2t \vec{i} + \cos t \vec{j}$ \\
+c) $\vec{r} = (t^2 + 1) \vec{i} + t^3 \vec{j}$ \\
+d) $\vec{r} = \tan t \vec{i} + \sec t \vec{j}$
+
+Solution:
+
+a) 
+
+\bigskip
+
+5. A string is wound clockwise around the circle of radius $a$ centered at the 
+origin $O$; the initial position of the end $P$ of the string is $(a, 0)$. 
+Unwind the string, always pulling it taut (so it stays tangent to the circle). 
+Write parametric equations for the motion of $P$.
+
+\bigskip
+
+7. The cycloid is the curve traced out by a fix point $P$ on a circle of radius 
+$a$ which rolls along the $x$-axis in the positive direction, starting when $P$ 
+is at the origin $O$. Find the vector function $OP$; use as variable the angle 
+$\theta$ through which the circle has rolled.
 
 \begin{center}
 \section*{Part II}
