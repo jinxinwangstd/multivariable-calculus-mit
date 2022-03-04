@@ -161,4 +161,191 @@ might not be constant in the region $R$.
 
 \section{Change of Variables in General}
 
+For general cases of change of variables:
+\begin{gather*}
+  u = u(x, y) \\
+  v = v(x, y) \\
+\end{gather*}
+
+By linear approximation, we have
+\begin{gather*}
+  \Delta u \approx u_x \Delta x + u_y \Delta y \\
+  \Delta v \approx v_x \Delta x + v_y \Delta y \\
+  \begin{bmatrix}
+    \Delta u \\
+    \Delta v \\
+  \end{bmatrix} \approx 
+  \begin{bmatrix}
+    u_x & u_y \\
+    v_x & v_y \\
+  \end{bmatrix}
+  \begin{bmatrix}
+    \Delta x \\
+    \Delta y \\
+  \end{bmatrix} \\
+\end{gather*}
+
+Therefore, for any transformation or change of variables, a small rectangle in 
+the original coordinate system corresponds to a parallelogram in the new 
+coordinate system.
+
+The correspondence of the vertices between the small rectange in the original 
+coordinate system and the parallelogram in the new coordinate system is
+\begin{gather*}
+  (0, 0) \rightarrow (0, 0) \\
+  (\Delta x, 0) \rightarrow (u_x \Delta x, v_x \Delta x) \\
+  (0, \Delta y) \rightarrow (u_y \Delta y, v_y \Delta y) \\
+  (\Delta x, \Delta y) \rightarrow (u_x \Delta x + u_y \Delta y, v_x \Delta x + v_y \Delta y) \\
+\end{gather*}
+
+Therefore, the area of the parallelogram is
+\begin{equation*}
+  \begin{split}
+    A &= \det(<u_x \Delta x, v_x \Delta x>, <u_y \Delta y, v_y \Delta y>) \\
+      &= \begin{vmatrix}
+           u_x \Delta x & v_x \Delta x \\
+           u_y \Delta y & v_y \Delta y \\
+         \end{vmatrix} \\
+      &= (u_x v_y - u_y v_x) \Delta x \Delta y \\
+      &= \begin{vmatrix}
+           u_x & u_y \\
+           v_x & v_y \\
+         \end{vmatrix} \Delta x \Delta y \\
+  \end{split}
+\end{equation*}
+
+Therefore, the scaling factor between two coordinates is 
+$\begin{vmatrix}
+   u_x & u_y \\
+   v_x & v_y \\
+\end{vmatrix}$. Since the scaling factor consists of partial derivatives, it 
+varies with different positions of the differential of area.
+
+Here we define the Jacobian determinant as
+\begin{equation*}
+  J = \frac{\partial(u, v)}{\partial(x, y)} = \begin{vmatrix}
+                                                u_x & u_y \\
+                                                v_x & v_y \\ 
+                                              \end{vmatrix}
+\end{equation*}
+Then
+\begin{equation*}
+  du dv = |J| dx dy = |\frac{\partial(u, v)}{\partial(x, y)}| dx dy
+\end{equation*}
+
+\begin{example}
+  Find the scaling factor between the Cartesian coordinates and the polar 
+  coordinates.
+
+  According to the definition of the polar coordinates
+  \begin{gather*}
+    x = r \cos\theta \\
+    y = r \sin\theta \\
+  \end{gather*}
+
+  Then we can find the Jacobian determinant as
+  \begin{equation*}
+    \begin{split}
+      J &= \frac{\partial(x, y)}{\partial(r, \theta)} \\
+        &= \begin{vmatrix}
+             \frac{\partial x}{\partial r} & \frac{\partial x}{\partial \theta} \\
+             \frac{\partial y}{\partial r} & \frac{\partial y}{\partial \theta} \\
+           \end{vmatrix} \\
+        &= \begin{vmatrix}
+             \cos\theta & -r \sin\theta \\
+             \sin\theta & r \cos\theta \\
+           \end{vmatrix} \\
+        &= r \cos^2\theta + r \sin^2\theta \\
+        &= r \\
+    \end{split}
+  \end{equation*}
+
+  Therefore, 
+  \begin{equation*}
+    dx dy = |\frac{\partial(x, y)}{\partial(r, \theta)}| dr d\theta = r dr d\theta
+  \end{equation*}
+\end{example}
+
+Note that the Jacobian determinant of a change of variables works in both ways, 
+which means
+\begin{gather*}
+  J_1 = \frac{\partial(x, y)}{\partial(u, v)} = \frac{dx dy}{du dv} \\
+  J_2 = \frac{\partial(u, v)}{\partial(x, y)} = \frac{du dv}{dx dy} \\
+  \frac{dx dy}{du dv} \cdot \frac{du dv}{dx dy} = 1 \\
+  \frac{\partial(x, y)}{\partial(u, v)} \cdot \frac{\partial(u, v)}{\partial(x, y)} = 1 \\
+\end{gather*}
+
+Therefore, the two Jacobian determinants are inverse to each other, and we can 
+choose the easier one to calculate.
+
+\begin{example}
+  Calculate $\int_0^1 \int_0^1 x^2 y dx dy$ by changing the variables as
+  \begin{gather*}
+    u = x \\
+    v = xy \\
+  \end{gather*}
+
+  First we need to calculate the differential of area.
+  \begin{gather*}
+    \begin{split}
+      J &= \frac{\partial(u, v)}{\partial(x, y)} \\
+        &= \begin{vmatrix}
+             1 & 0 \\
+             y & x \\
+           \end{vmatrix} \\
+        &= x \\
+    \end{split} \\
+    \begin{split}
+      du dv &= |J| dx dy \\
+            &= |x| dx dy \\
+            &= x dx dy \ (x \geq 0)
+    \end{split} \\
+  \end{gather*}
+
+  Then we need to calculate the integrand
+  \begin{equation*}
+    \begin{split}
+      x^2 y dx dy &= x^2 y \frac{1}{x} du dv \\
+                  &= xy du dv \\
+                  &= v du dv \\
+    \end{split}
+  \end{equation*}
+
+  Then we need to determine the region of the double integral in the new 
+  coordinates.
+
+  In the $xy$-coordinates, the region of the double integral is a rectangle as 
+  shown in the below diagram.
+
+  \begin{tikzpicture}
+    [help line/.style={dashed}]
+    \draw[->] (-1, 0) -- (2, 0) node[right] {x};
+    \draw[->] (0, -1) -- (0, 2) node[right] {y};
+    \draw (0, 0) node[below right] {O};
+    \draw[-] (0, 0) -- (1, 0) -- (1, 1) -- (0, 1) -- (0, 0);
+  \end{tikzpicture}
+
+  After changing the variables, if we calculate the double integral in the order 
+  of $du dv$, it means for each possible value of $v$, we will keep it constant, 
+  and vary the value of $u$.
+
+  Therefore, the way we determine the boundary of the region is to find the 
+  range of $v$, and for each value of $v$, find the possible values of $u$ based 
+  on the region in $xy$-coordinates.
+
+  According to the diagram, we can find that the range of $v$ is $(0, 1)$, and 
+  for each value of $v$, the range of $u$ is $(v, 1)$.
+
+  Therefore, the double integral after changing the variables is
+  \begin{equation*}
+    \begin{split}
+      \int_0^1 \int_0^1 x^2 y dx dy &= \int_0^1 \int_v^1 v du dv \\
+                                    &= \int_0^1 (uv)|_{u = v}^{u = 1} dv \\
+                                    &= \int_0^1 v - v^2 dv \\
+                                    &= (\frac{v^2}{2} - \frac{v^3}{3})|_0^1 \\
+                                    &= \frac{1}{6} \\
+    \end{split}
+  \end{equation*}
+\end{example}
+
 \end{document}
