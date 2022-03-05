@@ -251,7 +251,76 @@ d) $\vec{r} = \tan t \vec{i} + \sec t \vec{j}$
 
 Solution:
 
-a) 
+a) According to the position vector function,
+\begin{gather*}
+  x(t) = 2 \cos^2 t \\
+  y(t) = \sin^2 t \\
+\end{gather*}
+
+Therefore, we can find the relation between $x$ and $y$:
+\begin{gather*}
+  \frac{x}{2} + y = 1 \\
+  y = -\frac{1}{2}x + 1 \\
+\end{gather*}
+which is a line in the $xy$-plane.
+
+Since the ranges of $x$ and $y$ are respectively
+\begin{gather*}
+  x \in [0, 2] \\
+  y \in [0, 1] \\
+\end{gather*}
+the part of the curve that is actually traced out by $P$ is the line segment 
+from $(0, 0)$ to $(2, 1)$.
+
+b) According to the position vector function,
+\begin{gather*}
+  x(t) = \cos 2t \\
+  y(t) = \cos t \\
+\end{gather*}
+
+Therefore, we can find the relation between $x$ and $y$:
+\begin{gather*}
+  \cos 2t = 2 \cos^2 t - 1 \\
+  x = 2 y^2 - 1 \\
+\end{gather*}
+which is a parabola in the $xy$-plane.
+
+Since the range of $y$ is $y \in [-1, 1]$, and based on the characteristic of 
+the parabola $x = 2 y^2 - 1$, the part of the curve that is actually traced out 
+by $P$ is the part of the parabola between $(-1, 1)$ and $(1, 1)$.
+
+c) According to the position vector function,
+\begin{gather*}
+  x(t) = t^2 + 1 \\
+  y(t) = t^3 \\
+\end{gather*}
+
+Therefore, we can find the relation between $x$ and $y$:
+\begin{equation*}
+  y = (x - 1)^{\frac{3}{2}}
+\end{equation*}
+which is a symmetric graph related to the $x$ axis, in which the half above the 
+$x$ axis is the graph of a power function.
+
+Since the range of $x$ is $x \in [1, \infty)$, which is the domain of the 
+function $y = (x - 1)^{\frac{3}{2}}$, the full curve is actually traced out by 
+$P$.
+
+d) According to the position vector function,
+\begin{gather*}
+  x(t) = \tan t \\
+  y(t) = \sec t \\
+\end{gather*}
+
+Therefore, we can find the relation between $x$ and $y$:
+\begin{gather*}
+  \sec^2 t - \tan^2 t = 1 \\
+  y^2 - x^2 = 1 \\
+\end{gather*}
+which is a hyperbola.
+
+According to the graph of $x(t)$ and $y(t)$, the full hyperbola is actually 
+traced out by $P$.
 
 \bigskip
 
@@ -260,12 +329,88 @@ origin $O$; the initial position of the end $P$ of the string is $(a, 0)$.
 Unwind the string, always pulling it taut (so it stays tangent to the circle). 
 Write parametric equations for the motion of $P$.
 
+Solution:
+
+Since the string is wound clockwise, when we unwind it, the direction is 
+counter-clockwise. Also, since the string is unwound around a circle, it is 
+natural to use the parameter $\theta$ to describe the motion of $P$, where 
+$\theta$ is the corresponding angle of the unwound part of the string. Hence the 
+length of the unwound part of the string is $a \theta$.
+
+During the unwinding, the string is always pulled taut, hence there is always a 
+point $P'$ on the circle which is the point of tangency between the circle and 
+the unwound part of the string. The coordinates of $P'$ can be described as 
+$(a \cos\theta, a \sin\theta)$.
+
+Next we need to explore the direction of the vector $\vec{P'P}$ in order to 
+describe the coordinates of $P$. According to the tangency relationship between 
+the circle and the unwound part of the string,
+\begin{gather*}
+  \vec{P'P} \perp \vec{OP'} \\
+  dir(\vec{OP'}) = \langle \cos\theta, \sin\theta \rangle \\
+\end{gather*}
+
+Therefore, we have the following system of equations
+\begin{equation*}
+  \begin{cases}
+    dir(\vec{P'P}) \cdot \langle \cos\theta, \sin\theta \rangle = 0 \\
+    |dir(\vec{P'P})| = 1 \\
+  \end{cases}
+\end{equation*}
+
+After solving the above system of equations, there are two possible solutions:
+\begin{gather*}
+  dir(\vec{P'P}) = \langle \sin\theta, -\cos\theta \rangle \\
+  dir(\vec{P'P}) = \langle -\sin\theta, \cos\theta \rangle \\
+\end{gather*}
+
+According to the geometric interpretation of unwinding the string 
+counter-clockwise, the correct direction of the vector $\vec{P'P}$ is 
+$\langle \sin\theta, -\cos\theta \rangle$.
+
+Therefore, the parametric equation for the motion of $P$ is
+\begin{equation*}
+  \begin{cases}
+    x(t) = a\cos\theta + a \theta \sin\theta \\
+    y(t) = a\sin\theta - a \theta \cos\theta \\
+  \end{cases}
+\end{equation*}
+
 \bigskip
 
 7. The cycloid is the curve traced out by a fix point $P$ on a circle of radius 
 $a$ which rolls along the $x$-axis in the positive direction, starting when $P$ 
 is at the origin $O$. Find the vector function $OP$; use as variable the angle 
 $\theta$ through which the circle has rolled.
+
+Solution:
+
+Let $C$ denote the center of the rolling circle. At a given value of $\theta$, 
+suppose that the tangency point between the circle and the $x$ axis is $A$.
+
+Since the circle is rolling along the $x$ axis without any slip, then
+\begin{equation*}
+  OA = a \theta
+\end{equation*}
+
+Also $AC = a$, hence the coordinates of $C$ at the given value of $\theta$ is 
+\begin{equation*}
+  C = (a \theta, a)
+\end{equation*}
+
+The direction of $\vec{CP}$ can be described by
+\begin{gather*}
+  dir(\vec{CP}) = \langle \cos(-\frac{\pi}{2} - \theta), \sin(-\frac{\pi}{2} - \theta) \rangle \\
+  dir(\vec{CP}) = \langle -\sin\theta, -\cos\theta \rangle \\
+\end{gather*}
+
+Therefore, the parametric equation for the motion of $P$ is
+\begin{equation*}
+  \begin{cases}
+    x(t) = a \theta - a \sin\theta \\
+    y(t) = a - a \cos\theta \\
+  \end{cases}
+\end{equation*}
 
 \begin{center}
 \section*{Part II}
