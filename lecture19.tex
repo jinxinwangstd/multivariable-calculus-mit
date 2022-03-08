@@ -3,6 +3,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
+\usepackage{bm}
 \usepackage{tikz}
 \setlength{\parindent}{0pt}
 
@@ -14,6 +15,8 @@
 \newtheorem*{trick}{Trick}
 \newtheorem*{question}{Question}
 
+\newcommand{\uvec}[1]{\boldsymbol{\hat{\textbf{#1}}}}
+
 \title{Lecture 19: Vector Fields}
 \author{}
 \date{}
@@ -21,5 +24,35 @@
 \begin{document}
     
 \maketitle
+
+\section{Definition of Vector Fields}
+
+A vector field can be described with such a formula:
+\begin{equation*}
+  \vec{F} = M \uvec{\i} + N \uvec{\j}
+\end{equation*}
+where $M$ and $N$ are functions of coordinates.
+
+In a vector field, at each point $(x, y)$ there is a corresponding vector. In 
+other words, vectors in a vector field are a function of the position.
+
+Real world examples of a vector field:
+\begin{itemize}
+  \item Velocity field in fluid $\vec{v}$.
+  \item Force field $\vec{F}$.
+\end{itemize}
+
+\section{Plot of Vector Fields}
+
+Plot of a vector field enables us to understand the vector field in a concrete 
+way and probably provides some important insights.
+
+\begin{example}
+  Plot the vector field $\vec{F} = 2 \uvec{\i} + \uvec{j}$.
+\end{example}
+
+\begin{example}
+  Plot the vector field $\vec{F} = x \uvec{\i}$.
+\end{example}
 
 \end{document}
