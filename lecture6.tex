@@ -30,24 +30,24 @@ to analyze the motion with more details.
 \subsection{Position vectors}
 
 Position vectors are used to describe the position of a point in a motion.
-\[
+\begin{equation*}
   \vec{r}(t) = <x(t), y(t), z(t)>
-\]
+\end{equation*}
 
 Take the cycloid of the wheel of radius 1 rolling at unit speed as an example:
-\[
+\begin{equation*}
   \vec{r}(t) = <t - \sin t, 1 - \cos t>
-\]
+\end{equation*}
 
 \subsection{Velocity vectors}
 
 Velocity vectors are used to describe how fast and in what direction a point 
 moves in a motion.
 \begin{equation*}
-\begin{split}
-  \vec{v} &= \frac{d\vec{r}}{dt} \\
-          &= <\frac{dx}{dt}, \frac{dy}{dt}, \frac{dz}{dt}> \\
-\end{split}
+  \begin{split}
+    \vec{v} &= \frac{d\vec{r}}{dt} \\
+            &= <\frac{dx}{dt}, \frac{dy}{dt}, \frac{dz}{dt}> \\
+  \end{split}
 \end{equation*}
 Speed is a scalar, and used to describe how fast a point moves in a motion.
 \begin{equation*}
@@ -79,11 +79,11 @@ Acceleration vectors are used to describe how velocity changes in a motion.
 
 Take the cycloid of the wheel of radius 1 rolling at unit speed as an example:
 \begin{equation*}
-\begin{split}
-  \vec{a} &= \frac{d\vec{v}}{dt} \\
-          &= <\frac{d(1 - \cos t)}{dt}, \frac{d(\sin t)}{dt}> \\
-          &= <\sin t, \cos t> \\
-\end{split}
+  \begin{split}
+    \vec{a} &= \frac{d\vec{v}}{dt} \\
+            &= <\frac{d(1 - \cos t)}{dt}, \frac{d(\sin t)}{dt}> \\
+            &= <\sin t, \cos t> \\
+  \end{split}
 \end{equation*}
 At $t = 0$, the acceleration vector $\vec{a} = <0, 1>$, which means the point at 
 that time has an acceleration in the positive direction of the $y$ axis. 
@@ -179,10 +179,10 @@ $\iff$ $\frac{dA}{dt}$ is constant $\iff$ $|\vec{r} \times \vec{v}|$ is constant
 
 Therefore, Kepler's Second Law $\iff$ both $dir(\vec{r} \times \vec{v})$ and 
 $|\vec{r} \times \vec{v}|$ are constant $\iff$ $\vec{r} \times \vec{v}$ is 
-constant $\iff$ $\frac{d}{dt}\vec{r} \times \vec{v} = 0$.
+constant $\iff$ $\frac{d}{dt}(\vec{r} \times \vec{v}) = 0$.
 
 \begin{gather*}
-  \frac{d}{dt}\vec{r} \times \vec{v} = 0 \\
+  \frac{d}{dt}(\vec{r} \times \vec{v}) = 0 \\
   \frac{d\vec{r}}{dt} \times \vec{v} + \vec{r} \times \frac{d\vec{v}}{dt} = 0 \\
   \vec{v} \times \vec{v} + \vec{r} \times \vec{a} = 0 \\
   0 + \vec{r} \times \vec{a} = 0 \\
