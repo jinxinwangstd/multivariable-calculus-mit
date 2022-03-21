@@ -49,10 +49,244 @@ way and probably provides some important insights.
 
 \begin{example}
   Plot the vector field $\vec{F} = 2 \uvec{\i} + \uvec{j}$.
+
+  TODO(jinxinwang): add the graph.
 \end{example}
 
 \begin{example}
   Plot the vector field $\vec{F} = x \uvec{\i}$.
+
+  TODO(jinxinwang): add the graph.
+
+  Notice that we usually use the length of arrows in the graph to relatively 
+  indicate the magnitudes of vectors in a vector field.
 \end{example}
+
+\begin{example}
+  Plot the vector field $\vec{F} = x \uvec{\i} + y \uvec{\j}$.
+
+  TODO(jinxinwang): add the graph.
+\end{example}
+
+\begin{example}
+  Plot the vector field $\vec{F} = -y \uvec{\i} + x \uvec{\j}$.
+
+  TODO(jinxinwang): add the graph.
+
+  This is the vector field of the uniform rotation at unit angular velocity.
+\end{example}
+
+\begin{question}
+  Vectors in mathematics have no starting point. However, in vector fields each 
+  vector is associated with a starting point. Is it contradictory with the 
+  definition of vectors?
+\end{question}
+
+\section{Line Integrals}
+
+\subsection{Definition of Line Integrals}
+
+The motivation of introducing line integrals is to calculate the work done along 
+a trajectory in a force field.
+
+Recall from physics:
+\begin{equation*}
+  W = \vec{F} \cdot \Delta \vec{r}
+\end{equation*}
+
+For a motion with changing force or curved trajectory, to calculate the total 
+work, we need to apply the idea of integrals. We can divide the trajectory into 
+many small pieces, with each piece as $\Delta \vec{r}$. For a piece of small 
+trajectory $\Delta \vec{r}_i$, the work is
+\begin{equation*}
+  \Delta W = \vec{F} \cdot \Delta \vec{r}_i
+\end{equation*}
+
+With the number of divided pieces approaching infinity and each piece of 
+trajectory approaching infinitesimal, we can add them up to get the total work:
+\begin{equation*}
+  \begin{split}
+    W &= \lim_{\Delta \vec{r}_i \to \vec{0}} \sum_i \vec{F} \cdot \Delta \vec{r}_i \\
+      &= \int_C \vec{F} \cdot d\vec{r} \\
+  \end{split}
+\end{equation*}
+which is the definition of a line integral.
+
+\subsection{Calculation of Line Integrals}
+
+To calculate a line integral,
+\begin{equation*}
+  \begin{split}
+    W &= \int_C \vec{F} \cdot d\vec{r} \\
+      &= \int_C \vec{F} \cdot \frac{d\vec{r}}{dt} \cdot dt \\
+      &= \int_{t_1}^{t_2} \vec{F} \cdot \frac{d\vec{r}}{dt} \cdot dt \\
+  \end{split}
+\end{equation*}
+
+Notice that in the definition of line integrals, $\vec{F}$ and the trajectory 
+$C$ are independent from each other.
+
+\begin{example}
+  Suppose that there is a force field as $\vec{F} = -y \uvec{\i} + x \uvec{\j}$, 
+  and a trajectory $C$ as
+  \begin{equation*}
+    \begin{cases}
+      x = t \\
+      y = t^2 \\
+    \end{cases}
+  \end{equation*}
+  where $0 \leq t \leq 1$. Calculate the work along the trajectory in the force 
+  field.
+
+  Solution:
+
+  We can use the line integral to calculate the total work.
+  \begin{equation*}
+    \begin{split}
+      W &= \int_C \vec{F} \cdot d\vec{r} \\
+        &= \int_0^1 \vec{F} \cdot \frac{d\vec{r}}{dt} dt \\
+    \end{split}
+  \end{equation*}
+
+  According to the problem description,
+  \begin{gather*}
+    \vec{F} = \langle -y, x \rangle = \langle -t^2, t \rangle \\
+    \vec{r} = \langle x, y \rangle = \langle t, t^2 \rangle \\
+    \frac{d\vec{r}}{dt} = \langle 1, 2t \rangle \\
+  \end{gather*}
+\end{example}
+
+Therefore,
+\begin{equation*}
+  \begin{split}
+    W &= \int_0^1 \vec{F} \cdot \frac{d\vec{r}}{dt} dt \\
+      &= \int_0^1 \langle -t^2, t \rangle \cdot \langle 1, 2t \rangle dt \\
+      &= \int_0^1 t^2 dt \\
+      &= \frac{t^3}{3}|_0^1 \\
+      &= \frac{1}{3} \\
+  \end{split}
+\end{equation*}
+
+\subsection{Another Way of Calcuating Line Integrals}
+
+Another way to look at the calculation of line integrals. For a line integral 
+$\int_C \vec{F} \cdot d\vec{r}$, we have
+\begin{gather*}
+  \vec{F} = \langle M, N \rangle \\
+  d\vec{r} = \langle dx, dy \rangle \\
+\end{gather*}
+
+\begin{question}
+  Why the following equation holds $d\vec{r} = \langle dx, dy \rangle$?
+\end{question}
+
+Therefore,
+\begin{equation*}
+  \begin{split}
+    \int_C \vec{F} \cdot d\vec{r} &= \int_C \langle M, N \rangle \cdot \langle dx, dy \rangle \\
+                                  &= \int_C M dx + N dy \\
+  \end{split}
+\end{equation*}
+
+To evaluate the expression $\int_C M dx + N dy$, we need to express $x$ and $y$ 
+with a single variable, and do substitution in the integrand.
+
+\begin{question}
+  Why is it incorrect to evaluate $\int_C M dx + N dy$ by the following method:
+  \begin{equation*}
+    \begin{split}
+      \int_C M dx + N dy &= \int_C M dx + \int_C N dy \\
+                         &= \int_{x_1}^{x_2} M dx + \int_{y_1}^{y_2} N dy \\
+    \end{split}
+  \end{equation*}
+
+  Answer:
+
+  I can think of a counterexample to prove the above method can produce 
+  incorrect result. Consider the following case:
+
+  There is a force field as $\vec{F} = -y \uvec{\i} + x \uvec{\j}$, and a trajectory as
+  \begin{equation*}
+    \begin{cases}
+      x = \sin t \\
+      y = \cos t \\
+    \end{cases}
+  \end{equation*}
+  where $0 \leq t \leq 2 \pi$. 
+
+  Obviously the total along the described trajectory in the force field is not 
+  $0$ because at any points of the trajectory, $\vec{F}$ and $d\vec{r}$ have the 
+  same direction. However, using the above method
+  \begin{equation*}
+    \int_C M dx + N dy = \int_{x_1}^{x_2} M dx + \int_{y_1}^{y_2} N dy
+  \end{equation*}
+  the result would be $0$ because $x_1 = x_2$ and $y_1 = y_2$.
+
+  In summary, the incorrect evaluation method cannot correctly evaluate line 
+  integrals with back-and-forth trajectory.
+\end{question}
+
+\begin{example}
+  Suppose that there is a force field as $\vec{F} = -y \uvec{\i} + x \uvec{\j}$, 
+  and a trajectory $C$ as
+  \begin{equation*}
+    \begin{cases}
+      x = t \\
+      y = t^2 \\
+    \end{cases}
+  \end{equation*}
+  where $0 \leq t \leq 1$. Calculate the work along the trajectory in the force 
+  field.
+
+  Solution:
+
+  We can use line intergrals to calculate the total work:
+  \begin{equation*}
+    \begin{split}
+      W &= \int_C \vec{F} \cdot d\vec{r} \\
+        &= \int_C \langle -y, x \rangle \cdot \langle dx, dy \rangle \\
+        &= \int_C -ydx + xdy \\
+    \end{split}
+  \end{equation*}
+
+  According to the problem description,
+  \begin{gather*}
+    x = t \\
+    y = t^2 \\
+    dx = 1dt \\
+    dy = 2t dt \\
+  \end{gather*}
+
+  Therefore,
+  \begin{equation*}
+    \begin{split}
+      W &= \int_C -ydx + xdy \\
+        &= \int_0^1 -t^2 \cdot 1 \cdot dt + t \cdot 2t \cdot dt \\
+        &= \int_0^1 t^2 dt \\
+        &= \frac{1}{3} \\
+    \end{split}
+  \end{equation*}
+
+  Note that the result of a line integral $\int_C \vec{F} \cdot d\vec{r}$ 
+  doesn't depend on the parameterization, in other words, the substitution of 
+  any parameters should produce the same results. For the above example, we can 
+  also apply the following parameterization, which would yield the same result.
+  \begin{gather*}
+    x = \sin\theta \\
+    y = \sin^2 \theta \\
+    0 \leq \theta \leq \frac{\pi}{2} \\
+  \end{gather*}
+
+  Therefore, we should choose the parameterization which is the easiest to 
+  calculate.
+\end{example}
+
+\subsection{Geometric Approach}
+
+\begin{gather*}
+  \vec{v} = \frac{d\vec{r}}{dt} = \vec{T} |\frac{ds}{dt}| = \langle \frac{dx}{dt}, \frac{dy}{dt} \rangle \\
+  d\vec{r} = \vec{T} ds = \langle dx, dy \rangle \\
+  \int_C \vec{F} \cdot d\vec{r} = \int_C \vec{F} \cdot \vec{T} \cdot ds \\
+\end{gather*}
 
 \end{document}
