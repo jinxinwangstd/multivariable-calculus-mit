@@ -289,4 +289,41 @@ with a single variable, and do substitution in the integrand.
   \int_C \vec{F} \cdot d\vec{r} = \int_C \vec{F} \cdot \vec{T} \cdot ds \\
 \end{gather*}
 
+$\vec{F} \cdot \vec{T}$ is the component of $\vec{F}$ along $\vec{T}$, hence a 
+line integral is a integral whose integrand is the component of $\vec{F}$ along 
+$\vec{T}$. The value of $\vec{F} \cdot \vec{T}$ depends on the relationship of 
+the directions of $\vec{F}$ and $\vec{T}$. Therefore, we can use this insight to 
+derive the result of a line integral by checking the directions of $\vec{F}$ and 
+$\vec{T}$ geometrically.
+
+\begin{example}
+  Suppose that there is a force field as $\vec{F} = x \uvec{i} + y \uvec{j}$, 
+  and a trajectory $C$ which is a circle of radius $a$ at the origin with 
+  counter clockwise direction. Calculate the work along the trajectory in the 
+  force field.
+
+  Solution:
+
+  By drawing the diagram of the force field and the trajectory, we can see that 
+  at every point of the trajectory, the force is perpendicular to the velocity. 
+  Therefore, the total work is $0$.
+\end{example}
+
+\begin{example}
+  Suppose that there is a force field as $\vec{F} = -y \uvec{i} + x \uvec{j}$, 
+  and a trajectory $C$ which is a circle of radius $a$ at the origin with 
+  counter clockwise direction. Calculate the work along the trajectory in the 
+  force field.
+
+  Solution:
+
+  By drawing the diagram of the force field and the trajectory, we can see that 
+  at every point of the trajectory, the force has the same directory as the 
+  velocity. Therefore,
+  \begin{gather*}
+    \vec{F} \cdot \vec{T} = |\vec{F}| = \sqrt{(-y)^2 + x^2} = a \\
+    \int_C \vec{F} d\vec{r} = \int_C |\vec{F}| ds = 2\pi a^2 \\
+  \end{gather*}
+\end{example}
+
 \end{document}
